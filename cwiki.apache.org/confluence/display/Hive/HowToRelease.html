@@ -1,0 +1,955 @@
+    
+
+<!DOCTYPE html>
+<html lang="en-GB" >
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/HowToRelease by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:43:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+                            <title>HowToRelease - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+    <meta id="atlassian-token" name="atlassian-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1639597183206">
+        
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="f372abdc7d1a6481c736efc7686d149c">
+            <meta id="team-calendars-has-jira-link" content="true">
+            <meta name="ajs-team-calendars-display-time-format" content="displayTimeFormat12">
+            <meta id="team-calendars-display-week-number" content="false">
+            <meta id="team-calendars-user-timezone" content="Etc/UTC">
+            <script type="text/x-template" id="team-calendars-messages" title="team-calendars-messages"><fieldset class="i18n hidden"><input type="hidden" name="calendar3.month.long.july" value="July"><input type="hidden" name="calendar3.day.short.wednesday" value="Wed"><input type="hidden" name="calendar3.day.short.thursday" value="Thu"><input type="hidden" name="calendar3.month.short.march" value="Mar"><input type="hidden" name="calendar3.month.long.april" value="April"><input type="hidden" name="calendar3.month.long.october" value="October"><input type="hidden" name="calendar3.month.long.august" value="August"><input type="hidden" name="calendar3.month.short.july" value="Jul"><input type="hidden" name="calendar3.month.short.may" value="May"><input type="hidden" name="calendar3.month.short.november" value="Nov"><input type="hidden" name="calendar3.day.long.friday" value="Friday"><input type="hidden" name="calendar3.day.long.sunday" value="Sunday"><input type="hidden" name="calendar3.day.long.saturday" value="Saturday"><input type="hidden" name="calendar3.month.short.april" value="Apr"><input type="hidden" name="calendar3.day.long.wednesday" value="Wednesday"><input type="hidden" name="calendar3.month.long.december" value="December"><input type="hidden" name="calendar3.month.short.october" value="Oct"><input type="hidden" name="calendar3.day.long.monday" value="Monday"><input type="hidden" name="calendar3.month.short.june" value="Jun"><input type="hidden" name="calendar3.day.short.monday" value="Mon"><input type="hidden" name="calendar3.day.short.tuesday" value="Tue"><input type="hidden" name="calendar3.day.short.saturday" value="Sat"><input type="hidden" name="calendar3.month.long.march" value="March"><input type="hidden" name="calendar3.month.long.june" value="June"><input type="hidden" name="calendar3.month.short.february" value="Feb"><input type="hidden" name="calendar3.month.short.august" value="Aug"><input type="hidden" name="calendar3.month.short.december" value="Dec"><input type="hidden" name="calendar3.day.short.sunday" value="Sun"><input type="hidden" name="calendar3.month.long.february" value="February"><input type="hidden" name="calendar3.day.long.tuesday" value="Tuesday"><input type="hidden" name="calendar3.month.long.may" value="May"><input type="hidden" name="calendar3.month.long.september" value="September"><input type="hidden" name="calendar3.month.long.november" value="November"><input type="hidden" name="calendar3.month.short.january" value="Jan"><input type="hidden" name="calendar3.month.short.september" value="Sep"><input type="hidden" name="calendar3.day.long.thursday" value="Thursday"><input type="hidden" name="calendar3.month.long.january" value="January"><input type="hidden" name="calendar3.day.short.friday" value="Fri"></fieldset></script>
+            
+    
+    
+            <meta name="ajs-page-title" content="HowToRelease">
+            <meta name="ajs-latest-published-page-title" content="HowToRelease">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-page-id" content="27362106">
+            <meta name="ajs-latest-page-id" content="27362106">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-parent-page-id" content="">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-max-number-editors" content="12">
+            <meta name="ajs-macro-placeholder-timeout" content="5000">
+            <meta name="ajs-jira-metadata-count" content="-1">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-can-remove-page-hierarchy" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="true">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="7.13.2">
+            <meta name="ajs-build-number" content="8703">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-remote-user-has-licensed-access" content="false">
+            <meta name="ajs-remote-user-has-browse-users-permission" content="false">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-current-user-avatar-uri-reference" content="/confluence/images/icons/profilepics/anonymous.svg">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/6dvx22/8703/4mhn8a/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-global-settings-quick-search-enabled" content="true">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="site-wide.shared-drafts,site-wide.synchrony,clc.quick.create,confluence.view.edit.transition,cql.search.screen,confluence-inline-comments-resolved,frontend.editor.v4,http.session.registrar,nps.survey.inline.dialog,confluence.efi.onboarding.new.templates,frontend.editor.v4.compatibility,atlassian.cdn.static.assets,pdf-preview,previews.sharing,previews.versions,file-annotations,confluence.efi.onboarding.rich.space.content,collaborative-audit-log,confluence.reindex.improvements,previews.conversion-service,editor.ajax.save,read.only.mode,graphql,previews.trigger-all-file-types,attachment.extracted.text.extractor,lucene.caching.filter,confluence.table.resizable,notification.batch,previews.sharing.pushstate,confluence-inline-comments-rich-editor,tc.tacca.dacca,site-wide.synchrony.opt-in,file-annotations.likes,gatekeeper-ui-v2,v2.content.name.searcher,mobile.supported.version,pulp,confluence-inline-comments,confluence-inline-comments-dangling-comment,quick-reload-inline-comments-flags">
+            <meta name="ajs-atl-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-access-mode" content="READ_WRITE">
+            <meta name="ajs-render-mode" content="READ_WRITE">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+    <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\u0022\u005C/confluence\u0022";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.confluence.plugins.synchrony-interop:synchrony-status-banner-loader.synchrony-status"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:policy-update-init.policy-update-data-provider"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:programmatic-analytics-init.programmatic-analytics-data-provider"]="false";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-help-paths"]="{\u0022entries\u0022:{\u0022applinks.docs.root\u0022:\u0022https://confluence.atlassian.com/display/APPLINKS-072/\u0022,\u0022applinks.docs.diagnostics.troubleshoot.sslunmatched\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthsignatureinvalid\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthtimestamprefused\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.delete.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.adding.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administration.guide\u0022:\u0022Application+Links+Documentation\u0022,\u0022applinks.docs.oauth.security\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.troubleshoot.application.links\u0022:\u0022Troubleshoot+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownerror\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.trusted.apps\u0022:\u0022Configuring+Trusted+Applications+authentication+for+an+application+link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelunsupported\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.ssluntrusted\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownhost\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.delete.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.adding.project.link\u0022:\u0022Configuring+Project+links+across+Applications\u0022,\u0022applinks.docs.link.applications\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthproblem\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.migration\u0022:\u0022Update+application+links+to+use+OAuth\u0022,\u0022applinks.docs.relocate.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administering.entity.links\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.upgrade.application.link\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.connectionrefused\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.oauth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.insufficient.remote.permission\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.configuring.application.link.auth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics\u0022:\u0022Application+links+diagnostics\u0022,\u0022applinks.docs.configured.authentication.types\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.adding.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unexpectedresponse\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.basic\u0022:\u0022Configuring+Basic+HTTP+Authentication+for+an+Application+Link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelmismatch\u0022:\u0022OAuth+troubleshooting+guide\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-types"]="{\u0022crowd\u0022:\u0022Crowd\u0022,\u0022confluence\u0022:\u0022Confluence\u0022,\u0022fecru\u0022:\u0022FishEye / Crucible\u0022,\u0022stash\u0022:\u0022Stash\u0022,\u0022jira\u0022:\u0022Jira\u0022,\u0022refapp\u0022:\u0022Reference Application\u0022,\u0022bamboo\u0022:\u0022Bamboo\u0022,\u0022generic\u0022:\u0022Generic Application\u0022}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.entity-types"]="{\u0022singular\u0022:{\u0022refapp.charlie\u0022:\u0022Charlie\u0022,\u0022fecru.project\u0022:\u0022Crucible Project\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repository\u0022,\u0022stash.project\u0022:\u0022Stash Project\u0022,\u0022generic.entity\u0022:\u0022Generic Project\u0022,\u0022confluence.space\u0022:\u0022Confluence Space\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Project\u0022,\u0022jira.project\u0022:\u0022Jira Project\u0022},\u0022plural\u0022:{\u0022refapp.charlie\u0022:\u0022Charlies\u0022,\u0022fecru.project\u0022:\u0022Crucible Projects\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repositories\u0022,\u0022stash.project\u0022:\u0022Stash Projects\u0022,\u0022generic.entity\u0022:\u0022Generic Projects\u0022,\u0022confluence.space\u0022:\u0022Confluence Spaces\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Projects\u0022,\u0022jira.project\u0022:\u0022Jira Projects\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.authentication-types"]="{\u0022com.atlassian.applinks.api.auth.types.BasicAuthenticationProvider\u0022:\u0022Basic Access\u0022,\u0022com.atlassian.applinks.api.auth.types.TrustedAppsAuthenticationProvider\u0022:\u0022Trusted Applications\u0022,\u0022com.atlassian.applinks.api.auth.types.CorsAuthenticationProvider\u0022:\u0022CORS\u0022,\u0022com.atlassian.applinks.api.auth.types.OAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthWithImpersonationAuthenticationProvider\u0022:\u0022OAuth\u0022}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\u0022daysBeforeLicenseExpiry\u0022:0,\u0022daysBeforeMaintenanceExpiry\u0022:0,\u0022showLicenseExpiryBanner\u0022:false,\u0022showMaintenanceExpiryBanner\u0022:false,\u0022renewUrl\u0022:null,\u0022salesUrl\u0022:null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-search-ui-plugin:confluence-search-ui-plugin-resources.i18n-data"]="{\u0022search.ui.recent.link.text\u0022:\u0022View more recently visited\u0022,\u0022search.ui.filter.space.category.input.label\u0022:\u0022Find space categories...\u0022,\u0022search.ui.search.results.empty\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching \u005C\u0022{0}\u005C\u0022.\u0022,\u0022search.ui.filter.clear.selected\u0022:\u0022Clear selected items\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.button.text\u0022:\u0022Show more app results...\u0022,\u0022search.ui.filter.space.archive.label\u0022:\u0022Search archived spaces\u0022,\u0022search.ui.filter.label\u0022:\u0022filter\u0022,\u0022search.ui.filter.contributor.button.text\u0022:\u0022Contributor\u0022,\u0022search.ui.filter.date.all.text\u0022:\u0022Any time\u0022,\u0022search.ui.filter.space.current.label\u0022:\u0022CURRENT\u0022,\u0022search.ui.clear.input.button.text\u0022:\u0022Clear text\u0022,\u0022search.ui.search.results.clear.button\u0022:\u0022clear your filters.\u0022,\u0022search.ui.filter.date.hour.text\u0022:\u0022The past day\u0022,\u0022help.search.ui.link.title\u0022:\u0022Search tips\u0022,\u0022search.ui.filters.heading\u0022:\u0022Filter by\u0022,\u0022search.ui.filter.label.input.label\u0022:\u0022Find labels...\u0022,\u0022search.ui.recent.items.anonymous\u0022:\u0022Start exploring. Your search results will appear here.\u0022,\u0022search.ui.filter.date.month.text\u0022:\u0022The past month\u0022,\u0022search.ui.input.label\u0022:\u0022Search\u0022,\u0022search.ui.search.result\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}\u0022,\u0022search.ui.infinite.scroll.button.text\u0022:\u0022More results\u0022,\u0022search.ui.filter.date.button.text\u0022:\u0022Date\u0022,\u0022search.ui.filter.date.week.text\u0022:\u0022The past week\u0022,\u0022search.ui.filter.label.button.text\u0022:\u0022Label\u0022,\u0022search.ui.input.alert\u0022:\u0022Hit enter to search\u0022,\u0022search.ui.result.subtitle.calendar\u0022:\u0022Team calendar\u0022,\u0022search.ui.filter.no.result.text\u0022:\u0022We can\u005Cu0027\u005Cu0027t find anything matching your search\u0022,\u0022search.ui.filter.date.heading\u0022:\u0022Last modified within\u0022,\u0022search.ui.result.subtitle.user\u0022:\u0022User profile\u0022,\u0022search.ui.filter.contributor.input.label\u0022:\u0022Find people...\u0022,\u0022search.ui.filter.content.type.button.text\u0022:\u0022Type\u0022,\u0022search.ui.filter.space.input.label\u0022:\u0022Find spaces...\u0022,\u0022search.ui.filter.date.year.text\u0022:\u0022The past year\u0022,\u0022search.ui.advanced.search.link.text\u0022:\u0022Advanced search\u0022,\u0022search.ui.filter.space.button.text\u0022:\u0022Space\u0022,\u0022search.ui.generic.error\u0022:\u0022Something went wrong. Refresh the page, or contact your admin if this keeps happening.\u0022,\u0022search.ui.recent.spaces\u0022:\u0022Recent Spaces\u0022,\u0022search.ui.search.results.clear.line2\u0022:\u0022Try a different search term or\u0022,\u0022search.ui.filter.space.category.button.text\u0022:\u0022Space category\u0022,\u0022search.ui.search.results.clear.line1\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching your search.\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.admin.button.text\u0022:\u0022Show more settings and app results...\u0022,\u0022search.ui.recent.pages\u0022:\u0022Recently visited\u0022,\u0022search.ui.search.result.anonymous\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}. Have an account? {1}Log in{2} to expand your search.\u0022,\u0022search.ui.recent.items.empty\u0022:\u0022Start exploring. Pages and spaces you\u005Cu0027\u005Cu0027ve visited recently will appear here.\u0022,\u0022search.ui.result.subtitle.space\u0022:\u0022Space\u0022,\u0022search.ui.filter.space.init.heading\u0022:\u0022recent spaces\u0022}";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="../../s/ad0cdaf669e3a7800fb6fa6452e260e4-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/css/_super/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/585884a9f3984b0aaecef0baf40c1e6e-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch1203.css?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" media="all">
+<script type="text/javascript" src="../../s/58e418cc99c782d6bf891d0ee81d3e82-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/js/_super/batch6116.js?locale=en-GB" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered></script>
+<script type="text/javascript" src="../../s/d8f9091841663d4e3446e48379e476f1-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/js/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch3a32.js?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true&amp;locale=en-GB" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" data-initially-rendered></script>
+
+    
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+            
+    
+
+    
+                <link rel="canonical" href="HowToRelease.html">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/OoOhAQ">
+    <meta name="wikilink" content="[Hive:HowToRelease]">
+    <meta name="page-version" content="78">
+    <meta name="ajs-page-version" content="78">
+
+</head>
+
+    
+<body      id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            
+
+<fieldset class="parameters hidden" style="display: none;">
+            <input type="hidden" id="listAnalyticsKey" value="19"/>
+        <input type="hidden" id="listAnalyticsDomain" value="comalatech.matomo.cloud"/>
+    </fieldset>
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="#title-heading">Skip to content</a></li>
+    <li><a href="#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="#navigation">Skip to action menu</a></li>
+    <li><a href="#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+        
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" aria-label="Site"><div class="aui-header-inner"><div class="aui-header-before"><button class=" aui-dropdown2-trigger app-switcher-trigger aui-dropdown2-trigger-arrowless" aria-controls="app-switcher" aria-haspopup="true" role="button" data-aui-trigger href="#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></button><div id="app-switcher" class="aui-dropdown2 aui-style-default" role="menu" hidden data-is-switcher="true" data-environment="{&quot;isUserAdmin&quot;:false,&quot;isAppSuggestionAvailable&quot;:false,&quot;isSiteAdminUser&quot;:false}"><div class="app-switcher-loading">Loading&hellip;</div></div></div><div class="aui-header-primary"><span id="logo" class="aui-header-logo aui-header-logo-confluence"><a href="https://cwiki.apache.org/confluence/" aria-label="Go to home page"><span class="aui-header-logo-device">Apache Software Foundation</span></a></span><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                                <li class="aui-buttons">
+            </li>
+</ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <div id="search-ui" class="aui-quicksearch dont-default-focus header-quicksearch"><input id="quick-search-query" aria-label="Search" placeholder="Search" type="text" /><div id="quick-search-alert" role="alert">Hit enter to search</div><aui-spinner size="small"></aui-spinner></div>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger aui-dropdown2-trigger-arrowless" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-question-filled">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-713/" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-713/help.whats.new.iframe.link" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://confluence.atlassian.com/display/DOC/Confluence+7.13+Release+Notes" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FHowToRelease" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+    
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+                                            
+                            <div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo" data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="Home.html" title="Apache Hive"><img class="avatar-img" src="https://cwiki.apache.org/confluence/download/attachments/27362113/Hive?version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="space-information-container"><div class="name"><a href="Home.html" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon aui-icon aui-icon-small aui-iconfont-edit"></div></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-page-tree-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" aria-current="true" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"><h5 class="ia-quick-links-header-title">Space shortcuts</h5><div class="quick-links-section tipsy-enabled "><ul class="acs-nav-list"><li class="acs-nav-item pinned_page blueprint kb-how-to-article"><a class="acs-nav-item-link tipsy-enabled" href="How-to%2barticles.html" data-collapsed-tooltip="null"><span class="icon"></span><span class="acs-nav-item-label">How-to articles</span></a></li></ul></div></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" title="Pages"><span class="icon"></span><span class="label">Pages</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">HowToRelease</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"><ul class="children"><li class="child-item" data-page-id="67635447"><span class="icon"></span><a href="Storage%2bAPI%2bRelease%2bProposal.html" title="Storage API Release Proposal"><span class="label">Storage API Release Proposal</span></a></li></ul></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><button id="space-tools-menu-trigger"  class=" aui-dropdown2-trigger aui-button aui-button-subtle tipsy-enabled aui-dropdown2-trigger-arrowless " aria-controls="space-tools-menu" aria-haspopup="true" role="button" data-aui-trigger><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="aui-button-label">Space tools</span><span class="aui-icon "></span></button><div id="space-tools-menu" class="aui-dropdown2 aui-style-default space-tools-dropdown" role="menu" hidden data-aui-alignment="top left"></div><a href="#" role="button" class="expand-collapse-trigger aui-icon aui-icon-small aui-iconfont-chevron-double-left" aria-expanded="true"></a></div>
+                    
+                        			</div>
+    		</div>
+        <!-- \#header -->
+
+            
+    
+        <div id="main" class=" aui-page-panel">
+                        <div id="main-header">
+                        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                            
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-label="More options" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more" aria-label="More options"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-primary"                         class="section-primary first">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=27362106" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments" >
+                        <span>
+                                A<u>t</u>tachments (0)
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=27362106" rel="nofollow" class="action-view-history"   title="" >
+                        <span>
+                                Page History
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="who-can-view-button-ak-button" href="https://cwiki.apache.org/confluence" rel="nofollow" class="who-can-view-link"   title="" >
+                        <span>
+                                People who can view
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-secondary"                         class="section-secondary">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="" >
+                        <span>
+                                Resolved comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27362106" rel="nofollow" class="action-view-info"   title="" >
+                        <span>
+                                Page Information
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=27362106#selectedPageInHierarchy" rel="nofollow" class=""   title="" >
+                        <span>
+                                View in Hierarchy
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=27362106" rel="nofollow" class="action-view-source popup-link"   title="" >
+                        <span>
+                                View Source
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=27362106" rel="nofollow" class=""   title="" >
+                        <span>
+                                Delete comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=27362106" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to PDF
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27362106" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to EPUB
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=27362106" rel="nofollow" class="action-export-word"   title="" >
+                        <span>
+                                Export to Word
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-modify"                         class="section-modify">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/tree-copy/preparing-copying.action?pageId=27362106" rel="nofollow" class=""   title="" >
+                        <span>
+                                Copy Page Tree
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="#" title="Unrestricted" id="content-metadata-page-restrictions-hidden" class="hidden"></a></li><li class="page-metadata-item noprinthas-button"  id="content-metadata-jira-wrapper"><a href="#" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><span>Jira links</span></a></li></ul></div>
+            
+
+<a href="#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="HowToRelease.html">HowToRelease</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+            
+    
+
+                                
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+    
+            
+        
+
+    
+    
+
+    
+            
+        
+
+
+
+    
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+            <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+            
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dadmin&amp;permissionViolation=true"
+                       class="url fn"
+                            >Confluence Administrator</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dgates&amp;permissionViolation=true"
+                       class="url fn"
+                            >Alan Gates</a></span> on <a class='last-modified' title='Show changes' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=27362106&amp;selectedPageVersions=77&amp;selectedPageVersions=78'>Apr 19, 2020</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <p><em>This page is prepared for Hive committers. You need committer rights to create a new Hive release.</em></p><h2 id="HowToRelease-"><div class="toc-macro client-side-toc-macro  conf-macro output-block" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-hasbody="false" data-macro-name="toc"> </div></h2><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Hadoop Version Warning</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This page assumes you are releasing from the master branch, and thus omits the use of Maven profiles to determine which version of Hadoop you are building against. If you are releasing from branch-1, you will need to add <code>-Phadoop-2 </code>to most of your Maven commands.</p></div></div><h2 id="HowToRelease-StorageAPIRelease">Storage API Release</h2><p>The Hive projects has two products that are released separately:</p><ol><li>Storage-API <span style="line-height: 1.4285715;">–</span> the vectorization and predicate push down classes</li><li>Hive <span>– </span>the rest of Hive</li></ol><p>Most Hive releases will require a new storage-api release and the storage-api currently releases faster than Hive, so has higher version numbers.</p><h3 id="HowToRelease-StorageAPIPrepareMasterBranch">Storage API Prepare Master Branch</h3><p>Skip this section if this is NOT the first release in a series (i.e., release X.Y.0).</p><ol><li><p>Check out the master branch</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">git checkout master</pre>
+</div></div></li><li><p>Increment the value of the <code>version</code> property in the storage-api/pom.xml file. For example, if the current value is 2.5.0<code>-SNAPSHOT</code>, the new value should be 2.6.0<code>-SNAPSHOT</code>. Please note that the <code>SNAPSHOT</code> suffix is required in order to indicate that this is an unreleased development branch.</p></li><li><p>Update the storage-api.version property in the root pom.xml and standalone-metastore/pom.xml to the new value from the step above.</p></li><li>Verify that the build is working with changes.</li><li><p>Commit these changes to master with a comment &quot;Preparing for storage-api X.Y+1.0 development&quot;.</p></li></ol><h3 id="HowToRelease-StorageAPIBranching">Storage API Branching</h3><p>Skip this section if this is NOT the first release in a series (i.e., release X.Y.0).</p><ol><li><p>Notify developers on the #hive IRC channel and dev@hive mailing lists that you are about to branch a release.</p></li><li><p>Create a branch for the release series: </p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">git checkout -b storage-branch-X.Y origin/master</pre>
+</div></div></li><li><p>Update the <code>version</code> property value in the storage-api/pom.xml file. You should remove the <code>SNAPSHOT</code> suffix and set <code>version</code> equal to <code>X.Y.Z</code> where <code>Z</code> is the point release number in this release series (0 for the first one, in which case this step is a no-op since you already did this above when creating the branch). Use <a href="http://mojo.codehaus.org/versions-maven-plugin/set-mojo.html" class="external-link" rel="nofollow">Maven's Versions plugin</a> to do this as follows:</p></li><li>Verify that the build is working with changes.</li><li><p>Commit these changes with a comment &quot;Preparing for storage-api X.Y.Z release&quot;.</p></li><li><p>Tag the release candidate (<code>R</code> is the release candidate number, and also starts from 0):</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">git commit -a -m &quot;Preparing for storage-api X.Y.Z release&quot;
+git push -u origin storage-branch-X.Y
+git tag -a storage-release-X.Y.Z-rcR -m &quot;Hive Storage API X.Y.Z-rcR release.&quot;
+git push origin storage-release-X.Y.Z-rcR </pre>
+</div></div></li></ol><h3 id="HowToRelease-MakingStorageAPIReleaseArtifacts">Making Storage API Release Artifacts</h3><ol><li>Make sure your release notes have been updated for any new commits, and go through the previous steps if necessary.</li><li><p>Create and publish the tag:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">git tag storage-release-X.Y.Z-rcR -m &quot;Hive Storage API X.Y.Z-rcR release.&quot;
+git push origin storage-release-X.Y.Z-rcR </pre>
+</div></div></li><li><p>Build the release (binary and source versions) after running unit tests. Manually create the sha file.</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% wget https://github.com/apache/hive/archive/storage-release-X.Y.Z-rcR.tar.gz
+% tar xzvf storage-release-X.Y.Z-rcR.tar.gz
+% mv storage-release-X.Y.Z-rcR/storage-api hive-storage-X.Y.Z
+% tar czvf hive-storage-X.Y.Z-rcR.tar.gz hive-storage-X.Y.Z
+% shasum -a 256 hive-storage-X.Y.Z-rcR.tar.gz &gt; hive-storage-X.Y.Z-rcR.tar.gz.sha256</pre>
+</div></div></li><li>Setup your PGP keys for signing the release, if you don't have them already.<br/><ol><li>See <a href="https://www.apache.org/dev/release-signing.html" class="external-link" rel="nofollow">https://www.apache.org/dev/release-signing.html</a>, <a href="https://www.apache.org/dev/openpgp.html" class="external-link" rel="nofollow">https://www.apache.org/dev/openpgp.html</a>.</li></ol></li><li><p>Sign the release (see <a href="http://www.apache.org/dev/mirror-step-by-step.html?Step-By-Step" class="external-link" rel="nofollow">Step-By-Step Guide to Mirroring Releases</a> for more information).</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% gpg --armor --detach-sig hive-storage-X.Y.Z-rcR.tar.gz</pre>
+</div></div></li><li><p>Check the signatures.</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% shasum -c hive-storage-X.Y.Z-rcR.tar.gz.sha256
+hive-storage-X.Y.Z-rcR.tar.gz: OK
+
+% gpg hive-storage-X.Y.Z-rcR.tar.gz.asc
+gpg: assuming signed data in `hive-storage-X.Y.Z-rcR.tar.gz'
+gpg: Signature made Fri Apr 28 12:50:03 2017 PDT using RSA key ID YOUR-KEY-ID
+gpg: Good signature from &quot;Your Name &lt;YOUR-APACHE-ID@apache.org&gt;&quot;</pre>
+</div></div></li><li><p>Copy release files to a public place.</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% sftp YOUR-APACHE-ID@home.apache.org
+
+sftp&gt; cd public_html
+sftp&gt; mkdir hive-storage-X.Y.Z
+sftp&gt; cd hive-storage-X.Y.Z
+sftp&gt; put hive-storage-X.Y.Z-rcR.tar.gz*
+sftp&gt; quit</pre>
+</div></div></li><li><p>Send email to <a href="mailto:dev@hive.apache.org" class="external-link" rel="nofollow">dev@hive.apache.org</a> calling the vote.</p></li></ol><h3 id="HowToRelease-PublishingtheStorageAPIArtifacts">Publishing the Storage API Artifacts</h3><ol><li><p>After the release vote passes, push the artifacts to Nexus.  (If you get an error <code>gpg: signing failed: Inappropriate ioctl for device</code> trying doing <code>export GPG_TTY=$(tty)</code> .)</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% git checkout storage-release-X.Y.Z-rcR
+% cd storage-api
+% mvn -Papache-release -DskipTests clean deploy</pre>
+</div></div></li><li>Login to Nexus and close the repository. Mark the repository as released.</li><li><p>Create the final tag (be very careful, tags in &quot;rel/&quot; are not changeable).</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% git checkout storage-release-X.Y.Z-rcR
+% git tag -s rel/storage-release-X.Y.Z -m &quot;Hive Storage API X.Y.Z&quot;
+% git push origin rel/storage-release-X.Y.Z</pre>
+</div></div></li><li>Add the artifacts to Hive's dist area.</li></ol><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% svn checkout https://dist.apache.org/repos/dist/release/hive hive-dist
+% cd hive-dist
+% mkdir hive-storage-X.Y.Z
+% cd hive-storage-X.Y.Z
+% wget https://home.apache.org/~YOUR-APACHE-ID/hive-storage-X.Y.Z/hive-storage-X.Y.Z-rcR.tar.gz{,.sha256,.asc}
+% svn add .
+% svn commit</pre>
+</div></div><h3 id="HowToRelease-PreparingBranchforfurtherdevelopment">Preparing Branch for further development</h3><ol><li>Edit storage-api/pom.xml to change version to X.Y.Z+1-SNAPSHOT.</li><li>Edit pom.xml to change storage-api.version to X.Y.Z+1-SNAPSHOT.</li><li>Commit the changes back</li></ol><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% git commit -a -s -m 'Preparing for development post-X.Y.Z.'
+% git push origin storage-branch-X.Y</pre>
+</div></div><h3 id="HowToRelease-CleaningUpStorageAPIArtifacts">Cleaning Up Storage API Artifacts</h3><ol><li>Delete the storage-release-X.Y.Z-rcR tags.</li><li>Delete the artifacts from home.apache.org.</li></ol><h2 id="HowToRelease-HiveRelease">Hive Release</h2><h3 id="HowToRelease-Preparation">Preparation</h3><ol><li>Bulk update Jira to unassign from this release all issues that are open non-blockers and send follow-up notification to the developer list that this was done. There are two kinds of JIRAs that need to be taken care of:<ol><li>Unresolved JIRAs with Target Version/s or Fix Version/s (legacy) set to the release in question.</li><li>Resolved/closed(!) JIRAs with Target Version/s, but not Fix Version/s set to the release in question (e.g. a JIRA targets 2.0.0 and 1.3.0, but was only committed to 2.0.0).</li></ol></li><li>Run 'mvn clean apache-rat:check' and examine the generated report for any files, especially .java files which should all have Apache license headers. Note also, that each individual component will have a rat.txt inside it when you run this <span style="line-height: 1.4285715;">– </span>be sure to check ql/target/rat.txt, for example. Add the license header to any file that is missing it (open a jira and submit a patch).</li><li>Update copyright date in NOTICE. If any components mentioned in them have updated versions, you would need to update the copyright dates for those. (Thejas comment: It sounds like entries are needed in NOTICE only if the license requires such attribution. See <a href="https://www.apache.org/legal/src-headers.html#notice" class="external-link" rel="nofollow">https://www.apache.org/legal/src-headers.html#notice</a>.)</li></ol><h3 id="HowToRelease-Branching">Branching</h3><p>Skip this section if this is NOT the first release in a series (i.e., release X.Y.0).</p><ol><li><p>Notify developers on the #hive IRC channel and dev@hive mailing lists that you are about to branch a release.</p></li><li><p>Create a branch for the release series: </p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">git checkout -b branch-X.Y origin/master
+git push -u origin branch-X.Y</pre>
+</div></div></li><li><p>Increment the value of the <code>version</code> property in all pom.xml files. For example, if the current value is <code>0.7.0-SNAPSHOT</code>, the new value should be <code>0.8.0-SNAPSHOT</code>. Please note that the <code>SNAPSHOT</code> suffix is required in order to indicate that this is an unreleased development branch. This can be accomplished with a single command using <a href="http://mojo.codehaus.org/versions-maven-plugin/set-mojo.html" class="external-link" rel="nofollow">Maven's Versions plugin</a> as follows: </p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">mvn versions:set -DnewVersion=X.Y.0-SNAPSHOT -DgenerateBackupPoms=false</pre>
+</div></div></li><li>Make changes to metastore upgrade scripts. See <a href="https://issues.apache.org/jira/browse/HIVE-6555" class="external-link" rel="nofollow">HIVE-6555</a> on how this was done for HIVE 0.13.</li><li>Verify that the build is working with changes.</li><li><p>Commit these changes to master with a comment &quot;Preparing for X.Y+1.0 development&quot;.</p></li></ol><h3 id="HowToRelease-UpdatingReleaseBranch">Updating Release Branch</h3><p>These operations take place in the release branch.</p><ol><li><p>Check out the release branch with:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">git clone https://git-wip-us.apache.org/repos/asf/hive.git/ &lt;hive_src_dir&gt;
+cd &lt;hive_src_dir&gt;
+git checkout branch-X.Y</pre>
+</div></div></li><li><p>Update the <code>version</code> property value in all pom.xml files. You should remove the <code>SNAPSHOT</code> suffix and set <code>version</code> equal to <code>hive-X.Y.Z</code> where Z is the point release number in this release series (0 for the first one, in which case this step is a no-op since you already did this above when creating the branch). Use <a href="http://mojo.codehaus.org/versions-maven-plugin/set-mojo.html" class="external-link" rel="nofollow">Maven's Versions plugin</a> to do this as follows:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">mvn versions:set -DnewVersion=0.7.0 -DgenerateBackupPoms=false</pre>
+</div></div><p class="auto-cursor-target">Make sure to update the version property in standalone-metastore/pom.xml and upgrade-acid/pom.xml.</p></li><li><p>Remove the storage-api from the list of modules to build in the top level pom.xml. Set the storage-api.version property to the release of storage-api that you are using for your release. Make sure to set the storage-api.version property in standalone-metastore/pom.xml as well.</p></li><li>Update the the value of the <code>TRACKING_BRANCH</code> field in the <code>.reviewboardrc</code> file to point to the <code>origin/branch-X.Y</code>.</li><li>Verify that the build is working with changes.</li><li><p>Commit these changes with a comment &quot;Preparing for X.Y.Z release&quot;.</p><p><br/></p></li><li><p>If not already done, merge desired patches from trunk into the branch and commit these changes. Avoid usage of &quot;git merge&quot; to avoid too many merge commits. Either request the committer who committed that patch in master to commit to this branch, or commit it yourself, or try doing a git cherry-pick for trivial patches. Specifics of this step can be laid down by the release manager.</p></li><li>You probably also want to commit a patch (on both trunk and branch) which updates README.txt to bring it up to date (at a minimum, search+replacing references to the version number). Also check NOTICE to see if anything needs to be updated for recent library dependency changes or additions.<ol><li>Select all of the JIRAs for the current release that aren't FIXED and do bulk update to clear the 'Fixed Version' field.</li><li>Likewise, use JIRA's <a href="https://issues.apache.org/jira/secure/ConfigureReleaseNote.jspa?projectId=12310843" class="external-link" rel="nofollow">Release Notes</a> link to generate content for the RELEASE_NOTES.txt file. Be sure to select 'Text' format. (It's OK to do this with a direct commit rather than a patch.)</li><li>Update the release notes in trunk with the release notes in branch.</li></ol></li><li><p>Tag the release candidate (R is the release candidate number, and also starts from 0):</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">git tag -a release-X.Y.Z-rcR -m &quot;Hive X.Y.Z-rcR release.&quot;
+git push origin release-X.Y.Z-rcR </pre>
+</div></div></li></ol><h3 id="HowToRelease-Building">Building</h3><ol><li>Make sure your release notes have been updated for any new commits, and go through the previous steps if necessary.</li><li><p>Build the release (binary and source versions) after running unit tests. Manually create the sha256 files.</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% mvn install -Pdist -DskipTests -Dmaven.javadoc.skip=true -DcreateChecksum=true
+
+% cd packaging/target
+% shasum -a 256 apache-hive-X.Y.Z-bin.tar.gz &gt; apache-hive-X.Y.Z-bin.tar.gz.sha256
+% shasum -a 256 apache-hive-X.Y.Z-src.tar.gz &gt; apache-hive-X.Y.Z-src.tar.gz.sha256</pre>
+</div></div></li><li><p>Verify that the SHA 256 checksums are valid:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% shasum -a 256 -c apache-hive-X.Y.Z-bin.tar.gz.sha256
+apache-hive-X.Y.Z-bin.tar.gz: OK
+
+% shasum -a 256 -c apache-hive-X.Y.Z-src.tar.gz.sha256
+apache-hive-X.Y.Z-src.tar.gz: OK
+</pre>
+</div></div></li><li>Check that release file looks ok -- e.g., install it and run examples from tutorial.</li><li>Setup your PGP keys for signing the release, if you don't have them already.<ol><li>See <a href="https://www.apache.org/dev/release-signing.html" class="external-link" rel="nofollow">https://www.apache.org/dev/release-signing.html</a>, <a href="https://www.apache.org/dev/openpgp.html" class="external-link" rel="nofollow">https://www.apache.org/dev/openpgp.html</a>.</li></ol></li><li><p>Sign the release (see <a href="http://www.apache.org/dev/mirror-step-by-step.html?Step-By-Step" class="external-link" rel="nofollow">Step-By-Step Guide to Mirroring Releases</a> for more information).</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% gpg --armor --output apache-hive-X.Y.Z-bin.tar.gz.asc --detach-sig apache-hive-X.Y.Z-bin.tar.gz
+% gpg --armor --output apache-hive-X.Y.Z-src.tar.gz.asc --detach-sig apache-hive-X.Y.Z-src.tar.gz
+</pre>
+</div></div></li><li><p>Copy release files to a public place.</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% sftp YOUR-APACHE-ID@home.apache.org
+sftp&gt; cd public_html
+sftp&gt; mkdir apache-hive-X.Y.Z-rc-0
+sftp&gt; cd apache-hive-X.Y.Z-rc-0
+sftp&gt; put apache-hive-X.Y.Z*.tar.gz*
+sftp&gt; quit
+ </pre>
+</div></div></li><li><p>Publish Maven artifacts to the Apache staging repository. Make sure to have this <a href="http://www.apache.org/dev/publishing-maven-artifacts.html#dev-env" class="external-link" rel="nofollow">setup</a> for Apache releases.  (If you get an error <code>gpg: signing failed: Inappropriate ioctl for device</code> trying doing <code>export GPG_TTY=$(tty)</code> .)</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% mvn deploy -DskipTests -Papache-release -Dmaven.javadoc.skip=true
+</pre>
+</div></div></li><li>Login to the <a href="https://repository.apache.org/index.html#stagingRepositories" class="external-link" rel="nofollow">Apache Nexus server</a> and &quot;close&quot; the staged repository. This makes the artifacts available at a temporary URL.</li></ol><h3 id="HowToRelease-Voting">Voting</h3><ol><li><p>Call a release vote on dev at hive.apache.org.</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>From: you@apache.org
+To: dev@hive.apache.org
+Subject: [VOTE] Apache Hive X.Y.Z Release Candidate N
+
+Apache Hive X.Y.Z Release Candidate N is available here:
+
+https://people.apache.org/~you/hive-X.Y.Z-candidate-N
+
+Maven artifacts are available here:
+
+https://repository.apache.org/content/repositories/orgapachehive-121/
+
+The tag release-X.Y.Z-rcR has been applied to the source for this release in github, you can see it at
+https://github.com/apache/hive/tree/release-X.Y.Z-rcR
+
+Voting will conclude in 72 hours.
+
+Hive PMC Members: Please test and vote.
+
+Thanks.
+</pre>
+</div></div></li></ol><h3 id="HowToRelease-VerifyingtheReleaseCandidate">Verifying the Release Candidate</h3><ol><li><p>Verifying the PGP signature:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>#get the hive committers keys file
+wget https://www.apache.org/dist/hive/KEYS 
+or 
+wget https://people.apache.org/keys/group/hive.asc
+
+gpg --import &lt;keys file&gt;
+gpg --verify hive-X.Y.Z-bin.tar.gz.asc  hive-X.Y.Z-bin.tar.gz
+gpg --verify hive-X.Y.Z.tar.gz.asc  hive-X.Y.Z.tar.gz
+
+</pre>
+</div></div></li><li>Verifying the sha256 checksum:<br/>See the step under Building.</li></ol><h3 id="HowToRelease-Publishing">Publishing</h3><p>Once <a href="http://www.apache.org/foundation/voting.html#ReleaseVotes" class="external-link" rel="nofollow">three PMC members have voted for a release</a>, it may be published.</p><ol><li><p>Tag the release and delete the release candidate tag:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>git tag -s rel/release-X.Y.Z release-X.Y.Z-rcR -m &quot;HiveX.Y.Z release.&quot;  # where -rcR was the last tagged release candidate that passed the vote
+git push origin rel/release-X.Y.Z
+git tag -d release-X.Y.Z-rcR
+git push origin :release-X.Y.Z-rcR</pre>
+</div></div></li><li><p>Follow instructions in <a href="https://www.apache.org/dev/release-publishing.html#distribution" class="external-link" rel="nofollow">https://www.apache.org/dev/release-publishing.html#distribution</a> to push the new release artifacts to<span> <a href="https://www.apache.org/dist/" class="external-link" rel="nofollow">https://www.apache.org/dist/</a>, making sure to create a new directory for the new release, and re-linking the stable link to the latest build. Note that you need PMC privileges to do this step </span><span style="line-height: 1.4285715;">–</span><span style="line-height: 1.4285715;"> if you do not have such privileges, please ping a <a href="http://hive.apache.org/people.html" class="external-link" rel="nofollow">PMC member</a> to do this for you.</span></p></li><li>Wait 24 hours for release to propagate to mirrors.</li><li><p>In your base hive source directory, generate javadocs as follows:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>mvn clean install javadoc:javadoc javadoc:aggregate -DskipTests -Dadditionalparam=-Xdoclint:none</pre>
+</div></div><p>After you run this, you should have javadocs present in your &lt;hive_source_dir&gt;/target/site/apidocs</p></li><li><p>Check out the javadocs svn repository as follows:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>svn co https://svn.apache.org/repos/infra/websites/production/hive/content/javadocs</pre>
+</div></div></li><li><p>Copy the generated javadocs from the source repository to the javadocs repository, add and commit:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>mkdir &lt;hive_javadocs_repo_dir&gt;/rX.Y.Z/
+cd &lt;hive_javadocs_repo_dir&gt;
+cp -r &lt;hive_source_dir&gt;/target/site/apidocs ./rX.Y.Z/api
+svn add rX.Y.Z
+svn commit</pre>
+</div></div><p>If this is a bugfix release, svn rm the obsoleted version. (For eg., when committing javadocs for r0.13.1, r0.13.0 would have been removed)</p></li><li><p>Prepare to edit the website.</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>svn co https://svn.apache.org/repos/asf/hive/cms/trunk</pre>
+</div></div></li><li><p>Edit files content/downloads.mdtext and javadoc.mdtext to appropriately add entries for the new release in the appropriate location. For example, for 1.2.0, the entries made were as follows:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">./content/downloads.mdtext:### 18 May 2015 : release 1.2.0 available
+./content/downloads.mdtext:You can look at the complete [JIRA change log for this release][HIVE_1_2_0_CL].
+./content/downloads.mdtext:[HIVE_1_2_0_CL]: https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12329345&amp;styleName=Text&amp;projectId=12310843
+./content/javadoc.mdtext:  * [Hive 1.2.0 Javadocs][r1.2.0]
+./content/javadoc.mdtext:[r1.2.0]: /javadocs/r1.2.0/api/index.html</pre>
+</div></div><p>As you can see, you will need a release note link for this release as created previously for this section.</p></li><li><p>Go to <a href="https://hive.staging.apache.org/hive/" class="external-link" rel="nofollow">https://hive.staging.apache.org/hive/</a> , get the hive working copy, force a new copy if you don't see your changes yet, and then ask it to publish the new copy. That should update the downloads and javadocs page as per the changes you made to downloads.mdtext, javadoc.mdtext earlier, and also make available the new javadocs. If you don't see it yet, you may have to wait 24 hours - it should be there by then.</p></li><li>Update JIRA<ol><li>Ensure that only issues in the &quot;Fixed&quot; state have a &quot;Fix Version&quot; set to release X.Y.Z.</li><li>Release the version. Visit the <a href="https://issues.apache.org/jira/projects/HIVE?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&amp;status=unreleased" class="external-link" rel="nofollow">releases page</a>.  Select the version number you are releasing, and hit the release button. You need to have the &quot;Admin&quot; role in Hive's Jira for this step and the next.</li><li>Close issues resolved in the release. Disable mail notifications for this bulk change.<br/><br/></li></ol></li><li>Login to the <a href="https://repository.apache.org/index.html#stagingRepositories" class="external-link" rel="nofollow">Apache Nexus server</a> and mark the release candidate artifacts as released.<br/><br/></li><li><p>Send a release announcement to Hive <code>user</code> and <code>dev</code> lists as well as the Apache <code>announce</code> list. This email should be sent from your Apache email address:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>From: you@apache.org
+To: user@hive.apache.org, dev@hive.apache.org, announce@apache.org
+Subject: [ANNOUNCE] Apache Hive X.Y.Z Released
+
+The Apache Hive team is proud to announce the release of Apache Hive
+version X.Y.Z.
+
+The Apache Hive (TM) data warehouse software facilitates querying and
+managing large datasets residing in distributed storage. Built on top
+of Apache Hadoop (TM), it provides, among others:
+
+* Tools to enable easy data extract/transform/load (ETL)
+
+* A mechanism to impose structure on a variety of data formats
+
+* Access to files stored either directly in Apache HDFS (TM) or in other
+  data storage systems such as Apache HBase (TM)
+
+* Query execution via Apache Hadoop MapReduce, Apache Tez and Apache Spark frameworks.
+
+For Hive release details and downloads, please visit:
+https://hive.apache.org/downloads.html
+
+Hive X.Y.Z Release Notes are available here: [UPDATE THIS LINK]
+https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&amp;version=12316178 
+
+We would like to thank the many contributors who made this release
+possible.
+
+Regards,
+
+The Apache Hive Team
+</pre>
+</div></div></li></ol><h3 id="HowToRelease-PreparingBranchforFutureMaintenanceRelease">Preparing Branch for Future Maintenance Release</h3><p>After the release has been completed, prepare the branch for the next development cycle.</p><ol><li><p>Check out the release branch with:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">git clone https://git-wip-us.apache.org/repos/asf/hive.git/ &lt;hive_src_dir&gt;
+cd &lt;hive_src_dir&gt;
+git checkout branch-X.Y</pre>
+</div></div></li><li><p>Increment the <code>version</code> property value in all pom.xml files and add the <code>SNAPSHOT</code> suffix. For example, if the released version was <code>0.7.0</code>, the new value should be <code>0.7.1-SNAPSHOT</code>. Please note that the <code>SNAPSHOT</code> suffix is required in order to indicate that this is an unreleased development branch. Use <a href="http://mojo.codehaus.org/versions-maven-plugin/set-mojo.html" class="external-link" rel="nofollow">Maven's Versions plugin</a> to do this as follows:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">mvn versions:set -DnewVersion=0.7.1-SNAPSHOT -DgenerateBackupPoms=false</pre>
+</div></div></li><li>If the release number you are preparing moves the major (first) or minor (second) number, update the Hive version name in the poms.  In both <code>pom.xml</code> and <code>standalone-metastore/pom.xml</code> search for the property <code>hive.version.shortname</code>.  This should match the new version number.  <br/>For example, if you are working on branch-3 and have just released Hive 3.2 and are preparing the branch for Hive 3.3 development, you need to update both poms to have <code>&lt;hive.version.shortname&gt;3.3.0&lt;/hive.shortname.version&gt;</code>.  If however you are working on branch-3.1 and have just released Hive 3.1.2 and are preparing the branch for 3.1.3 development, this is not necessary.</li><li>Verify that the build is working with changes.</li><li><p>Commit these changes with a comment &quot;Preparing for X.Y.Z+1 development&quot;.</p></li></ol><h2 id="HowToRelease-SeeAlso">See Also</h2><ul><li><a href="http://www.apache.org/dev/release.html" class="external-link" rel="nofollow">Apache Releases FAQ</a></li></ul>
+
+                
+        
+    
+        </div>
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="27362106" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+        
+
+
+                
+    
+            
+</div>
+
+    
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Apps" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Apps</div>
+    </div>
+        
+
+
+
+            </div><!-- \#main -->
+            
+    
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="https://www.atlassian.com/software/views/opensource-community-additional-license-offer">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link" rel="nofollow">Atlassian Confluence</a> <span id='footer-build-information'>7.13.2</span></li>
+            <li class="print-only">Printed by Atlassian Confluence 7.13.2</li>
+            <li class="noprint"><a href="https://support.atlassian.com/help/confluence" class="hover-footer-link" rel="nofollow">Report a bug</a></li>
+            <li class="noprint"><a href="https://www.atlassian.com/company" class="hover-footer-link" rel="nofollow">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/" rel="nofollow">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+    <span style="display:none;" id="confluence-server-performance">{"serverDuration": 61, "requestCorrelationId": "1a05c9307b838b54"}</span>
+</body>
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/HowToRelease by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:43:22 GMT -->
+</html>
+    

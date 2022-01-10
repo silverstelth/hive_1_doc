@@ -1,0 +1,886 @@
+    
+
+<!DOCTYPE html>
+<html lang="en-GB" >
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/SQL+Standard+Based+Hive+Authorization by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:45:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+                            <title>SQL Standard Based Hive Authorization - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+    <meta id="atlassian-token" name="atlassian-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1639597307110">
+        
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="f372abdc7d1a6481c736efc7686d149c">
+            <meta id="team-calendars-has-jira-link" content="true">
+            <meta name="ajs-team-calendars-display-time-format" content="displayTimeFormat12">
+            <meta id="team-calendars-display-week-number" content="false">
+            <meta id="team-calendars-user-timezone" content="Etc/UTC">
+            <script type="text/x-template" id="team-calendars-messages" title="team-calendars-messages"><fieldset class="i18n hidden"><input type="hidden" name="calendar3.month.long.july" value="July"><input type="hidden" name="calendar3.day.short.wednesday" value="Wed"><input type="hidden" name="calendar3.day.short.thursday" value="Thu"><input type="hidden" name="calendar3.month.short.march" value="Mar"><input type="hidden" name="calendar3.month.long.april" value="April"><input type="hidden" name="calendar3.month.long.october" value="October"><input type="hidden" name="calendar3.month.long.august" value="August"><input type="hidden" name="calendar3.month.short.july" value="Jul"><input type="hidden" name="calendar3.month.short.may" value="May"><input type="hidden" name="calendar3.month.short.november" value="Nov"><input type="hidden" name="calendar3.day.long.friday" value="Friday"><input type="hidden" name="calendar3.day.long.sunday" value="Sunday"><input type="hidden" name="calendar3.day.long.saturday" value="Saturday"><input type="hidden" name="calendar3.month.short.april" value="Apr"><input type="hidden" name="calendar3.day.long.wednesday" value="Wednesday"><input type="hidden" name="calendar3.month.long.december" value="December"><input type="hidden" name="calendar3.month.short.october" value="Oct"><input type="hidden" name="calendar3.day.long.monday" value="Monday"><input type="hidden" name="calendar3.month.short.june" value="Jun"><input type="hidden" name="calendar3.day.short.monday" value="Mon"><input type="hidden" name="calendar3.day.short.tuesday" value="Tue"><input type="hidden" name="calendar3.day.short.saturday" value="Sat"><input type="hidden" name="calendar3.month.long.march" value="March"><input type="hidden" name="calendar3.month.long.june" value="June"><input type="hidden" name="calendar3.month.short.february" value="Feb"><input type="hidden" name="calendar3.month.short.august" value="Aug"><input type="hidden" name="calendar3.month.short.december" value="Dec"><input type="hidden" name="calendar3.day.short.sunday" value="Sun"><input type="hidden" name="calendar3.month.long.february" value="February"><input type="hidden" name="calendar3.day.long.tuesday" value="Tuesday"><input type="hidden" name="calendar3.month.long.may" value="May"><input type="hidden" name="calendar3.month.long.september" value="September"><input type="hidden" name="calendar3.month.long.november" value="November"><input type="hidden" name="calendar3.month.short.january" value="Jan"><input type="hidden" name="calendar3.month.short.september" value="Sep"><input type="hidden" name="calendar3.day.long.thursday" value="Thursday"><input type="hidden" name="calendar3.month.long.january" value="January"><input type="hidden" name="calendar3.day.short.friday" value="Fri"></fieldset></script>
+            
+    
+    
+            <meta name="ajs-page-title" content="SQL Standard Based Hive Authorization">
+            <meta name="ajs-latest-published-page-title" content="SQL Standard Based Hive Authorization">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-page-id" content="40509928">
+            <meta name="ajs-latest-page-id" content="40509928">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-parent-page-title" content="LanguageManual Authorization">
+            <meta name="ajs-parent-page-id" content="27362032">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-max-number-editors" content="12">
+            <meta name="ajs-macro-placeholder-timeout" content="5000">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-can-remove-page-hierarchy" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="true">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="7.13.2">
+            <meta name="ajs-build-number" content="8703">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-remote-user-has-licensed-access" content="false">
+            <meta name="ajs-remote-user-has-browse-users-permission" content="false">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-current-user-avatar-uri-reference" content="/confluence/images/icons/profilepics/anonymous.svg">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/6dvx22/8703/4mhn8a/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-global-settings-quick-search-enabled" content="true">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="site-wide.shared-drafts,site-wide.synchrony,clc.quick.create,confluence.view.edit.transition,cql.search.screen,confluence-inline-comments-resolved,frontend.editor.v4,http.session.registrar,nps.survey.inline.dialog,confluence.efi.onboarding.new.templates,frontend.editor.v4.compatibility,atlassian.cdn.static.assets,pdf-preview,previews.sharing,previews.versions,file-annotations,confluence.efi.onboarding.rich.space.content,collaborative-audit-log,confluence.reindex.improvements,previews.conversion-service,editor.ajax.save,read.only.mode,graphql,previews.trigger-all-file-types,attachment.extracted.text.extractor,lucene.caching.filter,confluence.table.resizable,notification.batch,previews.sharing.pushstate,confluence-inline-comments-rich-editor,tc.tacca.dacca,site-wide.synchrony.opt-in,file-annotations.likes,gatekeeper-ui-v2,v2.content.name.searcher,mobile.supported.version,pulp,confluence-inline-comments,confluence-inline-comments-dangling-comment,quick-reload-inline-comments-flags">
+            <meta name="ajs-atl-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-access-mode" content="READ_WRITE">
+            <meta name="ajs-render-mode" content="READ_WRITE">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+    <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\u0022\u005C/confluence\u0022";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.confluence.plugins.synchrony-interop:synchrony-status-banner-loader.synchrony-status"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:policy-update-init.policy-update-data-provider"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:programmatic-analytics-init.programmatic-analytics-data-provider"]="false";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-help-paths"]="{\u0022entries\u0022:{\u0022applinks.docs.root\u0022:\u0022https://confluence.atlassian.com/display/APPLINKS-072/\u0022,\u0022applinks.docs.diagnostics.troubleshoot.sslunmatched\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthsignatureinvalid\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthtimestamprefused\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.delete.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.adding.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administration.guide\u0022:\u0022Application+Links+Documentation\u0022,\u0022applinks.docs.oauth.security\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.troubleshoot.application.links\u0022:\u0022Troubleshoot+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownerror\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.trusted.apps\u0022:\u0022Configuring+Trusted+Applications+authentication+for+an+application+link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelunsupported\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.ssluntrusted\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownhost\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.delete.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.adding.project.link\u0022:\u0022Configuring+Project+links+across+Applications\u0022,\u0022applinks.docs.link.applications\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthproblem\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.migration\u0022:\u0022Update+application+links+to+use+OAuth\u0022,\u0022applinks.docs.relocate.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administering.entity.links\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.upgrade.application.link\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.connectionrefused\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.oauth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.insufficient.remote.permission\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.configuring.application.link.auth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics\u0022:\u0022Application+links+diagnostics\u0022,\u0022applinks.docs.configured.authentication.types\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.adding.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unexpectedresponse\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.basic\u0022:\u0022Configuring+Basic+HTTP+Authentication+for+an+Application+Link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelmismatch\u0022:\u0022OAuth+troubleshooting+guide\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-types"]="{\u0022crowd\u0022:\u0022Crowd\u0022,\u0022confluence\u0022:\u0022Confluence\u0022,\u0022fecru\u0022:\u0022FishEye / Crucible\u0022,\u0022stash\u0022:\u0022Stash\u0022,\u0022jira\u0022:\u0022Jira\u0022,\u0022refapp\u0022:\u0022Reference Application\u0022,\u0022bamboo\u0022:\u0022Bamboo\u0022,\u0022generic\u0022:\u0022Generic Application\u0022}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.entity-types"]="{\u0022singular\u0022:{\u0022refapp.charlie\u0022:\u0022Charlie\u0022,\u0022fecru.project\u0022:\u0022Crucible Project\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repository\u0022,\u0022stash.project\u0022:\u0022Stash Project\u0022,\u0022generic.entity\u0022:\u0022Generic Project\u0022,\u0022confluence.space\u0022:\u0022Confluence Space\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Project\u0022,\u0022jira.project\u0022:\u0022Jira Project\u0022},\u0022plural\u0022:{\u0022refapp.charlie\u0022:\u0022Charlies\u0022,\u0022fecru.project\u0022:\u0022Crucible Projects\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repositories\u0022,\u0022stash.project\u0022:\u0022Stash Projects\u0022,\u0022generic.entity\u0022:\u0022Generic Projects\u0022,\u0022confluence.space\u0022:\u0022Confluence Spaces\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Projects\u0022,\u0022jira.project\u0022:\u0022Jira Projects\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.authentication-types"]="{\u0022com.atlassian.applinks.api.auth.types.BasicAuthenticationProvider\u0022:\u0022Basic Access\u0022,\u0022com.atlassian.applinks.api.auth.types.TrustedAppsAuthenticationProvider\u0022:\u0022Trusted Applications\u0022,\u0022com.atlassian.applinks.api.auth.types.CorsAuthenticationProvider\u0022:\u0022CORS\u0022,\u0022com.atlassian.applinks.api.auth.types.OAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthWithImpersonationAuthenticationProvider\u0022:\u0022OAuth\u0022}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\u0022daysBeforeLicenseExpiry\u0022:0,\u0022daysBeforeMaintenanceExpiry\u0022:0,\u0022showLicenseExpiryBanner\u0022:false,\u0022showMaintenanceExpiryBanner\u0022:false,\u0022renewUrl\u0022:null,\u0022salesUrl\u0022:null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-search-ui-plugin:confluence-search-ui-plugin-resources.i18n-data"]="{\u0022search.ui.recent.link.text\u0022:\u0022View more recently visited\u0022,\u0022search.ui.filter.space.category.input.label\u0022:\u0022Find space categories...\u0022,\u0022search.ui.search.results.empty\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching \u005C\u0022{0}\u005C\u0022.\u0022,\u0022search.ui.filter.clear.selected\u0022:\u0022Clear selected items\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.button.text\u0022:\u0022Show more app results...\u0022,\u0022search.ui.filter.space.archive.label\u0022:\u0022Search archived spaces\u0022,\u0022search.ui.filter.label\u0022:\u0022filter\u0022,\u0022search.ui.filter.contributor.button.text\u0022:\u0022Contributor\u0022,\u0022search.ui.filter.date.all.text\u0022:\u0022Any time\u0022,\u0022search.ui.filter.space.current.label\u0022:\u0022CURRENT\u0022,\u0022search.ui.clear.input.button.text\u0022:\u0022Clear text\u0022,\u0022search.ui.search.results.clear.button\u0022:\u0022clear your filters.\u0022,\u0022search.ui.filter.date.hour.text\u0022:\u0022The past day\u0022,\u0022help.search.ui.link.title\u0022:\u0022Search tips\u0022,\u0022search.ui.filters.heading\u0022:\u0022Filter by\u0022,\u0022search.ui.filter.label.input.label\u0022:\u0022Find labels...\u0022,\u0022search.ui.recent.items.anonymous\u0022:\u0022Start exploring. Your search results will appear here.\u0022,\u0022search.ui.filter.date.month.text\u0022:\u0022The past month\u0022,\u0022search.ui.input.label\u0022:\u0022Search\u0022,\u0022search.ui.search.result\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}\u0022,\u0022search.ui.infinite.scroll.button.text\u0022:\u0022More results\u0022,\u0022search.ui.filter.date.button.text\u0022:\u0022Date\u0022,\u0022search.ui.filter.date.week.text\u0022:\u0022The past week\u0022,\u0022search.ui.filter.label.button.text\u0022:\u0022Label\u0022,\u0022search.ui.input.alert\u0022:\u0022Hit enter to search\u0022,\u0022search.ui.result.subtitle.calendar\u0022:\u0022Team calendar\u0022,\u0022search.ui.filter.no.result.text\u0022:\u0022We can\u005Cu0027\u005Cu0027t find anything matching your search\u0022,\u0022search.ui.filter.date.heading\u0022:\u0022Last modified within\u0022,\u0022search.ui.result.subtitle.user\u0022:\u0022User profile\u0022,\u0022search.ui.filter.contributor.input.label\u0022:\u0022Find people...\u0022,\u0022search.ui.filter.content.type.button.text\u0022:\u0022Type\u0022,\u0022search.ui.filter.space.input.label\u0022:\u0022Find spaces...\u0022,\u0022search.ui.filter.date.year.text\u0022:\u0022The past year\u0022,\u0022search.ui.advanced.search.link.text\u0022:\u0022Advanced search\u0022,\u0022search.ui.filter.space.button.text\u0022:\u0022Space\u0022,\u0022search.ui.generic.error\u0022:\u0022Something went wrong. Refresh the page, or contact your admin if this keeps happening.\u0022,\u0022search.ui.recent.spaces\u0022:\u0022Recent Spaces\u0022,\u0022search.ui.search.results.clear.line2\u0022:\u0022Try a different search term or\u0022,\u0022search.ui.filter.space.category.button.text\u0022:\u0022Space category\u0022,\u0022search.ui.search.results.clear.line1\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching your search.\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.admin.button.text\u0022:\u0022Show more settings and app results...\u0022,\u0022search.ui.recent.pages\u0022:\u0022Recently visited\u0022,\u0022search.ui.search.result.anonymous\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}. Have an account? {1}Log in{2} to expand your search.\u0022,\u0022search.ui.recent.items.empty\u0022:\u0022Start exploring. Pages and spaces you\u005Cu0027\u005Cu0027ve visited recently will appear here.\u0022,\u0022search.ui.result.subtitle.space\u0022:\u0022Space\u0022,\u0022search.ui.filter.space.init.heading\u0022:\u0022recent spaces\u0022}";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="../../s/ad0cdaf669e3a7800fb6fa6452e260e4-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/css/_super/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/585884a9f3984b0aaecef0baf40c1e6e-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch1203.css?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" media="all">
+<script type="text/javascript" src="../../s/58e418cc99c782d6bf891d0ee81d3e82-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/js/_super/batch6116.js?locale=en-GB" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered></script>
+<script type="text/javascript" src="../../s/d8f9091841663d4e3446e48379e476f1-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/js/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch3a32.js?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true&amp;locale=en-GB" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" data-initially-rendered></script>
+
+    
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+            
+    
+
+    
+                <link rel="canonical" href="SQL%2bStandard%2bBased%2bHive%2bAuthorization.html">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/6CFqAg">
+    <meta name="wikilink" content="[Hive:SQL Standard Based Hive Authorization]">
+    <meta name="page-version" content="71">
+    <meta name="ajs-page-version" content="71">
+
+</head>
+
+    
+<body      id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            
+
+<fieldset class="parameters hidden" style="display: none;">
+            <input type="hidden" id="listAnalyticsKey" value="19"/>
+        <input type="hidden" id="listAnalyticsDomain" value="comalatech.matomo.cloud"/>
+    </fieldset>
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="#title-heading">Skip to content</a></li>
+    <li><a href="#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="#navigation">Skip to action menu</a></li>
+    <li><a href="#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+        
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" aria-label="Site"><div class="aui-header-inner"><div class="aui-header-before"><button class=" aui-dropdown2-trigger app-switcher-trigger aui-dropdown2-trigger-arrowless" aria-controls="app-switcher" aria-haspopup="true" role="button" data-aui-trigger href="#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></button><div id="app-switcher" class="aui-dropdown2 aui-style-default" role="menu" hidden data-is-switcher="true" data-environment="{&quot;isUserAdmin&quot;:false,&quot;isAppSuggestionAvailable&quot;:false,&quot;isSiteAdminUser&quot;:false}"><div class="app-switcher-loading">Loading&hellip;</div></div></div><div class="aui-header-primary"><span id="logo" class="aui-header-logo aui-header-logo-confluence"><a href="https://cwiki.apache.org/confluence/" aria-label="Go to home page"><span class="aui-header-logo-device">Apache Software Foundation</span></a></span><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                                <li class="aui-buttons">
+            </li>
+</ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <div id="search-ui" class="aui-quicksearch dont-default-focus header-quicksearch"><input id="quick-search-query" aria-label="Search" placeholder="Search" type="text" /><div id="quick-search-alert" role="alert">Hit enter to search</div><aui-spinner size="small"></aui-spinner></div>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger aui-dropdown2-trigger-arrowless" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-question-filled">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-713/" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-713/help.whats.new.iframe.link" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://confluence.atlassian.com/display/DOC/Confluence+7.13+Release+Notes" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FSQL%2BStandard%2BBased%2BHive%2BAuthorization" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+    
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+                                            
+                            <div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo" data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="Home.html" title="Apache Hive"><img class="avatar-img" src="https://cwiki.apache.org/confluence/download/attachments/27362113/Hive?version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="space-information-container"><div class="name"><a href="Home.html" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon aui-icon aui-icon-small aui-iconfont-edit"></div></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-page-tree-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" aria-current="true" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"><h5 class="ia-quick-links-header-title">Space shortcuts</h5><div class="quick-links-section tipsy-enabled "><ul class="acs-nav-list"><li class="acs-nav-item pinned_page blueprint kb-how-to-article"><a class="acs-nav-item-link tipsy-enabled" href="How-to%2barticles.html" data-collapsed-tooltip="null"><span class="icon"></span><span class="acs-nav-item-label">How-to articles</span></a></li></ul></div></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="LanguageManual%2bAuthorization.html" title="LanguageManual Authorization"><span class="icon"></span><span class="label">LanguageManual Authorization</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">SQL Standard Based Hive Authorization</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><button id="space-tools-menu-trigger"  class=" aui-dropdown2-trigger aui-button aui-button-subtle tipsy-enabled aui-dropdown2-trigger-arrowless " aria-controls="space-tools-menu" aria-haspopup="true" role="button" data-aui-trigger><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="aui-button-label">Space tools</span><span class="aui-icon "></span></button><div id="space-tools-menu" class="aui-dropdown2 aui-style-default space-tools-dropdown" role="menu" hidden data-aui-alignment="top left"></div><a href="#" role="button" class="expand-collapse-trigger aui-icon aui-icon-small aui-iconfont-chevron-double-left" aria-expanded="true"></a></div>
+                    
+                        			</div>
+    		</div>
+        <!-- \#header -->
+
+            
+    
+        <div id="main" class=" aui-page-panel">
+                        <div id="main-header">
+                        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                            
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-label="More options" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more" aria-label="More options"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-primary"                         class="section-primary first">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=40509928" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments" >
+                        <span>
+                                A<u>t</u>tachments (1)
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=40509928" rel="nofollow" class="action-view-history"   title="" >
+                        <span>
+                                Page History
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="who-can-view-button-ak-button" href="https://cwiki.apache.org/confluence" rel="nofollow" class="who-can-view-link"   title="" >
+                        <span>
+                                People who can view
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-secondary"                         class="section-secondary">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="" >
+                        <span>
+                                Resolved comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=40509928" rel="nofollow" class="action-view-info"   title="" >
+                        <span>
+                                Page Information
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=40509928#selectedPageInHierarchy" rel="nofollow" class=""   title="" >
+                        <span>
+                                View in Hierarchy
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=40509928" rel="nofollow" class="action-view-source popup-link"   title="" >
+                        <span>
+                                View Source
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=40509928" rel="nofollow" class=""   title="" >
+                        <span>
+                                Delete comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=40509928" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to PDF
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=40509928" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to EPUB
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=40509928" rel="nofollow" class="action-export-word"   title="" >
+                        <span>
+                                Export to Word
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-modify"                         class="section-modify">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/tree-copy/preparing-copying.action?pageId=40509928" rel="nofollow" class=""   title="" >
+                        <span>
+                                Copy Page Tree
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="LanguageManual.html">LanguageManual</a></span>
+                                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="LanguageManual%2bAuthorization.html">LanguageManual Authorization</a></span>
+                                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="#" title="Unrestricted" id="content-metadata-page-restrictions-hidden" class="hidden"></a><a href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=40509928&amp;metadataLink=true" title="1 attachment" id="content-metadata-attachments" class="aui-icon aui-icon-small aui-iconfont-attachment"></a></li><li class="page-metadata-item noprinthas-button"  id="content-metadata-jira-wrapper"><a href="#" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><span>Jira links</span></a></li></ul></div>
+            
+
+<a href="#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="SQL%2bStandard%2bBased%2bHive%2bAuthorization.html">SQL Standard Based Hive Authorization</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+            
+    
+
+                                
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+    
+            
+        
+
+    
+    
+
+    
+            
+        
+
+
+
+    
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+            <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+            
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dthejas&amp;permissionViolation=true"
+                       class="url fn"
+                            >Thejas Nair</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dwzheng&amp;permissionViolation=true"
+                       class="url fn"
+                            >Wei Zheng</a></span> on <a class='last-modified' title='Show changes' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=40509928&amp;selectedPageVersions=70&amp;selectedPageVersions=71'>Jan 18, 2018</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <p><br/><div class="toc-macro client-side-toc-macro  conf-macro output-block" data-headerelements="H1,H2,H3" data-hasbody="false" data-macro-name="toc"> </div></p><h1 id="SQLStandardBasedHiveAuthorization-StatusofHiveAuthorizationbeforeHive0.13">Status of Hive Authorization before Hive 0.13</h1><p>The <a href="LanguageManual%2bAuthorization.html#LanguageManualAuthorization-3DefaultHiveAuthorization(LegacyMode)">default authorization in Hive</a> is not designed with the intent to protect against malicious users accessing data they should not be accessing. It only helps in preventing users from accidentally doing operations they are not supposed to do. It is also incomplete because it does not have authorization checks for many operations including the grant statement. The authorization checks happen during Hive query compilation. But as the user is allowed to execute dfs commands, user-defined functions and shell commands, it is possible to bypass the client security checks.</p><p>Hive also has support for storage based authorization, which is commonly used to add authorization to metastore server API calls (see <a href="LanguageManual%2bAuthorization.html#LanguageManualAuthorization-1StorageBasedAuthorizationintheMetastoreServer">Storage Based Authorization in the Metastore Server</a>). As of Hive 0.12.0 it can be used on the client side as well. While it can protect the metastore against changes by malicious users, it does not support fine grained access control (column or row level).</p><p>The default authorization model in Hive can be used to provide fine grained access control by creating views and granting access to views instead of the underlying tables.</p><h1 id="SQLStandardBasedHiveAuthorization-SQLStandardsBasedHiveAuthorization(NewinHive0.13)">SQL Standards Based Hive Authorization (New in Hive 0.13)</h1><p>The SQL standards based authorization option (introduced in Hive 0.13) provides a third option for authorization in Hive. This is recommended because it allows Hive to be fully SQL compliant in its authorization model without causing backward compatibility issues for current users. As users migrate to this more secure model, the current default authorization could be deprecated.</p><p>For an overview of this authorization option, see <a href="LanguageManual%2bAuthorization.html#LanguageManualAuthorization-2SQLStandardsBasedAuthorizationinHiveServer2" style="text-decoration: none;" rel="nofollow">SQL Standards Based Authorization in HiveServer2</a>.</p><p>This authorization mode can be used in conjunction with storage based authorization on the metastore server. Like the current default authorization in Hive, this will also be enforced at query compilation time. To provide security through this option, the client will have to be secured. This can be done by allowing users access only through Hive Server2, and by restricting the user code and non-SQL commands that can be run. The checks will happen against the user who submits the request, but the query will run as the Hive server user. The directories and files for input data would have read access for this Hive server user. For users who don’t have the need to protect against malicious users, this could potentially be supported through the Hive command line as well.</p><p>The goal of this work has been to comply with the SQL standard as far as possible, but there are deviations from the standard in the implementation. Some deviations were made to make it easier for existing Hive users to migrate to this authorization model, and some were made considering ease of use (in such cases we also looked at what many widely used databases do).</p><p>Under this authorization model, users who have access to the Hive CLI, HDFS commands, Pig command line, 'hadoop jar' command, etc., are considered privileged users. In an organization, it is typically only the teams that work on <a href="http://en.wikipedia.org/wiki/Extract,_transform,_load" class="external-link" rel="nofollow">ETL </a>workloads that need such access. These tools don't access the data through HiveServer2, and as a result their access is not authorized through this model. For Hive CLI, Pig, and MapReduce users access to Hive tables can be controlled using <a href="HCatalog%2bAuthorization.html">storage based authorization</a> enabled on the metastore server.</p><p>Most users such as business analysts tend to use SQL and ODBC/JDBC through HiveServer2 and their access can be controlled using this authorization model.</p><h2 id="SQLStandardBasedHiveAuthorization-RestrictionsonHiveCommandsandStatements">Restrictions on Hive Commands and Statements</h2><p>Commands such as dfs, add, delete, compile, and reset are disabled when this authorization is enabled.</p><p>The set commands used to change Hive configuration are restricted to a smaller safe set. This is controlled using the <a href="Configuration%2bProperties.html#ConfigurationProperties-hive.security.authorization.sqlstd.confwhitelist">hive.security.authorization.sqlstd.confwhitelist</a> configuration parameter. If this set needs to be customized, the HiveServer2 administrator can set a value for this configuration parameter in its hive-site.xml.</p><p>Privileges to add or drop functions and macros are restricted to the <strong>admin</strong> role.</p><p>To enable users to use functions, the ability to create <span class="confluence-link"><a href="LanguageManual%2bDDL.html#LanguageManualDDL-Create/DropFunction" rel="nofollow">permanent functions</a></span> has been added. A user in the <strong>admin</strong> role can run commands to create these functions, which all users can then use.</p><p>The Hive <a href="LanguageManual%2bTransform.html">transform clause</a> is also disabled when this authorization is enabled.</p><h2 id="SQLStandardBasedHiveAuthorization-Privileges">Privileges</h2><p>● SELECT privilege – gives read access to an object.</p><p>● INSERT privilege – gives ability to add data to an object (table).</p><p>● UPDATE privilege – gives ability to run update queries on an object (table).</p><p>● DELETE privilege – gives ability to delete data in an object (table).</p><p>● ALL PRIVILEGES – gives all privileges (gets translated into all the above privileges).</p><h2 id="SQLStandardBasedHiveAuthorization-Objects">Objects</h2><ul><li>The privileges apply to table and views. The above privileges are not supported on databases.</li><li>Database ownership is considered for certain actions.</li><li>URI is another object in Hive, as Hive allows the use of URI in SQL syntax. The above privileges are not applicable on URI objects. URI used are expected to point to a file/directory in a file system. Authorization is done based on the permissions the user has on the file/directory.</li></ul><h2 id="SQLStandardBasedHiveAuthorization-ObjectOwnership">Object Ownership</h2><p>For certain actions, the ownership of the object (table/view/database) determines if you are authorized to perform the action.</p><p>The user who creates the table, view or database becomes its owner. In the case of tables and views, the owner gets all the privileges with grant option.</p><p>A role can also be the owner of a database. The &quot;<code><a href="LanguageManual%2bDDL.html#LanguageManualDDL-AlterDatabase">alter database</a></code>&quot; command can be used to set the owner of a database to a role.</p><h2 id="SQLStandardBasedHiveAuthorization-UsersandRoles">Users and Roles</h2><p>Privileges can be granted to users as well as roles.<br/>Users can belong to one or more roles.</p><p>There are two roles with special meaning – <strong>public</strong> and <strong>admin</strong>.<br/>All users belong to the <strong>public</strong> role. You use this role in your grant statement to grant a privilege to all users.<br/><br/>When a user runs a Hive query or command, the privileges granted to the user and her &quot;<em><strong>current roles</strong></em>&quot; are checked. The current roles can be seen using the &quot;<code>show current roles;</code>&quot; command. All of the user's roles except for the <strong>admin</strong> role will be in the current roles by default, although you can use the &quot;<code>set role</code>&quot; command to set a specific role as the current role. See the command descriptions for details.<br/><br/>Users who do the work of a database administrator are expected to be added to the <strong>admin</strong> role. <br/>They have privileges for running additional commands such as &quot;<code>create role</code>&quot; and &quot;<code>drop role</code>&quot;. They can also access objects that they haven’t been given explicit access to. However, a user who belongs to the <strong>admin</strong> role needs to run the &quot;<code>set role</code>&quot; command before getting the privileges of the <strong>admin</strong> role, as this role is not in current roles by default.</p><h3 id="SQLStandardBasedHiveAuthorization-NamesofUsersandRoles">Names of Users and Roles</h3><p>Role names are case insensitive. That is, “marketing” and “MarkEting” refer to same role.</p><p>User names are <em>case sensitive</em>. This is because, unlike role names, user names are not managed within Hive. The user can be any user that the hiveserver2 authentication mode supports.</p><h4 id="SQLStandardBasedHiveAuthorization-QuotedIdentifiers">Quoted Identifiers</h4><p>User and role names may optionally be surrounded by backtick characters (`) when the configuration parameter <code><a href="Configuration%2bProperties.html#ConfigurationProperties-hive.support.quoted.identifiers" style="text-decoration: none;" rel="nofollow">hive.support.quoted.identifiers</a></code> is set to <code>column</code> (default value). All <a href="http://en.wikipedia.org/wiki/List_of_Unicode_characters" class="external-link" rel="nofollow">Unicode</a> characters are permitted in the quoted identifiers, with double backticks (``) representing a backtick character. However when <code><a href="Configuration%2bProperties.html#ConfigurationProperties-hive.support.quoted.identifiers" style="text-decoration: none;" rel="nofollow">hive.support.quoted.identifiers</a></code> is set to <code>none</code>, only alphanumeric and underscore characters are permitted in user names and role names.</p><p>For details, see <a href="https://issues.apache.org/jira/browse/HIVE-6013" class="external-link" rel="nofollow">HIVE-6013</a> and <a href="https://issues.apache.org/jira/secure/attachment/12618321/QuotedIdentifier.html" class="external-link" rel="nofollow">Supporting Quoted Identifiers in Column Names</a>.</p><p><span>As of <a href="https://issues.apache.org/jira/browse/HIVE-8083" class="external-link" rel="nofollow">Hive 0.14</a>, user may be optionally surrounded by </span><span>backtick characters (`) irrespective of the <code><a href="Configuration%2bProperties.html#ConfigurationProperties-hive.support.quoted.identifiers" rel="nofollow">hive.support.quoted.identifiers</a></code> setting.</span></p><h3 id="SQLStandardBasedHiveAuthorization-RoleManagementCommands"><strong>Role Management Commands</strong></h3><h4 id="SQLStandardBasedHiveAuthorization-CreateRole">Create Role</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">CREATE ROLE role_name;</pre>
+</div></div><p>Creates a new role. Only the <strong>admin</strong> role has privilege for this.</p><p>The role names ALL, DEFAULT and NONE are reserved.</p><h4 id="SQLStandardBasedHiveAuthorization-DropRole">Drop Role</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">DROP ROLE role_name;</pre>
+</div></div><p>Drops the given role. Only the <strong>admin</strong> role has privilege for this.</p><h4 id="SQLStandardBasedHiveAuthorization-ShowCurrentRoles">Show Current Roles</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">SHOW CURRENT ROLES;</pre>
+</div></div><p>Shows the list of the user's <a href="#SQLStandardBasedHiveAuthorization-UsersandRoles">current roles</a>. All actions of the user are authorized by looking at the privileges of the user and all current roles of the user.</p><p>The default current roles has all roles for the user except for the <strong>admin</strong> role (even if the user belongs to the <strong>admin</strong> role as well).</p><p>Any user can run this command.</p><h4 id="SQLStandardBasedHiveAuthorization-SetRole">Set Role</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">SET ROLE (role_name|ALL|NONE);</pre>
+</div></div><p>If a role_name is specified, then that role becomes the only role in current roles.</p><p>Setting role_name to ALL refreshes the list of current roles (in case new roles were granted to the user) and sets them to the default list of roles.</p><p>Setting role_name to NONE will remove all current roles from the current user. (It's introduced in <a href="https://issues.apache.org/jira/browse/HIVE-11780" class="external-link" rel="nofollow">HIVE-11780</a> and will be included in the upcoming versions 1.3.0 and 1.2.2.)</p><p>If a role the user does not belong to is specified as the role_name, it will result in an error.</p><h4 id="SQLStandardBasedHiveAuthorization-ShowRoles">Show Roles</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">SHOW ROLES;</pre>
+</div></div><p>List all currently existing roles.</p><p>Only the <strong>admin</strong> role has privilege for this.</p><h4 id="SQLStandardBasedHiveAuthorization-GrantRole">Grant Role</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">GRANT role_name [, role_name] ...
+TO principal_specification [, principal_specification] ... 
+[ WITH ADMIN OPTION ];
+
+principal_specification
+  : USER user
+  | ROLE role</pre>
+</div></div><p>Grant one or more roles to other roles or users.</p><p>If “WITH ADMIN OPTION” is specified, then the user gets privileges to grant the role to other users/roles.</p><p>If the grant statement ends up creating a cycling relationship between roles, the command will fail with an error.</p><h4 id="SQLStandardBasedHiveAuthorization-RevokeRole">Revoke Role</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">REVOKE [ADMIN OPTION FOR] role_name [, role_name] ...
+FROM principal_specification [, principal_specification] ... ;
+
+principal_specification
+  : USER user
+  | ROLE role</pre>
+</div></div><p>Revokes the membership of the roles from the user/roles in the FROM clause.</p><p>As of Hive 0.14.0, revoking just the ADMIN OPTION is possible with the use of REVOKE ADMIN OPTION FOR &lt;role&gt; (<a href="https://issues.apache.org/jira/browse/HIVE-6252" class="external-link" rel="nofollow">HIVE-6252</a>).</p><h4 id="SQLStandardBasedHiveAuthorization-ShowRoleGrant">Show Role Grant</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">SHOW ROLE GRANT (USER|ROLE) principal_name;</pre>
+</div></div><p>where <code>principal_name</code> is the name of a user or role.</p><p>Lists all roles the given user or role has been granted.</p><p>Currently any user can run this command. But this is likely to change in future to allow users to see only their own role grants, and additional privileges would be needed to see role grants of other users.</p><h5 id="SQLStandardBasedHiveAuthorization-ExampleofShowRoleGrant">Example of Show Role Grant</h5><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">0: jdbc:hive2://localhost:10000&gt; GRANT role1 TO USER user1;
+No rows affected (0.058 seconds)
+
+0: jdbc:hive2://localhost:10000&gt; SHOW ROLE GRANT USER user1;
++---------+---------------+----------------+----------+
+|  role   | grant_option  |   grant_time   | grantor  |
++---------+---------------+----------------+----------+
+| public  | false         | 0              |          |
+| role1   | false         | 1398284083000  | uadmin   |
++---------+---------------+----------------+----------+</pre>
+</div></div><h4 id="SQLStandardBasedHiveAuthorization-ShowPrincipals">Show Principals</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">SHOW PRINCIPALS role_name;</pre>
+</div></div><p>Lists all roles and users who belong to this role.</p><p>Only the <strong>admin</strong> role has privilege for this.</p><h5 id="SQLStandardBasedHiveAuthorization-ExampleofShowPrincipals">Example of Show Principals</h5><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">0: jdbc:hive2://localhost:10000&gt; SHOW PRINCIPALS role1;
++-----------------+-----------------+---------------+----------+---------------+----------------+
+| principal_name  | principal_type  | grant_option  | grantor  | grantor_type  |   grant_time   |
++-----------------+-----------------+---------------+----------+---------------+----------------+
+| role2           | ROLE            | false         | uadmin   | USER          | 1398285926000  |
+| role3           | ROLE            | true          | uadmin   | USER          | 1398285946000  |
+| user1           | USER            | false         | uadmin   | USER          | 1398285977000  |
++-----------------+-----------------+---------------+----------+---------------+----------------+</pre>
+</div></div><h2 id="SQLStandardBasedHiveAuthorization-ManagingObjectPrivileges">Managing Object Privileges</h2><h3 id="SQLStandardBasedHiveAuthorization-ObjectPrivilegeCommands">Object Privilege Commands</h3><h4 id="SQLStandardBasedHiveAuthorization-Grant">Grant</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">GRANT
+    priv_type [, priv_type ] ...
+    ON table_or_view_name
+    TO principal_specification [, principal_specification] ...
+    [WITH GRANT OPTION];</pre>
+</div></div><h4 id="SQLStandardBasedHiveAuthorization-Revoke">Revoke</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">REVOKE [GRANT OPTION FOR]
+    priv_type [, priv_type ] ...
+    ON table_or_view_name
+    FROM principal_specification [, principal_specification] ... ;
+
+principal_specification
+  : USER user
+  | ROLE role
+ 
+priv_type
+  : INSERT | SELECT | UPDATE | DELETE | ALL</pre>
+</div></div><p>If a user is granted a privilege WITH GRANT OPTION on a table or view, then the user can also grant/revoke privileges of other users and roles on those objects<span style="line-height: 1.4285715;">. As of Hive 0.14.0, the grant option for a privilege can be removed while still keeping the privilege by using REVOKE GRANT OPTION FOR &lt;privilege&gt; (</span><a href="https://issues.apache.org/jira/browse/HIVE-7404" style="line-height: 1.4285715;" class="external-link" rel="nofollow">HIVE-7404</a><span style="line-height: 1.4285715;">).</span></p><p>Note that in case of the REVOKE statement, the DROP-BEHAVIOR option of CASCADE is not currently supported (which is in SQL standard). As a result, the revoke statement will not drop any dependent privileges. For details on CASCADE behavior, you can check the <a href="http://www.postgresql.org/docs/8.4/static/sql-revoke.html" class="external-link" rel="nofollow">Postgres revoke documentation</a>.</p><p>Examples:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">0: jdbc:hive2://localhost:10000/default&gt; grant select on table secured_table to role my_role;
+No rows affected (0.046 seconds)
+
+0: jdbc:hive2://localhost:10000/default&gt; revoke update, select on table secured_table from role my_role;
+No rows affected (0.028 seconds)</pre>
+</div></div><p>Notice that in Hive, unlike in standard SQL, USER or ROLE must be specified in the principal_specification.</p><h4 id="SQLStandardBasedHiveAuthorization-ShowGrant">Show Grant</h4><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">SHOW GRANT [principal_specification] ON (ALL | [TABLE] table_or_view_name);
+ 
+principal_specification
+  : USER user
+  | ROLE role</pre>
+</div></div><p>Currently any user can run this command. But this is likely to change in the future to allow users to see only their own privileges, and additional privileges would be needed to see privileges of other users.</p><h3 id="SQLStandardBasedHiveAuthorization-ExamplesofManagingObjectPrivileges">Examples of Managing Object Privileges</h3><p>Find out the privileges user ashutosh has on table hivejiratable:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">0: jdbc:hive2://localhost:10000&gt; show grant user ashutosh on table hivejiratable;
++-----------+----------------+------------+---------+-----------------+-----------------+------------+---------------+----------------+----------+
+| database  |     table      | partition  | column  | principal_name  | principal_type  | privilege  | grant_option  |   grant_time   | grantor  |
++-----------+----------------+------------+---------+-----------------+-----------------+------------+---------------+----------------+----------+
+| default   | hivejiratable  |            |         | ashutosh        | USER            | DELETE     | false         | 1398303419000  | thejas   |
+| default   | hivejiratable  |            |         | ashutosh        | USER            | SELECT     | false         | 1398303407000  | thejas   |
++-----------+----------------+------------+---------+-----------------+-----------------+------------+---------------+----------------+----------+</pre>
+</div></div><p> </p><p>Find out the privileges user ashutosh has on all objects:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">0: jdbc:hive2://localhost:10000&gt; show grant user ashutosh on all;                               
++-----------+-------------------+------------+---------+-----------------+-----------------+------------+---------------+----------------+----------+
+| database  |       table       | partition  | column  | principal_name  | principal_type  | privilege  | grant_option  |   grant_time   | grantor  |
++-----------+-------------------+------------+---------+-----------------+-----------------+------------+---------------+----------------+----------+
+| default   | hivecontributors  |            |         | ashutosh        | USER            | DELETE     | false         | 1398303576000  | thejas   |
+| default   | hivecontributors  |            |         | ashutosh        | USER            | INSERT     | false         | 1398303576000  | thejas   |
+| default   | hivecontributors  |            |         | ashutosh        | USER            | SELECT     | false         | 1398303576000  | thejas   |
+| default   | hivejiratable     |            |         | ashutosh        | USER            | DELETE     | false         | 1398303419000  | thejas   |
+| default   | hivejiratable     |            |         | ashutosh        | USER            | SELECT     | false         | 1398303407000  | thejas   |
++-----------+-------------------+------------+---------+-----------------+-----------------+------------+---------------+----------------+----------+</pre>
+</div></div><p> </p><p>Find out the privileges all users have on table hivejiratable:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default">0: jdbc:hive2://localhost:10000&gt; show grant on table hivejiratable;
++-----------+----------------+------------+---------+-----------------+-----------------+------------+---------------+----------------+----------+
+| database  |     table      | partition  | column  | principal_name  | principal_type  | privilege  | grant_option  |   grant_time   | grantor  |
++-----------+----------------+------------+---------+-----------------+-----------------+------------+---------------+----------------+----------+
+| default   | hivejiratable  |            |         | ashutosh        | USER            | DELETE     | false         | 1398303419000  | thejas   |
+| default   | hivejiratable  |            |         | ashutosh        | USER            | SELECT     | false         | 1398303407000  | thejas   |
+| default   | hivejiratable  |            |         | navis           | USER            | INSERT     | false         | 1398303650000  | thejas   |
+| default   | hivejiratable  |            |         | navis           | USER            | SELECT     | false         | 1398303650000  | thejas   |
+| default   | hivejiratable  |            |         | public          | ROLE            | SELECT     | false         | 1398303481000  | thejas   |
+| default   | hivejiratable  |            |         | thejas          | USER            | DELETE     | true          | 1398303380000  | thejas   |
+| default   | hivejiratable  |            |         | thejas          | USER            | INSERT     | true          | 1398303380000  | thejas   |
+| default   | hivejiratable  |            |         | thejas          | USER            | SELECT     | true          | 1398303380000  | thejas   |
+| default   | hivejiratable  |            |         | thejas          | USER            | UPDATE     | true          | 1398303380000  | thejas   |
++-----------+----------------+------------+---------+-----------------+-----------------+------------+---------------+----------------+----------+</pre>
+</div></div><h2 id="SQLStandardBasedHiveAuthorization-PrivilegesRequiredforHiveOperations">Privileges Required for Hive Operations</h2><p><em>Codes</em></p><p>Y:  Privilege required.</p><p>Y + G:  Privilege &quot;WITH GRANT OPTION&quot; required.</p><div class="table-wrap"><table style="margin-left: 0.0px;" class="confluenceTable"><tbody><tr><th style="text-align: left;" class="confluenceTh"><div class="tablesorter-header-inner">Action</div></th><th style="text-align: left;" class="confluenceTh"><div class="tablesorter-header-inner">Select</div></th><th style="text-align: left;" class="confluenceTh"><div class="tablesorter-header-inner">Insert</div></th><th colspan="1" class="confluenceTh">Update</th><th style="text-align: left;" class="confluenceTh"><div class="tablesorter-header-inner">Delete</div></th><th style="text-align: left;" class="confluenceTh"><div class="tablesorter-header-inner">Ownership</div></th><th style="text-align: left;" class="confluenceTh"><div class="tablesorter-header-inner">Admin</div></th><th style="text-align: left;" class="confluenceTh"><div class="tablesorter-header-inner">URI Privilege (RWX Permission + Ownership)</div></th></tr><tr><td style="text-align: left;" class="confluenceTd">CREATE TABLE</td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd">Y (of database)</td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd">Y  (for create external table – the location)</td></tr><tr><td style="text-align: left;" class="confluenceTd">DROP TABLE</td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd">Y</td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td></tr><tr><td style="text-align: left;" class="confluenceTd">DESCRIBE TABLE</td><td style="text-align: left;" class="confluenceTd">Y</td><td style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td></tr><tr><td style="text-align: left;" class="confluenceTd">SHOW PARTITIONS</td><td style="text-align: left;" class="confluenceTd">Y</td><td style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td></tr><tr><td style="text-align: left;" class="confluenceTd">ALTER TABLE LOCATION</td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd">Y</td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd">Y (for new location)</td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">ALTER PARTITION LOCATION</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y (for new partition location)</td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">ALTER TABLE ADD PARTITION</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y (for partition location)</td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd"><span>ALTER TABLE DROP PARTITION</span></td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">ALTER TABLE (all of them except the ones above)</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">TRUNCATE TABLE</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">CREATE VIEW</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y + G</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">ALTER VIEW PROPERTIES</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">ALTER VIEW RENAME</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">DROP VIEW PROPERTIES</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td style="text-align: left;" class="confluenceTd">DROP VIEW</td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd">Y</td><td style="text-align: left;" class="confluenceTd"> </td><td style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">ANALYZE TABLE</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">SHOW COLUMNS</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">SHOW TABLE STATUS</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">SHOW TABLE PROPERTIES</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">CREATE TABLE AS SELECT</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y (of input)</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y (of database)</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">CREATE INDEX</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y (of table)</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">DROP INDEX</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">ALTER INDEX REBUILD</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">ALTER INDEX PROPERTIES</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">SELECT</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">INSERT</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Y</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Y (for OVERWRITE)</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">UPDATE</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Y</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">DELETE</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Y</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">LOAD</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y (output)</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y (output)</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y (input location)</td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">SHOW CREATE TABLE</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y+G</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">CREATE FUNCTION</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">DROP FUNCTION</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">CREATE MACRO</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">DROP MACRO</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">MSCK (metastore check)</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">ALTER DATABASE</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">CREATE DATABASE</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y (if custom location specified)</td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">EXPLAIN</td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr><tr><td colspan="1" style="text-align: left;" class="confluenceTd">DROP DATABASE</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd">Y</td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td><td colspan="1" style="text-align: left;" class="confluenceTd"> </td></tr></tbody></table></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version Information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 3.0.0 (<a href="https://issues.apache.org/jira/browse/HIVE-12408" class="external-link" rel="nofollow">HIVE-12408</a>), Ownership is not required for the URI Privilege.</p></div></div><h2 id="SQLStandardBasedHiveAuthorization-Configuration"><br/>Configuration</h2><h3 id="SQLStandardBasedHiveAuthorization-ForHive0.13.x">For Hive 0.13.x</h3><p><strong>Set the following in hive-site.xml:</strong></p><ul><li>hive.server2.enable.doAs to false.</li><li>hive.users.in.admin.role to the list of comma-separated users who need to be added to <strong>admin</strong> role. Note that a user who belongs to the <strong>admin</strong> role needs to run the &quot;<code><a href="#SQLStandardBasedHiveAuthorization-SetRole">set role</a></code>&quot; command before getting the privileges of the <strong>admin</strong> role, as this role is not in current roles by default.<br/><br/></li></ul><p><strong>Start HiveServer2 with the following additional command-line options:</strong></p><ul><li>-hiveconf hive.security.authorization.manager=org.apache.hadoop.hive.ql.security.authorization.plugin.sqlstd.SQLStdHiveAuthorizerFactory</li></ul><div class="user-content-block"><ul><li>-hiveconf hive.security.authorization.enabled=true</li><li>-hiveconf hive.security.authenticator.manager=org.apache.hadoop.hive.ql.security.SessionStateUserAuthenticator</li><li>-hiveconf hive.metastore.uris=' '</li></ul></div><h3 id="SQLStandardBasedHiveAuthorization-ForHive0.14andNewer">For Hive 0.14 and Newer</h3><p><strong>Set the following in hive-site.xml:</strong></p><ul><li><strong>hive.server2.enable.doAs</strong> to false.</li><li><strong>hive.users.in.admin.role</strong> to the list of comma-separated users who need to be added to <strong>admin</strong> role. Note that a user who belongs to the <strong>admin</strong> role needs to run the &quot;<code><a href="#SQLStandardBasedHiveAuthorization-SetRole">set role</a></code>&quot; command before getting the privileges of the <strong>admin</strong> role, as this role is not in current roles by default.</li><li><p>Add org.apache.hadoop.hive.ql.security.authorization.MetaStoreAuthzAPIAuthorizerEmbedOnly to <strong>hive.security.metastore.authorization.manager</strong>. (It takes a comma separated list, so you can add it along with StorageBasedAuthorization parameter, if you want to enable that as well).<br/>This setting disallows any of the authorization api calls to be invoked in a remote metastore. HiveServer2 can be configured to use embedded metastore, and that will allow it to invoke metastore authorization api. Hive cli and any other remote metastore users would be denied authorization when they try to make authorization api calls. This restricts the authorization api to privileged HiveServer2 process. You should also ensure that the metastore rdbms access is restricted to the metastore server and hiverserver2.</p></li><li><p><strong>hive.security.authorization.manager</strong> to org.apache.hadoop.hive.ql.security.authorization.plugin.sqlstd.SQLStdConfOnlyAuthorizerFactory. This will ensure that any table or views created by hive-cli have default privileges granted for the owner.</p></li></ul><p><strong>Set the following in hiveserver2-site.xml:</strong></p><ul><li>hive.security.authorization.manager=org.apache.hadoop.hive.ql.security.authorization.plugin.sqlstd.SQLStdHiveAuthorizerFactory</li></ul><div class="user-content-block"><ul><li>hive.security.authorization.enabled=true</li><li>hive.security.authenticator.manager=org.apache.hadoop.hive.ql.security.SessionStateUserAuthenticator</li><li>hive.metastore.uris=' '</li></ul></div><h2 id="SQLStandardBasedHiveAuthorization-KnownIssues">Known Issues</h2><h3 id="SQLStandardBasedHiveAuthorization-Hive0.13">Hive 0.13</h3><p><a href="https://issues.apache.org/jira/browse/HIVE-6985" class="external-link" rel="nofollow">HIVE-6985</a> – SQL std auth - privileges grants to public role not being honored</p><p><span style="color: rgb(34,34,34);"><a href="https://issues.apache.org/jira/browse/HIVE-6919" class="external-link" rel="nofollow">HIVE-6919</a> – <span style="color: rgb(34,34,34);">Hive sql std auth select query fails on partitioned tables</span></span></p><p><span style="color: rgb(34,34,34);"><span style="color: rgb(34,34,34);"><span><a href="https://issues.apache.org/jira/browse/HIVE-6921" class="external-link" rel="nofollow">HIVE-6921</a> – <span>Index creation fails with SQL std auth turned on</span></span></span></span></p><p><span><a href="https://issues.apache.org/jira/browse/HIVE-6957" class="external-link" rel="nofollow">HIVE-6957</a> – <span>SQL authorization does not work with HS2 binary mode and Kerberos auth</span></span></p><p><span style="color: rgb(34,34,34);"><a href="https://cwiki.apache.org/confluence/download/attachments/40509928/hivecve_signed.txt?version=1&amp;modificationDate=1402682751000&amp;api=v2" data-linked-resource-id="42696874" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hivecve_signed.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="40509928" data-linked-resource-container-version="71">CVE-2014-0228</a><span style="color: rgb(34,34,34);"> </span> - Export/Import statement not authorized. </span></p><h3 id="SQLStandardBasedHiveAuthorization-Hive0.13.1">Hive 0.13.1</h3><p><span style="color: rgb(34,34,34);">The known issues noted above under Hive 0.13.0 have been fixed in 0.13.1 release.</span></p><h2 id="SQLStandardBasedHiveAuthorization-References"><span style="font-size: 20.0px;line-height: 1.5;">References</span></h2><p>For information on the SQL standard for security see:</p><ul><li>ISO 9075 Part 1 Framework sections 4.2.6 (Roles), 4.6.11 (Privileges)</li><li>ISO 9075 Part 2 Foundation sections 4.35 (Basic security model) and 12 (Access control)</li></ul><h2 id="SQLStandardBasedHiveAuthorization-Troubleshooting">Troubleshooting</h2><p style="margin-left: 30.0px;"><em><strong>Problem:</strong></em>  My user name is in hive.users.in.admin.role in hive-site.xml, but I still get the error that user is not an <strong>admin</strong>. What could be wrong?</p><p style="margin-left: 60.0px;"><em><strong>Do This:</strong></em>  Ensure that you have restarted HiveServer2 after a configuration change and that you have used the HiveServer2 command line options as described in <a href="#SQLStandardBasedHiveAuthorization-Configuration">Configuration</a> above.</p><p style="margin-left: 60.0px;"><em><strong>Do This:</strong></em>  Ensure that you have run a '<code><a href="#SQLStandardBasedHiveAuthorization-SetRole">set role</a> admin;</code>' command to get the <strong>admin</strong> role.</p>
+
+                
+        
+    
+        </div>
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="40509928" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+        
+
+
+                
+    
+            
+</div>
+
+    
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Apps" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Apps</div>
+    </div>
+        
+
+
+
+            </div><!-- \#main -->
+            
+    
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="https://www.atlassian.com/software/views/opensource-community-additional-license-offer">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link" rel="nofollow">Atlassian Confluence</a> <span id='footer-build-information'>7.13.2</span></li>
+            <li class="print-only">Printed by Atlassian Confluence 7.13.2</li>
+            <li class="noprint"><a href="https://support.atlassian.com/help/confluence" class="hover-footer-link" rel="nofollow">Report a bug</a></li>
+            <li class="noprint"><a href="https://www.atlassian.com/company" class="hover-footer-link" rel="nofollow">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/" rel="nofollow">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+    <span style="display:none;" id="confluence-server-performance">{"serverDuration": 61, "requestCorrelationId": "81dff11a44c514d2"}</span>
+</body>
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/SQL+Standard+Based+Hive+Authorization by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:45:18 GMT -->
+</html>
+    

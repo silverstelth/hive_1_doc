@@ -1,0 +1,810 @@
+    
+
+<!DOCTYPE html>
+<html lang="en-GB" >
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/LLAP by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:41:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+                            <title>LLAP - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+    <meta id="atlassian-token" name="atlassian-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1639597152519">
+        
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="f372abdc7d1a6481c736efc7686d149c">
+            <meta id="team-calendars-has-jira-link" content="true">
+            <meta name="ajs-team-calendars-display-time-format" content="displayTimeFormat12">
+            <meta id="team-calendars-display-week-number" content="false">
+            <meta id="team-calendars-user-timezone" content="Etc/UTC">
+            <script type="text/x-template" id="team-calendars-messages" title="team-calendars-messages"><fieldset class="i18n hidden"><input type="hidden" name="calendar3.month.long.july" value="July"><input type="hidden" name="calendar3.day.short.wednesday" value="Wed"><input type="hidden" name="calendar3.day.short.thursday" value="Thu"><input type="hidden" name="calendar3.month.short.march" value="Mar"><input type="hidden" name="calendar3.month.long.april" value="April"><input type="hidden" name="calendar3.month.long.october" value="October"><input type="hidden" name="calendar3.month.long.august" value="August"><input type="hidden" name="calendar3.month.short.july" value="Jul"><input type="hidden" name="calendar3.month.short.may" value="May"><input type="hidden" name="calendar3.month.short.november" value="Nov"><input type="hidden" name="calendar3.day.long.friday" value="Friday"><input type="hidden" name="calendar3.day.long.sunday" value="Sunday"><input type="hidden" name="calendar3.day.long.saturday" value="Saturday"><input type="hidden" name="calendar3.month.short.april" value="Apr"><input type="hidden" name="calendar3.day.long.wednesday" value="Wednesday"><input type="hidden" name="calendar3.month.long.december" value="December"><input type="hidden" name="calendar3.month.short.october" value="Oct"><input type="hidden" name="calendar3.day.long.monday" value="Monday"><input type="hidden" name="calendar3.month.short.june" value="Jun"><input type="hidden" name="calendar3.day.short.monday" value="Mon"><input type="hidden" name="calendar3.day.short.tuesday" value="Tue"><input type="hidden" name="calendar3.day.short.saturday" value="Sat"><input type="hidden" name="calendar3.month.long.march" value="March"><input type="hidden" name="calendar3.month.long.june" value="June"><input type="hidden" name="calendar3.month.short.february" value="Feb"><input type="hidden" name="calendar3.month.short.august" value="Aug"><input type="hidden" name="calendar3.month.short.december" value="Dec"><input type="hidden" name="calendar3.day.short.sunday" value="Sun"><input type="hidden" name="calendar3.month.long.february" value="February"><input type="hidden" name="calendar3.day.long.tuesday" value="Tuesday"><input type="hidden" name="calendar3.month.long.may" value="May"><input type="hidden" name="calendar3.month.long.september" value="September"><input type="hidden" name="calendar3.month.long.november" value="November"><input type="hidden" name="calendar3.month.short.january" value="Jan"><input type="hidden" name="calendar3.month.short.september" value="Sep"><input type="hidden" name="calendar3.day.long.thursday" value="Thursday"><input type="hidden" name="calendar3.month.long.january" value="January"><input type="hidden" name="calendar3.day.short.friday" value="Fri"></fieldset></script>
+            
+    
+    
+            <meta name="ajs-page-title" content="LLAP">
+            <meta name="ajs-latest-published-page-title" content="LLAP">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-page-id" content="62689557">
+            <meta name="ajs-latest-page-id" content="62689557">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-parent-page-title" content="DesignDocs">
+            <meta name="ajs-parent-page-id" content="27362075">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-max-number-editors" content="12">
+            <meta name="ajs-macro-placeholder-timeout" content="5000">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-can-remove-page-hierarchy" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="true">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="7.13.2">
+            <meta name="ajs-build-number" content="8703">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-remote-user-has-licensed-access" content="false">
+            <meta name="ajs-remote-user-has-browse-users-permission" content="false">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-current-user-avatar-uri-reference" content="/confluence/images/icons/profilepics/anonymous.svg">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/6dvx22/8703/4mhn8a/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-global-settings-quick-search-enabled" content="true">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="site-wide.shared-drafts,site-wide.synchrony,clc.quick.create,confluence.view.edit.transition,cql.search.screen,confluence-inline-comments-resolved,frontend.editor.v4,http.session.registrar,nps.survey.inline.dialog,confluence.efi.onboarding.new.templates,frontend.editor.v4.compatibility,atlassian.cdn.static.assets,pdf-preview,previews.sharing,previews.versions,file-annotations,confluence.efi.onboarding.rich.space.content,collaborative-audit-log,confluence.reindex.improvements,previews.conversion-service,editor.ajax.save,read.only.mode,graphql,previews.trigger-all-file-types,attachment.extracted.text.extractor,lucene.caching.filter,confluence.table.resizable,notification.batch,previews.sharing.pushstate,confluence-inline-comments-rich-editor,tc.tacca.dacca,site-wide.synchrony.opt-in,file-annotations.likes,gatekeeper-ui-v2,v2.content.name.searcher,mobile.supported.version,pulp,confluence-inline-comments,confluence-inline-comments-dangling-comment,quick-reload-inline-comments-flags">
+            <meta name="ajs-atl-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-access-mode" content="READ_WRITE">
+            <meta name="ajs-render-mode" content="READ_WRITE">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+    <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\u0022\u005C/confluence\u0022";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.confluence.plugins.synchrony-interop:synchrony-status-banner-loader.synchrony-status"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:policy-update-init.policy-update-data-provider"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:programmatic-analytics-init.programmatic-analytics-data-provider"]="false";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-help-paths"]="{\u0022entries\u0022:{\u0022applinks.docs.root\u0022:\u0022https://confluence.atlassian.com/display/APPLINKS-072/\u0022,\u0022applinks.docs.diagnostics.troubleshoot.sslunmatched\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthsignatureinvalid\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthtimestamprefused\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.delete.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.adding.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administration.guide\u0022:\u0022Application+Links+Documentation\u0022,\u0022applinks.docs.oauth.security\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.troubleshoot.application.links\u0022:\u0022Troubleshoot+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownerror\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.trusted.apps\u0022:\u0022Configuring+Trusted+Applications+authentication+for+an+application+link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelunsupported\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.ssluntrusted\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownhost\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.delete.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.adding.project.link\u0022:\u0022Configuring+Project+links+across+Applications\u0022,\u0022applinks.docs.link.applications\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthproblem\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.migration\u0022:\u0022Update+application+links+to+use+OAuth\u0022,\u0022applinks.docs.relocate.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administering.entity.links\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.upgrade.application.link\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.connectionrefused\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.oauth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.insufficient.remote.permission\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.configuring.application.link.auth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics\u0022:\u0022Application+links+diagnostics\u0022,\u0022applinks.docs.configured.authentication.types\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.adding.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unexpectedresponse\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.basic\u0022:\u0022Configuring+Basic+HTTP+Authentication+for+an+Application+Link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelmismatch\u0022:\u0022OAuth+troubleshooting+guide\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-types"]="{\u0022crowd\u0022:\u0022Crowd\u0022,\u0022confluence\u0022:\u0022Confluence\u0022,\u0022fecru\u0022:\u0022FishEye / Crucible\u0022,\u0022stash\u0022:\u0022Stash\u0022,\u0022jira\u0022:\u0022Jira\u0022,\u0022refapp\u0022:\u0022Reference Application\u0022,\u0022bamboo\u0022:\u0022Bamboo\u0022,\u0022generic\u0022:\u0022Generic Application\u0022}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.entity-types"]="{\u0022singular\u0022:{\u0022refapp.charlie\u0022:\u0022Charlie\u0022,\u0022fecru.project\u0022:\u0022Crucible Project\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repository\u0022,\u0022stash.project\u0022:\u0022Stash Project\u0022,\u0022generic.entity\u0022:\u0022Generic Project\u0022,\u0022confluence.space\u0022:\u0022Confluence Space\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Project\u0022,\u0022jira.project\u0022:\u0022Jira Project\u0022},\u0022plural\u0022:{\u0022refapp.charlie\u0022:\u0022Charlies\u0022,\u0022fecru.project\u0022:\u0022Crucible Projects\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repositories\u0022,\u0022stash.project\u0022:\u0022Stash Projects\u0022,\u0022generic.entity\u0022:\u0022Generic Projects\u0022,\u0022confluence.space\u0022:\u0022Confluence Spaces\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Projects\u0022,\u0022jira.project\u0022:\u0022Jira Projects\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.authentication-types"]="{\u0022com.atlassian.applinks.api.auth.types.BasicAuthenticationProvider\u0022:\u0022Basic Access\u0022,\u0022com.atlassian.applinks.api.auth.types.TrustedAppsAuthenticationProvider\u0022:\u0022Trusted Applications\u0022,\u0022com.atlassian.applinks.api.auth.types.CorsAuthenticationProvider\u0022:\u0022CORS\u0022,\u0022com.atlassian.applinks.api.auth.types.OAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthWithImpersonationAuthenticationProvider\u0022:\u0022OAuth\u0022}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\u0022daysBeforeLicenseExpiry\u0022:0,\u0022daysBeforeMaintenanceExpiry\u0022:0,\u0022showLicenseExpiryBanner\u0022:false,\u0022showMaintenanceExpiryBanner\u0022:false,\u0022renewUrl\u0022:null,\u0022salesUrl\u0022:null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-search-ui-plugin:confluence-search-ui-plugin-resources.i18n-data"]="{\u0022search.ui.recent.link.text\u0022:\u0022View more recently visited\u0022,\u0022search.ui.filter.space.category.input.label\u0022:\u0022Find space categories...\u0022,\u0022search.ui.search.results.empty\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching \u005C\u0022{0}\u005C\u0022.\u0022,\u0022search.ui.filter.clear.selected\u0022:\u0022Clear selected items\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.button.text\u0022:\u0022Show more app results...\u0022,\u0022search.ui.filter.space.archive.label\u0022:\u0022Search archived spaces\u0022,\u0022search.ui.filter.label\u0022:\u0022filter\u0022,\u0022search.ui.filter.contributor.button.text\u0022:\u0022Contributor\u0022,\u0022search.ui.filter.date.all.text\u0022:\u0022Any time\u0022,\u0022search.ui.filter.space.current.label\u0022:\u0022CURRENT\u0022,\u0022search.ui.clear.input.button.text\u0022:\u0022Clear text\u0022,\u0022search.ui.search.results.clear.button\u0022:\u0022clear your filters.\u0022,\u0022search.ui.filter.date.hour.text\u0022:\u0022The past day\u0022,\u0022help.search.ui.link.title\u0022:\u0022Search tips\u0022,\u0022search.ui.filters.heading\u0022:\u0022Filter by\u0022,\u0022search.ui.filter.label.input.label\u0022:\u0022Find labels...\u0022,\u0022search.ui.recent.items.anonymous\u0022:\u0022Start exploring. Your search results will appear here.\u0022,\u0022search.ui.filter.date.month.text\u0022:\u0022The past month\u0022,\u0022search.ui.input.label\u0022:\u0022Search\u0022,\u0022search.ui.search.result\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}\u0022,\u0022search.ui.infinite.scroll.button.text\u0022:\u0022More results\u0022,\u0022search.ui.filter.date.button.text\u0022:\u0022Date\u0022,\u0022search.ui.filter.date.week.text\u0022:\u0022The past week\u0022,\u0022search.ui.filter.label.button.text\u0022:\u0022Label\u0022,\u0022search.ui.input.alert\u0022:\u0022Hit enter to search\u0022,\u0022search.ui.result.subtitle.calendar\u0022:\u0022Team calendar\u0022,\u0022search.ui.filter.no.result.text\u0022:\u0022We can\u005Cu0027\u005Cu0027t find anything matching your search\u0022,\u0022search.ui.filter.date.heading\u0022:\u0022Last modified within\u0022,\u0022search.ui.result.subtitle.user\u0022:\u0022User profile\u0022,\u0022search.ui.filter.contributor.input.label\u0022:\u0022Find people...\u0022,\u0022search.ui.filter.content.type.button.text\u0022:\u0022Type\u0022,\u0022search.ui.filter.space.input.label\u0022:\u0022Find spaces...\u0022,\u0022search.ui.filter.date.year.text\u0022:\u0022The past year\u0022,\u0022search.ui.advanced.search.link.text\u0022:\u0022Advanced search\u0022,\u0022search.ui.filter.space.button.text\u0022:\u0022Space\u0022,\u0022search.ui.generic.error\u0022:\u0022Something went wrong. Refresh the page, or contact your admin if this keeps happening.\u0022,\u0022search.ui.recent.spaces\u0022:\u0022Recent Spaces\u0022,\u0022search.ui.search.results.clear.line2\u0022:\u0022Try a different search term or\u0022,\u0022search.ui.filter.space.category.button.text\u0022:\u0022Space category\u0022,\u0022search.ui.search.results.clear.line1\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching your search.\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.admin.button.text\u0022:\u0022Show more settings and app results...\u0022,\u0022search.ui.recent.pages\u0022:\u0022Recently visited\u0022,\u0022search.ui.search.result.anonymous\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}. Have an account? {1}Log in{2} to expand your search.\u0022,\u0022search.ui.recent.items.empty\u0022:\u0022Start exploring. Pages and spaces you\u005Cu0027\u005Cu0027ve visited recently will appear here.\u0022,\u0022search.ui.result.subtitle.space\u0022:\u0022Space\u0022,\u0022search.ui.filter.space.init.heading\u0022:\u0022recent spaces\u0022}";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="../../s/ad0cdaf669e3a7800fb6fa6452e260e4-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/css/_super/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/585884a9f3984b0aaecef0baf40c1e6e-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch1203.css?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" media="all">
+<script type="text/javascript" src="../../s/58e418cc99c782d6bf891d0ee81d3e82-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/js/_super/batch6116.js?locale=en-GB" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered></script>
+<script type="text/javascript" src="../../s/d8f9091841663d4e3446e48379e476f1-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/js/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch3a32.js?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true&amp;locale=en-GB" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" data-initially-rendered></script>
+
+    
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+            
+    
+
+    
+                <link rel="canonical" href="LLAP.html">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/FZG8Aw">
+    <meta name="wikilink" content="[Hive:LLAP]">
+    <meta name="page-version" content="19">
+    <meta name="ajs-page-version" content="19">
+
+</head>
+
+    
+<body      id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            
+
+<fieldset class="parameters hidden" style="display: none;">
+            <input type="hidden" id="listAnalyticsKey" value="19"/>
+        <input type="hidden" id="listAnalyticsDomain" value="comalatech.matomo.cloud"/>
+    </fieldset>
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="#title-heading">Skip to content</a></li>
+    <li><a href="#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="#navigation">Skip to action menu</a></li>
+    <li><a href="#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+        
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" aria-label="Site"><div class="aui-header-inner"><div class="aui-header-before"><button class=" aui-dropdown2-trigger app-switcher-trigger aui-dropdown2-trigger-arrowless" aria-controls="app-switcher" aria-haspopup="true" role="button" data-aui-trigger href="#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></button><div id="app-switcher" class="aui-dropdown2 aui-style-default" role="menu" hidden data-is-switcher="true" data-environment="{&quot;isUserAdmin&quot;:false,&quot;isAppSuggestionAvailable&quot;:false,&quot;isSiteAdminUser&quot;:false}"><div class="app-switcher-loading">Loading&hellip;</div></div></div><div class="aui-header-primary"><span id="logo" class="aui-header-logo aui-header-logo-confluence"><a href="https://cwiki.apache.org/confluence/" aria-label="Go to home page"><span class="aui-header-logo-device">Apache Software Foundation</span></a></span><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                                <li class="aui-buttons">
+            </li>
+</ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <div id="search-ui" class="aui-quicksearch dont-default-focus header-quicksearch"><input id="quick-search-query" aria-label="Search" placeholder="Search" type="text" /><div id="quick-search-alert" role="alert">Hit enter to search</div><aui-spinner size="small"></aui-spinner></div>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger aui-dropdown2-trigger-arrowless" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-question-filled">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-713/" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-713/help.whats.new.iframe.link" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://confluence.atlassian.com/display/DOC/Confluence+7.13+Release+Notes" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FLLAP" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+    
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+                                            
+                            <div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo" data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="Home.html" title="Apache Hive"><img class="avatar-img" src="https://cwiki.apache.org/confluence/download/attachments/27362113/Hive?version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="space-information-container"><div class="name"><a href="Home.html" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon aui-icon aui-icon-small aui-iconfont-edit"></div></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-page-tree-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" aria-current="true" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"><h5 class="ia-quick-links-header-title">Space shortcuts</h5><div class="quick-links-section tipsy-enabled "><ul class="acs-nav-list"><li class="acs-nav-item pinned_page blueprint kb-how-to-article"><a class="acs-nav-item-link tipsy-enabled" href="How-to%2barticles.html" data-collapsed-tooltip="null"><span class="icon"></span><span class="acs-nav-item-label">How-to articles</span></a></li></ul></div></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="DesignDocs.html" title="DesignDocs"><span class="icon"></span><span class="label">DesignDocs</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">LLAP</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><button id="space-tools-menu-trigger"  class=" aui-dropdown2-trigger aui-button aui-button-subtle tipsy-enabled aui-dropdown2-trigger-arrowless " aria-controls="space-tools-menu" aria-haspopup="true" role="button" data-aui-trigger><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="aui-button-label">Space tools</span><span class="aui-icon "></span></button><div id="space-tools-menu" class="aui-dropdown2 aui-style-default space-tools-dropdown" role="menu" hidden data-aui-alignment="top left"></div><a href="#" role="button" class="expand-collapse-trigger aui-icon aui-icon-small aui-iconfont-chevron-double-left" aria-expanded="true"></a></div>
+                    
+                        			</div>
+    		</div>
+        <!-- \#header -->
+
+            
+    
+        <div id="main" class=" aui-page-panel">
+                        <div id="main-header">
+                        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                            
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-label="More options" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more" aria-label="More options"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-primary"                         class="section-primary first">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=62689557" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments" >
+                        <span>
+                                A<u>t</u>tachments (2)
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=62689557" rel="nofollow" class="action-view-history"   title="" >
+                        <span>
+                                Page History
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="who-can-view-button-ak-button" href="https://cwiki.apache.org/confluence" rel="nofollow" class="who-can-view-link"   title="" >
+                        <span>
+                                People who can view
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-secondary"                         class="section-secondary">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="" >
+                        <span>
+                                Resolved comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=62689557" rel="nofollow" class="action-view-info"   title="" >
+                        <span>
+                                Page Information
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=62689557#selectedPageInHierarchy" rel="nofollow" class=""   title="" >
+                        <span>
+                                View in Hierarchy
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=62689557" rel="nofollow" class="action-view-source popup-link"   title="" >
+                        <span>
+                                View Source
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=62689557" rel="nofollow" class=""   title="" >
+                        <span>
+                                Delete comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=62689557" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to PDF
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=62689557" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to EPUB
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=62689557" rel="nofollow" class="action-export-word"   title="" >
+                        <span>
+                                Export to Word
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-modify"                         class="section-modify">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/tree-copy/preparing-copying.action?pageId=62689557" rel="nofollow" class=""   title="" >
+                        <span>
+                                Copy Page Tree
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="DesignDocs.html">DesignDocs</a></span>
+                                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="#" title="Unrestricted" id="content-metadata-page-restrictions-hidden" class="hidden"></a><a href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=62689557&amp;metadataLink=true" title="2 attachments" id="content-metadata-attachments" class="aui-icon aui-icon-small aui-iconfont-attachment"></a></li><li class="page-metadata-item noprinthas-button"  id="content-metadata-jira-wrapper"><a href="#" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><span>Jira links</span></a></li></ul></div>
+            
+
+<a href="#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="LLAP.html">LLAP</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+            
+    
+
+                                
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+    
+            
+        
+
+    
+    
+
+    
+            
+        
+
+
+
+    
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+            <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+            
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dasears&amp;permissionViolation=true"
+                       class="url fn"
+                            >Andrew Sears</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dprasanthj&amp;permissionViolation=true"
+                       class="url fn"
+                            >Prasanth J</a></span> on <a class='last-modified' title='Show changes' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=62689557&amp;selectedPageVersions=18&amp;selectedPageVersions=19'>Sep 30, 2017</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <p><div class="toc-macro client-side-toc-macro  conf-macro output-block" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-hasbody="false" data-macro-name="toc"> </div></p><p>Live Long And Process (LLAP) functionality was added in Hive 2.0 (<a class="external-link" href="https://issues.apache.org/jira/browse/HIVE-7926" rel="nofollow">HIVE-7926</a> and associated tasks). <a href="https://issues.apache.org/jira/browse/HIVE-9850" class="external-link" rel="nofollow">HIVE-9850</a> links documentation, features, and issues for this enhancement.</p><p>For configuration of LLAP, see the LLAP Section of <a href="Configuration%2bProperties.html#ConfigurationProperties-LLAP">Configuration Properties</a>.</p><h2 id="LLAP-Overview">Overview</h2><p>Hive has become significantly faster thanks to various features and improvements that were built by the community in recent years, including <a href="Hive%2bon%2bTez.html">Tez </a>and <a href="Cost-based%2boptimization%2bin%2bHive.html">Cost-based-optimization</a>. The following were needed to take Hive to the next level:</p><ul><li>Asynchronous spindle-aware IO</li><li>Pre-fetching and caching of column chunks</li><li>Multi-threaded JIT-friendly operator pipelines</li></ul><p>Also known as Live Long and Process, LLAP provides a hybrid execution model.  It consists of a long-lived daemon which replaces direct interactions with the HDFS DataNode, and a tightly integrated DAG-based framework.<br/>Functionality such as caching, pre-fetching, some query processing and access control are moved into the daemon.  Small/short queries are largely processed by this daemon directly, while any heavy lifting will be performed in standard YARN containers.</p><p>Similar to the DataNode, LLAP daemons can be used by other applications as well, especially if a relational view on the data is preferred over file-centric processing. The daemon is also open through optional APIs (e.g., InputFormat) that can be leveraged by other data processing frameworks as a building block.</p><p>Last, but not least, fine-grained column-level access control <span class="tL8wMe EMoHub">–</span> a key requirement for mainstream adoption of Hive <span class="tL8wMe EMoHub">–</span> fits nicely into this model.</p><p><span>The diagram below shows an example execution with LLAP. Tez AM orchestrates overall execution. The initial stage of the query is pushed into LLAP. In the reduce stage, large shuffles are performed in separate containers. Multiple queries and applications can access LLAP concurrently. </span></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="../../download/attachments/62689557/LLAP_diagramd84e.png?version=1&amp;modificationDate=1474327021000&amp;api=v2" data-image-src="/confluence/download/attachments/62689557/LLAP_diagram.png?version=1&amp;modificationDate=1474327021000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="65871225" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="LLAP_diagram.png" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="62689557" data-linked-resource-container-version="19"></span></p><h2 id="LLAP-PersistentDaemon">Persistent Daemon</h2><p>To facilitate caching and JIT optimization, and to eliminate most of the startup costs, a daemon runs on the worker nodes on the cluster. The daemon handles I/O, caching, and query fragment execution.</p><ul><li><strong>These nodes are stateless.</strong> Any request to an LLAP node contains the data location and metadata. It processes local and remote locations; locality is the caller’s responsibility (YARN).</li><li><strong>Recovery/resiliency.</strong> Failure and recovery is simplified because any data node can still be used to process any fragment of the input data. The Tez AM can thus simply rerun failed fragments on the cluster.</li><li><strong>Communication between nodes.</strong> LLAP nodes are able to share data (e.g., fetching partitions, broadcasting fragments). This is realized with the same mechanisms used in Tez.</li></ul><h2 id="LLAP-ExecutionEngine">Execution Engine</h2><p>LLAP works within existing, process-based Hive execution to preserve the scalability and versatility of Hive. It does not replace the existing execution model but rather enhances it.</p><ul><li><strong>The daemons are optional.</strong> Hive can work without them and also is able to bypass them even if they are deployed and operational. Feature parity with regard to language features is maintained.</li><li><strong>External orchestration and execution engines.</strong> LLAP is not an execution engine (like MapReduce or Tez). Overall execution is scheduled and monitored by an existing Hive execution engine (such as Tez) transparently over both LLAP nodes, as well as regular containers. Obviously, LLAP level of support depends on each individual execution engine (starting with Tez). MapReduce support is not planned, but other engines may be added later. Other frameworks like Pig also have the choice of using LLAP daemons.</li><li><strong>Partial execution.</strong> The result of the work performed by an LLAP daemon can either form part of the result of a Hive query, or be passed on to external Hive tasks, depending on the query.</li><li><strong><span class="confluence-anchor-link conf-macro output-inline" id="LLAP-Resourcemanagement" data-hasbody="false" data-macro-name="anchor"> </span>Resource Management.</strong> YARN remains responsible for the management and allocation of resources. The <a href="https://issues.apache.org/jira/browse/YARN-1488" class="external-link" rel="nofollow">YARN container delegation</a> model is used to allow the transfer of allocated resources to LLAP. To avoid the limitations of JVM memory settings, cached data is kept off-heap, as well as large buffers for processing (e.g., group by, joins). This way, the daemon can use a small amount of memory, and additional resources (i.e., CPU and memory) will be assigned based on workload.</li></ul><h2 id="LLAP-QueryFragmentExecution">Query Fragment Execution</h2><p>For partial execution as described above, LLAP nodes execute “query fragments” such as filters, projections, data transformations, partial aggregates, sorting, bucketing, hash joins/semi-joins, etc. Only Hive code and blessed UDFs are accepted in LLAP. No code is localized and executed on the fly. This is done for stability and security reasons.</p><ul><li><strong>Parallel execution.</strong> An LLAP node allows parallel execution for multiple query fragments from different queries and sessions.</li><li><strong>Interface.</strong> Users can access LLAP nodes directly via client API. They are able to specify relational transformations and read data via record-oriented streams.</li></ul><h2 id="LLAP-I/O">I/O</h2><p>The daemon off-loads I/O and transformation from compressed format to separate threads. The data is passed on to execution as it becomes ready, so the previous batches can be processed while the next ones are being prepared. The data is passed to execution in a simple RLE-encoded columnar format that is ready for vectorized processing; this is also the caching format, with the intent to minimize copying between I/O, cache, and execution.</p><ul><li><strong>Multiple file formats.</strong> I/O and caching depend on some knowledge of the underlying file format (especially if it is to be done efficiently). Therefore, similar to Vectorization work, different file formats will be supported through plugins specific to each format (starting with ORC). Additionally, a generic, less-efficient plugin may be added that supports any Hive input format. The plugins have to maintain metadata and transform the raw data to column chunks.</li><li><strong>Predicates and bloom filters.</strong> SARGs and bloom filters are pushed down to storage layer, if they are supported.</li></ul><h2 id="LLAP-Caching">Caching</h2><p>The daemon caches metadata for input files, as well as the data. The metadata and index information can be cached even for data that is not currently cached. Metadata is stored in process in Java objects; cached data is stored in the format described in the <a href="#LLAP-I/O">I/O section</a>, and kept off-heap (see <a href="#LLAP-Resourcemanagement">Resource management</a>).</p><ul><li><strong>Eviction policy.</strong> The eviction policy is tuned for analytical workloads with frequent (partial) table-scans. Initially, a simple policy like LRFU is used. The policy is pluggable.</li><li><strong>Caching granularity.</strong> Column-chunks are the unit of data in the cache. This achieves a compromise between low-overhead processing and storage efficiency. The granularity of the chunks depends on the particular file format and execution engine (Vectorized Row Batch size, ORC stripe, etc.).</li></ul><p>A bloom filter is automatically created to provide Dynamic Runtime Filtering.</p><h2 id="LLAP-WorkloadManagement">Workload Management</h2><p>YARN is used to obtain resources for different workloads. Once resources (CPU, memory, etc.) have been obtained from YARN for a specific workload, the execution engine can choose to delegate these resources to LLAP, or to launch Hive executors in separate processes. Resource enforcement via YARN has the advantage of ensuring that nodes do not get overloaded, either by LLAP or by other containers. The daemons themselves is under YARN’s control.</p><h2 id="LLAP-ACIDSupport">ACID Support</h2><p>LLAP is aware of transactions. The merging of delta files to produce a certain state of the tables is performed before the data is placed in cache.</p><p>Multiple versions are possible and the request specifies which version is to be used. This has the benefit of doing the merge asynchronously and only once for cached data, thus avoiding the hit on the operator pipeline.</p><h2 id="LLAP-Security">Security</h2><p>LLAP servers are a natural place to enforce access control at a more fine-grained level than “per file”. Since the daemons know which columns and records are processed, policies on these objects can be enforced. This is not intended to replace the current mechanisms, but rather to enhance and open them up to other applications as well.</p><h2 id="LLAP-Monitoring">Monitoring</h2><p>Configurations for LLAP monitoring are stored in resources.json, appConfig.json, metainfo.xml which are embedded into <a href="https://github.com/apache/hive/blob/master/llap-server/src/main/resources/templates.py" class="external-link" rel="nofollow">templates.py</a> used by Slider. <br/><br/>LLAP Monitor Daemon runs on YARN container, similar to LLAP Daemon, and listens on the same port.  <br/>The LLAP Metrics Collection Server collects JMX metrics from all LLAP Daemons periodically.  <br/>The list of LLAP Daemons are extracted from the Zookeeper server which launched in the cluster. </p><h2 id="LLAP-WebServices">Web Services</h2><p><a href="https://issues.apache.org/jira/browse/HIVE-9814" class="external-link" rel="nofollow">HIVE-9814</a> introduces the following web services:</p><p>JSON JMX data - /jmx<br/>JVM Stack Traces of all threads - /stacks<br/>XML Configuration from llap-daemon-site - /conf </p><p><a href="https://issues.apache.org/jira/browse/HIVE-13398" class="external-link" rel="nofollow">HIVE-13398</a> introduces the following web services:</p><p>LLAP Status - /status<br/>LLAP Peers - /peers </p><p> </p><p><em>/status example</em></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Default" data-theme="Default">curl localhost:15002/status
+
+{
+  &quot;status&quot; : &quot;STARTED&quot;,
+  &quot;uptime&quot; : 139093,
+  &quot;build&quot; : &quot;2.1.0-SNAPSHOT from 77474581df4016e3899a986e079513087a945674 by gopal source checksum a9caa5faad5906d5139c33619f1368bb&quot;
+}</pre>
+</div></div><p> </p><p><em>/peers example </em></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Default" data-theme="Default">curl localhost:15002/peers
+{
+  &quot;dynamic&quot; : true,
+  &quot;identity&quot; : &quot;718264f1-722e-40f1-8265-ac25587bf336&quot;,
+  &quot;peers&quot; : [ 
+ {
+    &quot;identity&quot; : &quot;940d6838-4dd7-4e85-95cc-5a6a2c537c04&quot;,
+    &quot;host&quot; : &quot;sandbox121.hortonworks.com&quot;,
+    &quot;management-port&quot; : 15004,
+    &quot;rpc-port&quot; : 15001,
+    &quot;shuffle-port&quot; : 15551,
+    &quot;resource&quot; : {
+      &quot;vcores&quot; : 24,
+      &quot;memory&quot; : 128000
+    },
+    &quot;host&quot; : &quot;sandbox121.hortonworks.com&quot;
+  }, 
+]
+}</pre>
+</div></div><p> </p><h2 id="LLAP-SLIDERonYARNDeployment">SLIDER on YARN Deployment</h2><p>LLAP can be deployed via <a href="../SLIDER/Slider%2bHome.html">Slider</a>, which bypasses node installation and related complexities <a href="https://issues.apache.org/jira/browse/HIVE-9883" class="external-link" rel="nofollow">(HIVE-9883</a>).</p><h2 id="LLAP-LLAPStatus">LLAP Status</h2><p><a href="https://issues.apache.org/jira/browse/AMBARI-16149" style="font-size: 14.0px;" class="external-link" rel="nofollow">AMBARI-16149</a> introduces LLAP app status, available with HiveServer2.</p><p>Example usage.</p><pre>/current/hive-server2-hive2/bin/hive --service llapstatus --name {llap_app_name} [-f] [-w] [-i] [-t]</pre><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Default" data-theme="Default"> -f,--findAppTimeout &lt;findAppTimeout&gt;                 Amount of time(s) that the tool will sleep to wait for the YARN application to start. negative values=wait
+                                                      forever, 0=Do not wait. default=20s
+ -H,--help                                            Print help information
+    --hiveconf &lt;property=value&gt;                       Use value for given property. Overridden by explicit parameters
+ -i,--refreshInterval &lt;refreshInterval&gt;               Amount of time in seconds to wait until subsequent status checks in watch mode. Valid only for watch mode.
+                                                      (Default 1s)
+ -n,--name &lt;name&gt;                                     LLAP cluster name
+ -o,--outputFile &lt;outputFile&gt;                         File to which output should be written (Default stdout)
+ -r,--runningNodesThreshold &lt;runningNodesThreshold&gt;   When watch mode is enabled (-w), wait until the specified threshold of nodes are running (Default 1.0
+                                                      which means 100% nodes are running)
+ -t,--watchTimeout &lt;watchTimeout&gt;                     Exit watch mode if the desired state is not attained until the specified timeout. (Default 300s)
+ -w,--watch                                           Watch mode waits until all LLAP daemons are running or subset of the nodes are running (threshold can be
+                                                      specified via -r option) (Default wait until all nodes are running)</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The <span style="line-height: 1.4285715;">findAppTimeout </span><span style="line-height: 1.4285715;">option</span><span style="line-height: 1.4285715;"> was added in release 2.1.0 with <a href="https://issues.apache.org/jira/browse/HIVE-13643" class="external-link" rel="nofollow">HIVE-13643</a>:<span><code> -f</code> or <code>--</code></span><code><span>findAppTimeout</span></code><span>.</span></span></p><p><span style="line-height: 1.4285715;">The watch and running nodes options were added in release 2.2.0 with <a href="https://issues.apache.org/jira/browse/HIVE-15217" class="external-link" rel="nofollow">HIVE-15217</a> and <a href="https://issues.apache.org/jira/browse/HIVE-15651" class="external-link" rel="nofollow">HIVE-15651</a>:</span><span><code> -w</code> or <code>--watch</code>, <code>-i</code> or <code>--refreshInterval</code>, <code>-t</code> or <code>--watchTimeout</code>, and <code>-r</code> or <code>--runningNodesThreshold</code></span><span style="line-height: 1.4285715;">.</span></p></div></div><p> </p><h2 id="LLAP-Resources">Resources</h2><p><a href="https://issues.apache.org/jira/secure/attachment/12665704/LLAPdesigndocument.pdf" class="external-link" rel="nofollow">LLAP Design Document</a></p><p><a href="https://cwiki.apache.org/confluence/download/attachments/27362054/LLAP-Meetup-Nov.ppsx?version=1&amp;modificationDate=1447885307000&amp;api=v2" rel="nofollow">Hive Contributor Meetup Presentation</a></p><p><span style="padding: 0.0px 4.0px 0.0px 0.0px;left: 32.0px;top: 582.0px;width: auto;text-align: center;color: rgb(255,255,255);text-indent: 20.0px;display: none;z-index: 8675309;cursor: pointer;">Save</span></p><p><span style="padding: 0.0px 4.0px 0.0px 0.0px;left: 22.0px;top: 590.0px;width: auto;text-align: center;color: rgb(255,255,255);text-indent: 20.0px;display: none;z-index: 8675309;cursor: pointer;">Save</span></p><p><span style="padding: 0.0px 4.0px 0.0px 0.0px;left: 22.0px;top: 570.0px;width: auto;text-align: center;color: rgb(255,255,255);text-indent: 20.0px;display: none;z-index: 8675309;cursor: pointer;">Save</span></p><p><span style="padding: 0.0px 4.0px 0.0px 0.0px;left: 22.0px;top: 550.0px;width: auto;text-align: center;color: rgb(255,255,255);text-indent: 20.0px;display: none;z-index: 8675309;cursor: pointer;">Save</span></p><p><span style="padding: 0.0px 4.0px 0.0px 0.0px;width: auto;text-align: center;color: rgb(255,255,255);text-indent: 20.0px;display: none;z-index: 8675309;cursor: pointer;">Save</span></p><p><span style="padding: 0.0px 4.0px 0.0px 0.0px;width: auto;text-align: center;color: rgb(255,255,255);text-indent: 20.0px;display: none;z-index: 8675309;cursor: pointer;">Save</span></p><p><span style="padding: 0.0px 4.0px 0.0px 0.0px;left: 22.0px;top: 614.0px;width: auto;text-align: center;color: rgb(255,255,255);text-indent: 20.0px;display: none;z-index: 8675309;cursor: pointer;">Save</span></p><p><span style="text-indent: 20.0px;width: auto;padding: 0.0px 4.0px 0.0px 0.0px;text-align: center;color: rgb(255,255,255);z-index: 8675309;display: none;cursor: pointer;top: 594.0px;left: 22.0px;">Save</span></p>
+
+                
+        
+    
+        </div>
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="62689557" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+        
+
+
+                
+    
+            
+</div>
+
+    
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Apps" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Apps</div>
+    </div>
+        
+
+
+
+            </div><!-- \#main -->
+            
+    
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="https://www.atlassian.com/software/views/opensource-community-additional-license-offer">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link" rel="nofollow">Atlassian Confluence</a> <span id='footer-build-information'>7.13.2</span></li>
+            <li class="print-only">Printed by Atlassian Confluence 7.13.2</li>
+            <li class="noprint"><a href="https://support.atlassian.com/help/confluence" class="hover-footer-link" rel="nofollow">Report a bug</a></li>
+            <li class="noprint"><a href="https://www.atlassian.com/company" class="hover-footer-link" rel="nofollow">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/" rel="nofollow">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+    <span style="display:none;" id="confluence-server-performance">{"serverDuration": 60, "requestCorrelationId": "4bcd4963db74700c"}</span>
+</body>
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/LLAP by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:41:21 GMT -->
+</html>
+    

@@ -1,0 +1,1044 @@
+    
+
+<!DOCTYPE html>
+<html lang="en-GB" >
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/HBaseIntegration by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:42:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+                            <title>HBaseIntegration - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+    <meta id="atlassian-token" name="atlassian-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1639597170276">
+        
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="f372abdc7d1a6481c736efc7686d149c">
+            <meta id="team-calendars-has-jira-link" content="true">
+            <meta name="ajs-team-calendars-display-time-format" content="displayTimeFormat12">
+            <meta id="team-calendars-display-week-number" content="false">
+            <meta id="team-calendars-user-timezone" content="Etc/UTC">
+            <script type="text/x-template" id="team-calendars-messages" title="team-calendars-messages"><fieldset class="i18n hidden"><input type="hidden" name="calendar3.month.long.july" value="July"><input type="hidden" name="calendar3.day.short.wednesday" value="Wed"><input type="hidden" name="calendar3.day.short.thursday" value="Thu"><input type="hidden" name="calendar3.month.short.march" value="Mar"><input type="hidden" name="calendar3.month.long.april" value="April"><input type="hidden" name="calendar3.month.long.october" value="October"><input type="hidden" name="calendar3.month.long.august" value="August"><input type="hidden" name="calendar3.month.short.july" value="Jul"><input type="hidden" name="calendar3.month.short.may" value="May"><input type="hidden" name="calendar3.month.short.november" value="Nov"><input type="hidden" name="calendar3.day.long.friday" value="Friday"><input type="hidden" name="calendar3.day.long.sunday" value="Sunday"><input type="hidden" name="calendar3.day.long.saturday" value="Saturday"><input type="hidden" name="calendar3.month.short.april" value="Apr"><input type="hidden" name="calendar3.day.long.wednesday" value="Wednesday"><input type="hidden" name="calendar3.month.long.december" value="December"><input type="hidden" name="calendar3.month.short.october" value="Oct"><input type="hidden" name="calendar3.day.long.monday" value="Monday"><input type="hidden" name="calendar3.month.short.june" value="Jun"><input type="hidden" name="calendar3.day.short.monday" value="Mon"><input type="hidden" name="calendar3.day.short.tuesday" value="Tue"><input type="hidden" name="calendar3.day.short.saturday" value="Sat"><input type="hidden" name="calendar3.month.long.march" value="March"><input type="hidden" name="calendar3.month.long.june" value="June"><input type="hidden" name="calendar3.month.short.february" value="Feb"><input type="hidden" name="calendar3.month.short.august" value="Aug"><input type="hidden" name="calendar3.month.short.december" value="Dec"><input type="hidden" name="calendar3.day.short.sunday" value="Sun"><input type="hidden" name="calendar3.month.long.february" value="February"><input type="hidden" name="calendar3.day.long.tuesday" value="Tuesday"><input type="hidden" name="calendar3.month.long.may" value="May"><input type="hidden" name="calendar3.month.long.september" value="September"><input type="hidden" name="calendar3.month.long.november" value="November"><input type="hidden" name="calendar3.month.short.january" value="Jan"><input type="hidden" name="calendar3.month.short.september" value="Sep"><input type="hidden" name="calendar3.day.long.thursday" value="Thursday"><input type="hidden" name="calendar3.month.long.january" value="January"><input type="hidden" name="calendar3.day.short.friday" value="Fri"></fieldset></script>
+            
+    
+    
+            <meta name="ajs-page-title" content="HBaseIntegration">
+            <meta name="ajs-latest-published-page-title" content="HBaseIntegration">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-page-id" content="27362089">
+            <meta name="ajs-latest-page-id" content="27362089">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-parent-page-id" content="">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-max-number-editors" content="12">
+            <meta name="ajs-macro-placeholder-timeout" content="5000">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-can-remove-page-hierarchy" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="true">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="7.13.2">
+            <meta name="ajs-build-number" content="8703">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-remote-user-has-licensed-access" content="false">
+            <meta name="ajs-remote-user-has-browse-users-permission" content="false">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-current-user-avatar-uri-reference" content="/confluence/images/icons/profilepics/anonymous.svg">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/6dvx22/8703/4mhn8a/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-global-settings-quick-search-enabled" content="true">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="site-wide.shared-drafts,site-wide.synchrony,clc.quick.create,confluence.view.edit.transition,cql.search.screen,confluence-inline-comments-resolved,frontend.editor.v4,http.session.registrar,nps.survey.inline.dialog,confluence.efi.onboarding.new.templates,frontend.editor.v4.compatibility,atlassian.cdn.static.assets,pdf-preview,previews.sharing,previews.versions,file-annotations,confluence.efi.onboarding.rich.space.content,collaborative-audit-log,confluence.reindex.improvements,previews.conversion-service,editor.ajax.save,read.only.mode,graphql,previews.trigger-all-file-types,attachment.extracted.text.extractor,lucene.caching.filter,confluence.table.resizable,notification.batch,previews.sharing.pushstate,confluence-inline-comments-rich-editor,tc.tacca.dacca,site-wide.synchrony.opt-in,file-annotations.likes,gatekeeper-ui-v2,v2.content.name.searcher,mobile.supported.version,pulp,confluence-inline-comments,confluence-inline-comments-dangling-comment,quick-reload-inline-comments-flags">
+            <meta name="ajs-atl-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-access-mode" content="READ_WRITE">
+            <meta name="ajs-render-mode" content="READ_WRITE">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+    <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\u0022\u005C/confluence\u0022";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.confluence.plugins.synchrony-interop:synchrony-status-banner-loader.synchrony-status"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:policy-update-init.policy-update-data-provider"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:programmatic-analytics-init.programmatic-analytics-data-provider"]="false";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-help-paths"]="{\u0022entries\u0022:{\u0022applinks.docs.root\u0022:\u0022https://confluence.atlassian.com/display/APPLINKS-072/\u0022,\u0022applinks.docs.diagnostics.troubleshoot.sslunmatched\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthsignatureinvalid\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthtimestamprefused\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.delete.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.adding.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administration.guide\u0022:\u0022Application+Links+Documentation\u0022,\u0022applinks.docs.oauth.security\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.troubleshoot.application.links\u0022:\u0022Troubleshoot+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownerror\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.trusted.apps\u0022:\u0022Configuring+Trusted+Applications+authentication+for+an+application+link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelunsupported\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.ssluntrusted\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownhost\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.delete.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.adding.project.link\u0022:\u0022Configuring+Project+links+across+Applications\u0022,\u0022applinks.docs.link.applications\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthproblem\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.migration\u0022:\u0022Update+application+links+to+use+OAuth\u0022,\u0022applinks.docs.relocate.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administering.entity.links\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.upgrade.application.link\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.connectionrefused\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.oauth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.insufficient.remote.permission\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.configuring.application.link.auth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics\u0022:\u0022Application+links+diagnostics\u0022,\u0022applinks.docs.configured.authentication.types\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.adding.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unexpectedresponse\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.basic\u0022:\u0022Configuring+Basic+HTTP+Authentication+for+an+Application+Link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelmismatch\u0022:\u0022OAuth+troubleshooting+guide\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-types"]="{\u0022crowd\u0022:\u0022Crowd\u0022,\u0022confluence\u0022:\u0022Confluence\u0022,\u0022fecru\u0022:\u0022FishEye / Crucible\u0022,\u0022stash\u0022:\u0022Stash\u0022,\u0022jira\u0022:\u0022Jira\u0022,\u0022refapp\u0022:\u0022Reference Application\u0022,\u0022bamboo\u0022:\u0022Bamboo\u0022,\u0022generic\u0022:\u0022Generic Application\u0022}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.entity-types"]="{\u0022singular\u0022:{\u0022refapp.charlie\u0022:\u0022Charlie\u0022,\u0022fecru.project\u0022:\u0022Crucible Project\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repository\u0022,\u0022stash.project\u0022:\u0022Stash Project\u0022,\u0022generic.entity\u0022:\u0022Generic Project\u0022,\u0022confluence.space\u0022:\u0022Confluence Space\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Project\u0022,\u0022jira.project\u0022:\u0022Jira Project\u0022},\u0022plural\u0022:{\u0022refapp.charlie\u0022:\u0022Charlies\u0022,\u0022fecru.project\u0022:\u0022Crucible Projects\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repositories\u0022,\u0022stash.project\u0022:\u0022Stash Projects\u0022,\u0022generic.entity\u0022:\u0022Generic Projects\u0022,\u0022confluence.space\u0022:\u0022Confluence Spaces\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Projects\u0022,\u0022jira.project\u0022:\u0022Jira Projects\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.authentication-types"]="{\u0022com.atlassian.applinks.api.auth.types.BasicAuthenticationProvider\u0022:\u0022Basic Access\u0022,\u0022com.atlassian.applinks.api.auth.types.TrustedAppsAuthenticationProvider\u0022:\u0022Trusted Applications\u0022,\u0022com.atlassian.applinks.api.auth.types.CorsAuthenticationProvider\u0022:\u0022CORS\u0022,\u0022com.atlassian.applinks.api.auth.types.OAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthWithImpersonationAuthenticationProvider\u0022:\u0022OAuth\u0022}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\u0022daysBeforeLicenseExpiry\u0022:0,\u0022daysBeforeMaintenanceExpiry\u0022:0,\u0022showLicenseExpiryBanner\u0022:false,\u0022showMaintenanceExpiryBanner\u0022:false,\u0022renewUrl\u0022:null,\u0022salesUrl\u0022:null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-search-ui-plugin:confluence-search-ui-plugin-resources.i18n-data"]="{\u0022search.ui.recent.link.text\u0022:\u0022View more recently visited\u0022,\u0022search.ui.filter.space.category.input.label\u0022:\u0022Find space categories...\u0022,\u0022search.ui.search.results.empty\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching \u005C\u0022{0}\u005C\u0022.\u0022,\u0022search.ui.filter.clear.selected\u0022:\u0022Clear selected items\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.button.text\u0022:\u0022Show more app results...\u0022,\u0022search.ui.filter.space.archive.label\u0022:\u0022Search archived spaces\u0022,\u0022search.ui.filter.label\u0022:\u0022filter\u0022,\u0022search.ui.filter.contributor.button.text\u0022:\u0022Contributor\u0022,\u0022search.ui.filter.date.all.text\u0022:\u0022Any time\u0022,\u0022search.ui.filter.space.current.label\u0022:\u0022CURRENT\u0022,\u0022search.ui.clear.input.button.text\u0022:\u0022Clear text\u0022,\u0022search.ui.search.results.clear.button\u0022:\u0022clear your filters.\u0022,\u0022search.ui.filter.date.hour.text\u0022:\u0022The past day\u0022,\u0022help.search.ui.link.title\u0022:\u0022Search tips\u0022,\u0022search.ui.filters.heading\u0022:\u0022Filter by\u0022,\u0022search.ui.filter.label.input.label\u0022:\u0022Find labels...\u0022,\u0022search.ui.recent.items.anonymous\u0022:\u0022Start exploring. Your search results will appear here.\u0022,\u0022search.ui.filter.date.month.text\u0022:\u0022The past month\u0022,\u0022search.ui.input.label\u0022:\u0022Search\u0022,\u0022search.ui.search.result\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}\u0022,\u0022search.ui.infinite.scroll.button.text\u0022:\u0022More results\u0022,\u0022search.ui.filter.date.button.text\u0022:\u0022Date\u0022,\u0022search.ui.filter.date.week.text\u0022:\u0022The past week\u0022,\u0022search.ui.filter.label.button.text\u0022:\u0022Label\u0022,\u0022search.ui.input.alert\u0022:\u0022Hit enter to search\u0022,\u0022search.ui.result.subtitle.calendar\u0022:\u0022Team calendar\u0022,\u0022search.ui.filter.no.result.text\u0022:\u0022We can\u005Cu0027\u005Cu0027t find anything matching your search\u0022,\u0022search.ui.filter.date.heading\u0022:\u0022Last modified within\u0022,\u0022search.ui.result.subtitle.user\u0022:\u0022User profile\u0022,\u0022search.ui.filter.contributor.input.label\u0022:\u0022Find people...\u0022,\u0022search.ui.filter.content.type.button.text\u0022:\u0022Type\u0022,\u0022search.ui.filter.space.input.label\u0022:\u0022Find spaces...\u0022,\u0022search.ui.filter.date.year.text\u0022:\u0022The past year\u0022,\u0022search.ui.advanced.search.link.text\u0022:\u0022Advanced search\u0022,\u0022search.ui.filter.space.button.text\u0022:\u0022Space\u0022,\u0022search.ui.generic.error\u0022:\u0022Something went wrong. Refresh the page, or contact your admin if this keeps happening.\u0022,\u0022search.ui.recent.spaces\u0022:\u0022Recent Spaces\u0022,\u0022search.ui.search.results.clear.line2\u0022:\u0022Try a different search term or\u0022,\u0022search.ui.filter.space.category.button.text\u0022:\u0022Space category\u0022,\u0022search.ui.search.results.clear.line1\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching your search.\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.admin.button.text\u0022:\u0022Show more settings and app results...\u0022,\u0022search.ui.recent.pages\u0022:\u0022Recently visited\u0022,\u0022search.ui.search.result.anonymous\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}. Have an account? {1}Log in{2} to expand your search.\u0022,\u0022search.ui.recent.items.empty\u0022:\u0022Start exploring. Pages and spaces you\u005Cu0027\u005Cu0027ve visited recently will appear here.\u0022,\u0022search.ui.result.subtitle.space\u0022:\u0022Space\u0022,\u0022search.ui.filter.space.init.heading\u0022:\u0022recent spaces\u0022}";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="../../s/ad0cdaf669e3a7800fb6fa6452e260e4-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/css/_super/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/585884a9f3984b0aaecef0baf40c1e6e-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch1203.css?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" media="all">
+<script type="text/javascript" src="../../s/58e418cc99c782d6bf891d0ee81d3e82-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/js/_super/batch6116.js?locale=en-GB" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered></script>
+<script type="text/javascript" src="../../s/d8f9091841663d4e3446e48379e476f1-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/js/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch3a32.js?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true&amp;locale=en-GB" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" data-initially-rendered></script>
+
+    
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+            
+    
+
+    
+                <link rel="canonical" href="HBaseIntegration.html">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/KYOhAQ">
+    <meta name="wikilink" content="[Hive:HBaseIntegration]">
+    <meta name="page-version" content="37">
+    <meta name="ajs-page-version" content="37">
+
+</head>
+
+    
+<body      id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            
+
+<fieldset class="parameters hidden" style="display: none;">
+            <input type="hidden" id="listAnalyticsKey" value="19"/>
+        <input type="hidden" id="listAnalyticsDomain" value="comalatech.matomo.cloud"/>
+    </fieldset>
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="#title-heading">Skip to content</a></li>
+    <li><a href="#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="#navigation">Skip to action menu</a></li>
+    <li><a href="#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+        
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" aria-label="Site"><div class="aui-header-inner"><div class="aui-header-before"><button class=" aui-dropdown2-trigger app-switcher-trigger aui-dropdown2-trigger-arrowless" aria-controls="app-switcher" aria-haspopup="true" role="button" data-aui-trigger href="#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></button><div id="app-switcher" class="aui-dropdown2 aui-style-default" role="menu" hidden data-is-switcher="true" data-environment="{&quot;isUserAdmin&quot;:false,&quot;isAppSuggestionAvailable&quot;:false,&quot;isSiteAdminUser&quot;:false}"><div class="app-switcher-loading">Loading&hellip;</div></div></div><div class="aui-header-primary"><span id="logo" class="aui-header-logo aui-header-logo-confluence"><a href="https://cwiki.apache.org/confluence/" aria-label="Go to home page"><span class="aui-header-logo-device">Apache Software Foundation</span></a></span><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                                <li class="aui-buttons">
+            </li>
+</ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <div id="search-ui" class="aui-quicksearch dont-default-focus header-quicksearch"><input id="quick-search-query" aria-label="Search" placeholder="Search" type="text" /><div id="quick-search-alert" role="alert">Hit enter to search</div><aui-spinner size="small"></aui-spinner></div>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger aui-dropdown2-trigger-arrowless" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-question-filled">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-713/" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-713/help.whats.new.iframe.link" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://confluence.atlassian.com/display/DOC/Confluence+7.13+Release+Notes" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FHBaseIntegration" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+    
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+                                            
+                            <div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo" data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="Home.html" title="Apache Hive"><img class="avatar-img" src="https://cwiki.apache.org/confluence/download/attachments/27362113/Hive?version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="space-information-container"><div class="name"><a href="Home.html" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon aui-icon aui-icon-small aui-iconfont-edit"></div></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-page-tree-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" aria-current="true" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"><h5 class="ia-quick-links-header-title">Space shortcuts</h5><div class="quick-links-section tipsy-enabled "><ul class="acs-nav-list"><li class="acs-nav-item pinned_page blueprint kb-how-to-article"><a class="acs-nav-item-link tipsy-enabled" href="How-to%2barticles.html" data-collapsed-tooltip="null"><span class="icon"></span><span class="acs-nav-item-label">How-to articles</span></a></li></ul></div></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" title="Pages"><span class="icon"></span><span class="label">Pages</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">HBaseIntegration</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><button id="space-tools-menu-trigger"  class=" aui-dropdown2-trigger aui-button aui-button-subtle tipsy-enabled aui-dropdown2-trigger-arrowless " aria-controls="space-tools-menu" aria-haspopup="true" role="button" data-aui-trigger><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="aui-button-label">Space tools</span><span class="aui-icon "></span></button><div id="space-tools-menu" class="aui-dropdown2 aui-style-default space-tools-dropdown" role="menu" hidden data-aui-alignment="top left"></div><a href="#" role="button" class="expand-collapse-trigger aui-icon aui-icon-small aui-iconfont-chevron-double-left" aria-expanded="true"></a></div>
+                    
+                        			</div>
+    		</div>
+        <!-- \#header -->
+
+            
+    
+        <div id="main" class=" aui-page-panel">
+                        <div id="main-header">
+                        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                            
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-label="More options" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more" aria-label="More options"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-primary"                         class="section-primary first">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=27362089" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments" >
+                        <span>
+                                A<u>t</u>tachments (0)
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=27362089" rel="nofollow" class="action-view-history"   title="" >
+                        <span>
+                                Page History
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="who-can-view-button-ak-button" href="https://cwiki.apache.org/confluence" rel="nofollow" class="who-can-view-link"   title="" >
+                        <span>
+                                People who can view
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-secondary"                         class="section-secondary">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="" >
+                        <span>
+                                Resolved comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27362089" rel="nofollow" class="action-view-info"   title="" >
+                        <span>
+                                Page Information
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=27362089#selectedPageInHierarchy" rel="nofollow" class=""   title="" >
+                        <span>
+                                View in Hierarchy
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=27362089" rel="nofollow" class="action-view-source popup-link"   title="" >
+                        <span>
+                                View Source
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=27362089" rel="nofollow" class=""   title="" >
+                        <span>
+                                Delete comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=27362089" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to PDF
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27362089" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to EPUB
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=27362089" rel="nofollow" class="action-export-word"   title="" >
+                        <span>
+                                Export to Word
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-modify"                         class="section-modify">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/tree-copy/preparing-copying.action?pageId=27362089" rel="nofollow" class=""   title="" >
+                        <span>
+                                Copy Page Tree
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="#" title="Unrestricted" id="content-metadata-page-restrictions-hidden" class="hidden"></a></li><li class="page-metadata-item noprinthas-button"  id="content-metadata-jira-wrapper"><a href="#" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><span>Jira links</span></a></li></ul></div>
+            
+
+<a href="#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="HBaseIntegration.html">HBaseIntegration</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+            
+    
+
+                                
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+    
+            
+        
+
+    
+    
+
+    
+            
+        
+
+
+
+    
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+            <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+            
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dadmin&amp;permissionViolation=true"
+                       class="url fn"
+                            >Confluence Administrator</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dlarsfrancke&amp;permissionViolation=true"
+                       class="url fn"
+                            >Lars Francke</a></span> on <a class='last-modified' title='Show changes' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=27362089&amp;selectedPageVersions=36&amp;selectedPageVersions=37'>Aug 15, 2018</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <h1 id="HBaseIntegration-HiveHBaseIntegration">Hive HBase Integration</h1><p><div class="toc-macro client-side-toc-macro  conf-macro output-block" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-hasbody="false" data-macro-name="toc"> </div></p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><h3 id="HBaseIntegration-AvroDataStoredinHBaseColumns">Avro Data Stored in HBase Columns</h3><p>As of Hive 0.9.0 the HBase integration requires at least HBase 0.92, earlier versions of Hive were working with HBase 0.89/0.90</p></div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Hive 1.x will remain compatible with HBase 0.98.x and lower versions. Hive 2.x will be compatible with HBase 1.x and higher.<span> (See </span><a href="https://issues.apache.org/jira/browse/HIVE-10990" class="external-link" rel="nofollow">HIVE-10990</a><span> for details</span><span>.)</span> Consumers wanting to work with HBase 1.x using Hive 1.x will need to compile Hive 1.x stream code themselves.</p></div></div><h2 id="HBaseIntegration-Introduction">Introduction</h2><p>This page documents the Hive/HBase integration support originally introduced in <a href="https://issues.apache.org/jira/browse/HIVE-705" class="external-link" rel="nofollow">HIVE-705</a>. This feature allows Hive QL statements to access <a href="http://hadoop.apache.org/hbase" class="external-link" rel="nofollow">HBase</a> tables for both read (SELECT) and write (INSERT). It is even possible to combine access to HBase tables with native Hive tables via joins and unions.</p><p>A presentation is available from the <a href="http://wiki.apache.org/hadoop/Hive/Presentations?action=AttachFile&amp;do=get&amp;target=HiveHBase-HUG10.ppt" class="external-link" rel="nofollow">HBase HUG10 Meetup</a></p><p>This feature is a work in progress, and suggestions for its improvement are very welcome.</p><h2 id="HBaseIntegration-StorageHandlers">Storage Handlers</h2><p>Before proceeding, please read <a href="StorageHandlers.html">StorageHandlers</a> for an overview of the generic storage handler framework on which HBase integration depends.</p><h2 id="HBaseIntegration-Usage">Usage</h2><p>The storage handler is built as an independent module, <code>hive-hbase-handler-x.y.z.jar</code>, which must be available on the Hive client auxpath, along with HBase, Guava and ZooKeeper jars. It also requires the correct configuration property to be set in order to connect to the right HBase master. See <a href="http://hadoop.apache.org/hbase/docs/current/api/overview-summary.html#overview_description" class="external-link" rel="nofollow">the HBase documentation</a> for how to set up an HBase cluster.</p><p>Here's an example using CLI from a source build environment, targeting a single-node HBase server. (Note that the jar locations and names have changed in Hive 0.9.0, so for earlier releases, some changes are needed.)</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>$HIVE_SRC/build/dist/bin/hive --auxpath $HIVE_SRC/build/dist/lib/hive-hbase-handler-0.9.0.jar,$HIVE_SRC/build/dist/lib/hbase-0.92.0.jar,$HIVE_SRC/build/dist/lib/zookeeper-3.3.4.jar,$HIVE_SRC/build/dist/lib/guava-r09.jar --hiveconf hbase.master=hbase.yoyodyne.com:60000
+</pre>
+</div></div><p>Here's an example which instead targets a distributed HBase cluster where a quorum of 3 zookeepers is used to elect the HBase master:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>$HIVE_SRC/build/dist/bin/hive --auxpath $HIVE_SRC/build/dist/lib/hive-hbase-handler-0.9.0.jar,$HIVE_SRC/build/dist/lib/hbase-0.92.0.jar,$HIVE_SRC/build/dist/lib/zookeeper-3.3.4.jar,$HIVE_SRC/build/dist/lib/guava-r09.jar --hiveconf hbase.zookeeper.quorum=zk1.yoyodyne.com,zk2.yoyodyne.com,zk3.yoyodyne.com
+</pre>
+</div></div><p>The handler requires Hadoop 0.20 or higher, and has only been tested with dependency versions hadoop-0.20.x, hbase-0.92.0 and zookeeper-3.3.4. If you are not using hbase-0.92.0, you will need to rebuild the handler with the HBase jar matching your version, and change the <code>--auxpath</code> above accordingly. Failure to use matching versions will lead to misleading connection failures such as MasterNotRunningException since the HBase RPC protocol changes often.</p><p>In order to create a new HBase table which is to be managed by Hive, use the <code>STORED BY</code> clause on <code>CREATE TABLE</code>:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE hbase_table_1(key int, value string) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (&quot;hbase.columns.mapping&quot; = &quot;:key,cf1:val&quot;)
+TBLPROPERTIES (&quot;hbase.table.name&quot; = &quot;xyz&quot;, &quot;hbase.mapred.output.outputtable&quot; = &quot;xyz&quot;);
+</pre>
+</div></div><p>The <code>hbase.columns.mapping</code> property is required and will be explained in the next section. The <code>hbase.table.name</code> property is optional; it controls the name of the table as known by HBase, and allows the Hive table to have a different name. In this example, the table is known as <code>hbase_table_1</code> within Hive, and as <code>xyz</code> within HBase. If not specified, then the Hive and HBase table names will be identical. The <code>hbase.mapred.output.outputtable</code> property is optional; it's needed if you plan to insert data to the table (the property is used by <code>hbase.mapreduce.TableOutputFormat</code>)</p><p>After executing the command above, you should be able to see the new (empty) table in the HBase shell:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>$ hbase shell
+HBase Shell; enter 'help&lt;RETURN&gt;' for list of supported commands.
+Version: 0.20.3, r902334, Mon Jan 25 13:13:08 PST 2010
+hbase(main):001:0&gt; list
+xyz                                                                                                           
+1 row(s) in 0.0530 seconds
+hbase(main):002:0&gt; describe &quot;xyz&quot;
+DESCRIPTION                                                             ENABLED                               
+ {NAME =&gt; 'xyz', FAMILIES =&gt; [{NAME =&gt; 'cf1', COMPRESSION =&gt; 'NONE', VE true                                  
+ RSIONS =&gt; '3', TTL =&gt; '2147483647', BLOCKSIZE =&gt; '65536', IN_MEMORY =&gt;                                       
+  'false', BLOCKCACHE =&gt; 'true'}]}                                                                            
+1 row(s) in 0.0220 seconds
+hbase(main):003:0&gt; scan &quot;xyz&quot;
+ROW                          COLUMN+CELL                                                                      
+0 row(s) in 0.0060 seconds
+</pre>
+</div></div><p>Notice that even though a column name &quot;val&quot; is specified in the mapping, only the column family name &quot;cf1&quot; appears in the DESCRIBE output in the HBase shell. This is because in HBase, only column families (not columns) are known in the table-level metadata; column names within a column family are only present at the per-row level.</p><p>Here's how to move data from Hive into the HBase table (see <a href="GettingStarted.html">GettingStarted</a> for how to create the example table <code>pokes</code> in Hive first):</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>INSERT OVERWRITE TABLE hbase_table_1 SELECT * FROM pokes WHERE foo=98;
+</pre>
+</div></div><p>Use HBase shell to verify that the data actually got loaded:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>hbase(main):009:0&gt; scan &quot;xyz&quot;
+ROW                          COLUMN+CELL                                                                      
+ 98                          column=cf1:val, timestamp=1267737987733, value=val_98                            
+1 row(s) in 0.0110 seconds
+</pre>
+</div></div><p>And then query it back via Hive:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>hive&gt; select * from hbase_table_1;
+Total MapReduce jobs = 1
+Launching Job 1 out of 1
+...
+OK
+98	val_98
+Time taken: 4.582 seconds
+</pre>
+</div></div><p>Inserting large amounts of data may be slow due to WAL overhead; if you would like to disable this, make sure you have HIVE-1383 (as of Hive 0.6), and then issue this command before the INSERT:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>set hive.hbase.wal.enabled=false;
+</pre>
+</div></div><p><strong>Warning:</strong> disabling WAL may lead to data loss if an HBase failure occurs, so only use this if you have some other recovery strategy available.</p><p>If you want to give Hive access to an existing HBase table, use CREATE EXTERNAL TABLE:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE EXTERNAL TABLE hbase_table_2(key int, value string) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (&quot;hbase.columns.mapping&quot; = &quot;cf1:val&quot;)
+TBLPROPERTIES(&quot;hbase.table.name&quot; = &quot;some_existing_table&quot;, &quot;hbase.mapred.output.outputtable&quot; = &quot;some_existing_table&quot;);
+</pre>
+</div></div><p>Again, <code>hbase.columns.mapping</code> is required (and will be validated against the existing HBase table's column families), whereas <code>hbase.table.name</code> is optional. The <code>hbase.mapred.output.outputtable</code> is optional.</p><h2 id="HBaseIntegration-ColumnMapping">Column Mapping</h2><p>There are two <code>SERDEPROPERTIES</code> that control the mapping of HBase columns to Hive:</p><ul><li><code>hbase.columns.mapping</code></li><li><code>hbase.table.default.storage.type</code>: Can have a value of either <code>string</code> (the default) or <code>binary</code>, this option is only available as of Hive 0.9 and the <code>string</code> behavior is the only one available in earlier versions</li></ul><p>The column mapping support currently available is somewhat cumbersome and restrictive:</p><ul><li>for each Hive column, the table creator must specify a corresponding entry in the comma-delimited <code>hbase.columns.mapping</code> string (so for a Hive table with <em>n</em> columns, the string should have <em>n</em> entries); whitespace should <strong>not</strong> be used in between entries since these will be interperted as part of the column name, which is almost certainly not what you want</li><li>a mapping entry must be either <code>:key</code>, <code>:timestamp</code> or of the form <code>column-family-name:[column-name][#(binary|string)</code> (the type specification that delimited by <em>#</em> was added in Hive <a href="https://issues.apache.org/jira/browse/HIVE-1634" class="external-link" rel="nofollow">0.9.0</a>, earlier versions interpreted everything as strings)<ul><li>If no type specification is given the value from <code>hbase.table.default.storage.type</code> will be used</li><li>Any prefixes of the valid values are valid too (i.e. <code>#b</code> instead of <code>#binary</code>)</li><li>If you specify a column as <code>binary</code> the bytes in the corresponding HBase cells are expected to be of the form that HBase's <code>Bytes</code> class yields.</li></ul></li><li>there must be exactly one <code>:key</code> mapping (this can be mapped either to a string or struct column–see <a href="#HBaseIntegration-SimpleCompositeRowKeys">Simple Composite Keys</a> and <a href="#HBaseIntegration-ComplexCompositeRowKeysandHBaseKeyFactory">Complex Composite Keys</a>)</li><li>(note that before <a href="https://issues.apache.org/jira/browse/HIVE-1228" class="external-link" rel="nofollow">HIVE-1228</a> in Hive 0.6, <code>:key</code> was not supported, and the first Hive column implicitly mapped to the key; as of Hive 0.6, it is now strongly recommended that you always specify the key explictly; we will drop support for implicit key mapping in the future)</li><li>if no column-name is given, then the Hive column will map to all columns in the corresponding HBase column family, and the Hive MAP datatype must be used to allow access to these (possibly sparse) columns</li><li>Since HBase 1.1 (<a href="https://issues.apache.org/jira/browse/HIVE-2828" class="external-link" rel="nofollow">HBASE-2828</a>) there is a way to access the HBase timestamp attribute using the special <code>:timestamp</code> mapping. It needs to be either <code>bigint</code> or <code>timestamp</code>.</li><li>it is not necessary to reference every HBase column family, but those that are not mapped will be inaccessible via the Hive table; it's possible to map multiple Hive tables to the same HBase table</li></ul><p>The next few sections provide detailed examples of the kinds of column mappings currently possible.</p><h3 id="HBaseIntegration-MultipleColumnsandFamilies">Multiple Columns and Families</h3><p>Here's an example with three Hive columns and two HBase column families, with two of the Hive columns (<code>value1</code> and <code>value2</code>) corresponding to one of the column families (<code>a</code>, with HBase column names <code>b</code> and <code>c</code>), and the other Hive column corresponding to a single column (<code>e</code>) in its own column family (<code>d</code>).</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE hbase_table_1(key int, value1 string, value2 int, value3 int) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+&quot;hbase.columns.mapping&quot; = &quot;:key,a:b,a:c,d:e&quot;
+);
+INSERT OVERWRITE TABLE hbase_table_1 SELECT foo, bar, foo+1, foo+2 
+FROM pokes WHERE foo=98 OR foo=100;
+</pre>
+</div></div><p>Here's how this looks in HBase:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>hbase(main):014:0&gt; describe &quot;hbase_table_1&quot;
+DESCRIPTION                                                             ENABLED                               
+ {NAME =&gt; 'hbase_table_1', FAMILIES =&gt; [{NAME =&gt; 'a', COMPRESSION =&gt; 'N true                                  
+ ONE', VERSIONS =&gt; '3', TTL =&gt; '2147483647', BLOCKSIZE =&gt; '65536', IN_M                                       
+ EMORY =&gt; 'false', BLOCKCACHE =&gt; 'true'}, {NAME =&gt; 'd', COMPRESSION =&gt;                                        
+ 'NONE', VERSIONS =&gt; '3', TTL =&gt; '2147483647', BLOCKSIZE =&gt; '65536', IN                                       
+ _MEMORY =&gt; 'false', BLOCKCACHE =&gt; 'true'}]}                                                                  
+1 row(s) in 0.0170 seconds
+hbase(main):015:0&gt; scan &quot;hbase_table_1&quot;
+ROW                          COLUMN+CELL                                                                      
+ 100                         column=a:b, timestamp=1267740457648, value=val_100                               
+ 100                         column=a:c, timestamp=1267740457648, value=101                                   
+ 100                         column=d:e, timestamp=1267740457648, value=102                                   
+ 98                          column=a:b, timestamp=1267740457648, value=val_98                                
+ 98                          column=a:c, timestamp=1267740457648, value=99                                    
+ 98                          column=d:e, timestamp=1267740457648, value=100                                   
+2 row(s) in 0.0240 seconds
+</pre>
+</div></div><p>And when queried back into Hive:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>hive&gt; select * from hbase_table_1;
+Total MapReduce jobs = 1
+Launching Job 1 out of 1
+...
+OK
+100	val_100	101	102
+98	val_98	99	100
+Time taken: 4.054 seconds
+</pre>
+</div></div><h3 id="HBaseIntegration-HiveMAPtoHBaseColumnFamily">Hive MAP to HBase Column Family</h3><p>Here's how a Hive MAP datatype can be used to access an entire column family. Each row can have a different set of columns, where the column names correspond to the map keys and the column values correspond to the map values.</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE hbase_table_1(value map&lt;string,int&gt;, row_key int) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+&quot;hbase.columns.mapping&quot; = &quot;cf:,:key&quot;
+);
+INSERT OVERWRITE TABLE hbase_table_1 SELECT map(bar, foo), foo FROM pokes 
+WHERE foo=98 OR foo=100;
+</pre>
+</div></div><p>(This example also demonstrates using a Hive column other than the first as the HBase row key.)</p><p>Here's how this looks in HBase (with different column names in different rows):</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>hbase(main):012:0&gt; scan &quot;hbase_table_1&quot;
+ROW                          COLUMN+CELL                                                                      
+ 100                         column=cf:val_100, timestamp=1267739509194, value=100                            
+ 98                          column=cf:val_98, timestamp=1267739509194, value=98                              
+2 row(s) in 0.0080 seconds
+</pre>
+</div></div><p>And when queried back into Hive:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>hive&gt; select * from hbase_table_1;
+Total MapReduce jobs = 1
+Launching Job 1 out of 1
+...
+OK
+{&quot;val_100&quot;:100}	100
+{&quot;val_98&quot;:98}	98
+Time taken: 3.808 seconds
+</pre>
+</div></div><p>Note that the key of the MAP must have datatype string, since it is used for naming the HBase column, so the following table definition will fail:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE hbase_table_1(key int, value map&lt;int,int&gt;) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+&quot;hbase.columns.mapping&quot; = &quot;:key,cf:&quot;
+);
+FAILED: Error in metadata: java.lang.RuntimeException: MetaException(message:org.apache.hadoop.hive.serde2.SerDeException org.apache.hadoop.hive.hbase.HBaseSerDe: hbase column family 'cf:' should be mapped to map&lt;string,?&gt; but is mapped to map&lt;int,int&gt;)
+</pre>
+</div></div><h3 id="HBaseIntegration-HiveMAPtoHBaseColumnPrefix">Hive MAP to HBase Column Prefix</h3><p>Also note that starting with <a href="https://issues.apache.org/jira/browse/HIVE-3725" class="external-link" rel="nofollow">Hive 0.12</a>, wildcards can also be used to retrieve columns. For instance, if you want to retrieve all columns in HBase that start with the prefix &quot;col_prefix&quot;, a query like the following should work:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE hbase_table_1(value map&lt;string,int&gt;, row_key int) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+&quot;hbase.columns.mapping&quot; = &quot;cf:col_prefix.*,:key&quot;
+);
+</pre>
+</div></div><p>The same restrictions apply though. That is, the key of the map should be a string as it maps to the HBase column name and the value can be the type of value that you are retrieving. One other restriction is that all the values under the given prefix should be of the same type. That is, all of them should be of type &quot;int&quot; or type &quot;string&quot; and so on.</p><h4 id="HBaseIntegration-HidingColumnPrefixes">Hiding Column Prefixes</h4><p>Starting with <a href="https://issues.apache.org/jira/browse/HIVE-11329" class="external-link" rel="nofollow">Hive 1.3.0</a>, it is possible to hide column prefixes in select query results.  There is the SerDe boolean property hbase.columns.mapping.prefix.hide (false by default), which defines if the prefix should be hidden in keys of Hive map:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE hbase_table_1(tags map&lt;string,int&gt;, row_key string) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+&quot;hbase.columns.mapping&quot; = &quot;cf:tag_.*,:key&quot;,
+&quot;hbase.columns.mapping.prefix.hide&quot; = &quot;true&quot;
+);</pre>
+</div></div><p>Then a value of the column &quot;tags&quot; (<code>select tags from hbase_table_1</code>) will be:</p><pre>&quot;x&quot; : 1</pre><p>instead of:</p><pre>&quot;tag_x&quot; : 1</pre><h3 id="HBaseIntegration-Illegal:HivePrimitivetoHBaseColumnFamily">Illegal: Hive Primitive to HBase Column Family</h3><p>Table definitions such as the following are illegal because a<br/> Hive column mapped to an entire column family must have MAP type:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE hbase_table_1(key int, value string) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+&quot;hbase.columns.mapping&quot; = &quot;:key,cf:&quot;
+);
+FAILED: Error in metadata: java.lang.RuntimeException: MetaException(message:org.apache.hadoop.hive.serde2.SerDeException org.apache.hadoop.hive.hbase.HBaseSerDe: hbase column family 'cf:' should be mapped to map&lt;string,?&gt; but is mapped to string)
+</pre>
+</div></div><h3 id="HBaseIntegration-ExamplewithBinaryColumns">Example with Binary Columns</h3><p>Relying on the default value of <code>hbase.table.default.storage.type</code>:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE hbase_table_1 (key int, value string, foobar double)
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+&quot;hbase.columns.mapping&quot; = &quot;:key#b,cf:val,cf:foo#b&quot;
+);
+</pre>
+</div></div><p>Specifying <code>hbase.table.default.storage.type</code>:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE hbase_table_1 (key int, value string, foobar double)
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+&quot;hbase.columns.mapping&quot; = &quot;:key,cf:val#s,cf:foo&quot;,
+&quot;hbase.table.default.storage.type&quot; = &quot;binary&quot;
+);
+</pre>
+</div></div><h3 id="HBaseIntegration-SimpleCompositeRowKeys">Simple Composite Row Keys</h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of <a href="https://issues.apache.org/jira/browse/HIVE-2599" class="external-link" rel="nofollow">Hive 0.13.0</a></p></div></div><p>Hive can read and write delimited composite keys to HBase by mapping the HBase row key to a Hive struct, and using ROW FORMAT DELIMITED...COLLECTION ITEMS TERMINATED BY. Example:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Default" data-theme="Default">-- Create a table with a composite row key consisting of two string fields, delimited by '~'
+CREATE EXTERNAL TABLE delimited_example(key struct&lt;f1:string, f2:string&gt;, value string) 
+ROW FORMAT DELIMITED 
+COLLECTION ITEMS TERMINATED BY '~' 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' 
+WITH SERDEPROPERTIES ( 
+  'hbase.columns.mapping'=':key,f:c1');</pre>
+</div></div><h3 id="HBaseIntegration-ComplexCompositeRowKeysandHBaseKeyFactory">Complex Composite Row Keys and HBaseKeyFactory</h3><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.14.0 with <a href="https://issues.apache.org/jira/browse/HIVE-6411" class="external-link" rel="nofollow">HIVE-6411</a> (0.13.0 also supports complex composite keys, but using a different interface–see <a href="https://issues.apache.org/jira/browse/HIVE-2599" class="external-link" rel="nofollow">HIVE-2599</a> for that interface)</p></div></div><p>For more complex use cases, Hive allows users to specify an HBaseKeyFactory which defines the mapping of a key to fields in a Hive struct. <span style="line-height: 1.4285715;">This can be configured using the property &quot;hbase.composite.key.factory&quot; in the SERDEPROPERTIES option:</span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Default" data-theme="Default">-- Parse a row key with 3 fixed width fields each of width 10
+-- Example taken from: https://svn.apache.org/repos/asf/hive/trunk/hbase-handler/src/test/queries/positive/hbase_custom_key2.q
+CREATE TABLE hbase_ck_4(key struct&lt;col1:string,col2:string,col3:string&gt;, value string)
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+    &quot;hbase.table.name&quot; = &quot;hbase_custom2&quot;,
+    &quot;hbase.mapred.output.outputtable&quot; = &quot;hbase_custom2&quot;,
+    &quot;hbase.columns.mapping&quot; = &quot;:key,cf:string&quot;,
+    &quot;hbase.composite.key.factory&quot;=&quot;org.apache.hadoop.hive.hbase.SampleHBaseKeyFactory2&quot;);</pre>
+</div></div><p>&quot;hbase.composite.key.factory&quot; should be the fully qualified class name of a class implementing <a href="http://hive.apache.org/javadocs/r1.2.0/api/org/apache/hadoop/hive/hbase/HBaseKeyFactory.html" class="external-link" rel="nofollow">HBaseKeyFactory</a>. See <a href="https://svn.apache.org/repos/asf/hive/trunk/hbase-handler/src/test/org/apache/hadoop/hive/hbase/SampleHBaseKeyFactory2.java" class="external-link" rel="nofollow">SampleHBaseKeyFactory2</a> for a fixed length example in the same package. This class must be on your classpath in order for the above example to work. TODO: place these in an accessible place; they're currently only in test code.</p><h3 id="HBaseIntegration-AvroDataStoredinHBaseColumns.1">Avro Data Stored in HBase Columns</h3><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.14.0 with <a href="https://issues.apache.org/jira/browse/HIVE-6147" class="external-link" rel="nofollow">HIVE-6147</a></p></div></div><p>Hive 0.14.0 onward supports storing and querying Avro objects in HBase columns by making them visible as structs to Hive. This allows Hive to perform ad hoc analysis of HBase data which can be deeply structured. Prior to 0.14.0, the HBase Hive integration only supported querying primitive data types in columns.</p><p>An example HiveQL statement where <code>test_col_fam</code> is the column family and <code>test_col</code> is the column name:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Default" data-theme="Default">CREATE EXTERNAL TABLE test_hbase_avro
+ROW FORMAT SERDE 'org.apache.hadoop.hive.hbase.HBaseSerDe' 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' 
+WITH SERDEPROPERTIES (
+	&quot;hbase.columns.mapping&quot; = &quot;:key,test_col_fam:test_col&quot;, 
+	&quot;test_col_fam.test_col.serialization.type&quot; = &quot;avro&quot;,
+	&quot;test_col_fam.test_col.avro.schema.url&quot; = &quot;hdfs://testcluster/tmp/schema.avsc&quot;)
+TBLPROPERTIES (
+    &quot;hbase.table.name&quot; = &quot;hbase_avro_table&quot;,
+    &quot;hbase.mapred.output.outputtable&quot; = &quot;hbase_avro_table&quot;,
+    &quot;hbase.struct.autogenerate&quot;=&quot;true&quot;);</pre>
+</div></div><p>The important properties to note are the following three:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Default" data-theme="Default">&quot;test_col_fam.test_col.serialization.type&quot; = &quot;avro&quot;</pre>
+</div></div><p>This property tells Hive that the given column under the given column family is an Avro column, so Hive needs to deserialize it accordingly.</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Default" data-theme="Default">&quot;test_col_fam.test_col.avro.schema.url&quot; = &quot;hdfs://testcluster/tmp/schema.avsc&quot;</pre>
+</div></div><p>Using this property you specify where the reader schema is for the column that will be used to deserialize. This can be on HDFS like mentioned here, or provided inline using something like <code>&quot;test_col_fam.test_col.avro.schema.literal&quot;</code> property. If you have a custom store where you store this schema, you can write a custom implementation of <a href="https://github.com/apache/hive/blob/master/serde/src/java/org/apache/hadoop/hive/serde2/avro/AvroSchemaRetriever.java" class="external-link" rel="nofollow">AvroSchemaRetriever</a> and plug that in using the <code>&quot;avro.schema.retriever property&quot;</code> using a property like <code>&quot;test_col_fam.test_col.avro.schema.retriever&quot;</code>. You would need to ensure that the jar with this custom class is on the Hive classpath. For a usage discussion and links to other resources, see <a href="https://issues.apache.org/jira/browse/HIVE-6147?focusedCommentId=15125117&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-15125117" class="external-link" rel="nofollow">HIVE-6147</a>.</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Default" data-theme="Default">&quot;hbase.struct.autogenerate&quot; = &quot;true&quot;</pre>
+</div></div><p>Specifying this property lets Hive auto-deduce the columns and types using the schema that was provided. This allows you to avoid manually creating the columns and types for Avro schemas, which can be complicated and deeply nested.</p><h2 id="HBaseIntegration-PutTimestamps">Put Timestamps</h2><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2781" class="external-link" rel="nofollow">0.9.0</a></p></div></div><p>If inserting into a HBase table using Hive the HBase default timestamp is added which is usually the current timestamp. This can be overridden on a per-table basis using the <code>SERDEPROPERTIES</code> option <code>hbase.put.timestamp</code> which must be a valid timestamp or <code>-1</code> to reenable the default strategy.</p><h2 id="HBaseIntegration-KeyUniqueness">Key Uniqueness</h2><p>One subtle difference between HBase tables and Hive tables is that HBase tables have a unique key, whereas Hive tables do not. When multiple rows with the same key are inserted into HBase, only one of them is stored (the choice is arbitrary, so do not rely on HBase to pick the right one). This is in contrast to Hive, which is happy to store multiple rows with the same key and different values.</p><p>For example, the pokes table contains rows with duplicate keys. If it is copied into another Hive table, the duplicates are preserved:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE pokes2(foo INT, bar STRING);
+INSERT OVERWRITE TABLE pokes2 SELECT * FROM pokes;
+-- this will return 3
+SELECT COUNT(1) FROM POKES WHERE foo=498;
+-- this will also return 3
+SELECT COUNT(1) FROM pokes2 WHERE foo=498;
+</pre>
+</div></div><p>But in HBase, the duplicates are silently eliminated:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE pokes3(foo INT, bar STRING)
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+&quot;hbase.columns.mapping&quot; = &quot;:key,cf:bar&quot;
+);
+INSERT OVERWRITE TABLE pokes3 SELECT * FROM pokes;
+-- this will return 1 instead of 3
+SELECT COUNT(1) FROM pokes3 WHERE foo=498;
+</pre>
+</div></div><h2 id="HBaseIntegration-Overwrite">Overwrite</h2><p>Another difference to note between HBase tables and other Hive tables is that when INSERT OVERWRITE is used, existing rows are not deleted from the table. However, existing rows <strong>are</strong> overwritten if they have keys which match new rows.</p><h2 id="HBaseIntegration-PotentialFollowups">Potential Followups</h2><p>There are a number of areas where Hive/HBase integration could definitely use more love:</p><ul><li>more flexible column mapping (HIVE-806, HIVE-1245)</li><li>default column mapping in cases where no mapping spec is given</li><li>filter pushdown and indexing (see <a href="FilterPushdownDev.html">FilterPushdownDev</a> and <a href="IndexDev.html">IndexDev</a>)</li><li>expose timestamp attribute, possibly also with support for treating it as a partition key</li><li>allow per-table hbase.master configuration</li><li>run profiler and minimize any per-row overhead in column mapping</li><li>user defined routines for lookups and data loads via HBase client API (HIVE-758 and HIVE-791)</li><li>logging is very noisy, with a lot of spurious exceptions; investigate these and either fix their cause or squelch them</li></ul><h2 id="HBaseIntegration-Build">Build</h2><p>Code for the storage handler is located under <code>hive/trunk/hbase-handler</code>.</p><p>HBase and Zookeeper dependencies are fetched via ivy.</p><h2 id="HBaseIntegration-Tests">Tests</h2><p>Class-level unit tests are provided under <code>hbase-handler/src/test/org/apache/hadoop/hive/hbase</code>.</p><p>Positive QL tests are under <code>hbase-handler/src/test/queries</code>. These use a HBase+Zookeeper mini-cluster for hosting the fixture tables in-process, so no free-standing HBase installation is needed in order to run them. To avoid failures due to port conflicts, don't try to run these tests on the same machine where a real HBase master or zookeeper is running.</p><p>The QL tests can be executed via ant like this:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>ant test -Dtestcase=TestHBaseCliDriver -Dqfile=hbase_queries.q
+</pre>
+</div></div><p>An Eclipse launch template remains to be defined.</p><h2 id="HBaseIntegration-Links">Links</h2><ul><li>For information on how to bulk load data from Hive into HBase, see <a href="HBaseBulkLoad.html">HBaseBulkLoad</a>.</li><li>For another project which adds SQL-like query language support on top of HBase, see <a href="http://www.hbql.com/" class="external-link" rel="nofollow">HBQL</a> (unrelated to Hive).</li></ul><h2 id="HBaseIntegration-Acknowledgements">Acknowledgements</h2><ul><li>Primary credit for this feature goes to Samuel Guo, who did most of the development work in the early drafts of the patch</li></ul><h2 id="HBaseIntegration-OpenIssues(JIRA)">Open Issues (JIRA)</h2><p>
+
+
+
+
+
+<div id="refresh-module-1736365324" class="refresh-module-id jira-table conf-macro output-block" data-client-id="TABLE_5aa69414-a9e9-3523-82ec-879b028fb15b_27362089_anonymous_bnVsbA==_dHlwZWtleXN1bW1hcnlhc3NpZ25lZXJlcG9ydGVycHJpb3JpdHlzdGF0dXNyZXNvbHV0aW9uY3JlYXRlZHVwZGF0ZWRkdWU=" data-jira-key="issue-table-TABLE_5aa69414-a9e9-3523-82ec-879b028fb15b_27362089_anonymous_bnVsbA==_dHlwZWtleXN1bW1hcnlhc3NpZ25lZXJlcG9ydGVycHJpb3JpdHlzdGF0dXNyZXNvbHV0aW9uY3JlYXRlZHVwZGF0ZWRkdWU=" data-hasbody="false" data-macro-name="jiraissues">
+<p>
+            </p><div id="refresh-1736365324" class="refresh-macro">
+        </div>
+    
+        
+    
+        
+    <div id="jira-issues-1736365324" style="width: 100%;  overflow: auto;" class="jira-issues">
+        <table class="aui">
+            <tbody>
+                <tr> </tr>                 <tr>
+                                                                        <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">T
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">Key
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">Summary
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">Assignee
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">Reporter
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">P
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">Status
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">Resolution
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">Created
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">Updated
+                            </th>
+                                                                                                <th style="text-align: left;" class="jira-macro-table-underline-pdfexport">Due
+                            </th>
+                                                            </tr>
+                                            </tbody>
+        </table>
+    </div>
+            <div class="refresh-issues-bottom">
+                                        <span class="refresh-action-group">
+                        <div id="refresh-issues-loading-1736365324" class="button-spinner refresh-issues-loading">
+                            <span class="aui-icon aui-icon-wait">Loading...</span>
+                        </div>
+                        <a id="refresh-issues-button-1736365324" class="icon icon-refresh refresh-action refresh-issues-button" rel="nofollow"> </a>
+                        <a id="refresh-issues-link-1736365324" class="refresh-action refresh-issues-link" rel="nofollow">Refresh</a>
+                        <span id="error-message-1736365324" class="error-message hidden"> </span>
+                        <input type="hidden" class="refresh-wiki" id="refresh-wiki-1736365324" data-wikimarkup="&lt;ac:structured-macro ac:name=&quot;jira&quot; ac:schema-version=&quot;1&quot; ac:macro-id=&quot;e5678e2b-5019-4042-8977-4c8b8e83d0d7&quot;>&lt;ac:parameter ac:name=&quot;url&quot;>https://issues.apache.org/jira/sr/jira.issueviews:searchrequest-xml/temp/SearchRequest.xml?jqlQuery=project+%3D+HIVE+AND+component+in+%28%22HBase+Handler%22%29+and+Resolution+%3D+unresolved&amp;amp;tempMax=1000&lt;/ac:parameter>&lt;ac:parameter ac:name=&quot;: = | RAW | = :&quot;>url=https://issues.apache.org/jira/sr/jira.issueviews:searchrequest-xml/temp/SearchRequest.xml?jqlQuery=project+%3D+HIVE+AND+component+in+%28%22HBase+Handler%22%29+and+Resolution+%3D+unresolved&amp;amp;tempMax=1000&lt;/ac:parameter>&lt;ac:parameter ac:name=&quot;: = | TOKEN_TYPE | = :&quot;>BLOCK&lt;/ac:parameter>&lt;/ac:structured-macro>" data-pageid="27362089" />
+                    </span>
+                    </div>
+        <p> </p>
+
+            <div class="jim-sortable-dark-layout"> </div>
+    
+</div>
+</p><p> </p>
+
+                
+        
+    
+        </div>
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="27362089" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+        
+
+
+                
+    
+            
+</div>
+
+    
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Apps" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Apps</div>
+    </div>
+        
+
+
+
+            </div><!-- \#main -->
+            
+    
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="https://www.atlassian.com/software/views/opensource-community-additional-license-offer">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link" rel="nofollow">Atlassian Confluence</a> <span id='footer-build-information'>7.13.2</span></li>
+            <li class="print-only">Printed by Atlassian Confluence 7.13.2</li>
+            <li class="noprint"><a href="https://support.atlassian.com/help/confluence" class="hover-footer-link" rel="nofollow">Report a bug</a></li>
+            <li class="noprint"><a href="https://www.atlassian.com/company" class="hover-footer-link" rel="nofollow">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/" rel="nofollow">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+    <span style="display:none;" id="confluence-server-performance">{"serverDuration": 67, "requestCorrelationId": "0bc1b9227b6b936f"}</span>
+</body>
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/HBaseIntegration by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:42:40 GMT -->
+</html>
+    

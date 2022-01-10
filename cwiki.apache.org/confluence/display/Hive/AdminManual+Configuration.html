@@ -1,0 +1,800 @@
+    
+
+<!DOCTYPE html>
+<html lang="en-GB" >
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/AdminManual+Configuration by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:42:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+                            <title>AdminManual Configuration - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+    <meta id="atlassian-token" name="atlassian-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1639597171719">
+        
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="f372abdc7d1a6481c736efc7686d149c">
+            <meta id="team-calendars-has-jira-link" content="true">
+            <meta name="ajs-team-calendars-display-time-format" content="displayTimeFormat12">
+            <meta id="team-calendars-display-week-number" content="false">
+            <meta id="team-calendars-user-timezone" content="Etc/UTC">
+            <script type="text/x-template" id="team-calendars-messages" title="team-calendars-messages"><fieldset class="i18n hidden"><input type="hidden" name="calendar3.month.long.july" value="July"><input type="hidden" name="calendar3.day.short.wednesday" value="Wed"><input type="hidden" name="calendar3.day.short.thursday" value="Thu"><input type="hidden" name="calendar3.month.short.march" value="Mar"><input type="hidden" name="calendar3.month.long.april" value="April"><input type="hidden" name="calendar3.month.long.october" value="October"><input type="hidden" name="calendar3.month.long.august" value="August"><input type="hidden" name="calendar3.month.short.july" value="Jul"><input type="hidden" name="calendar3.month.short.may" value="May"><input type="hidden" name="calendar3.month.short.november" value="Nov"><input type="hidden" name="calendar3.day.long.friday" value="Friday"><input type="hidden" name="calendar3.day.long.sunday" value="Sunday"><input type="hidden" name="calendar3.day.long.saturday" value="Saturday"><input type="hidden" name="calendar3.month.short.april" value="Apr"><input type="hidden" name="calendar3.day.long.wednesday" value="Wednesday"><input type="hidden" name="calendar3.month.long.december" value="December"><input type="hidden" name="calendar3.month.short.october" value="Oct"><input type="hidden" name="calendar3.day.long.monday" value="Monday"><input type="hidden" name="calendar3.month.short.june" value="Jun"><input type="hidden" name="calendar3.day.short.monday" value="Mon"><input type="hidden" name="calendar3.day.short.tuesday" value="Tue"><input type="hidden" name="calendar3.day.short.saturday" value="Sat"><input type="hidden" name="calendar3.month.long.march" value="March"><input type="hidden" name="calendar3.month.long.june" value="June"><input type="hidden" name="calendar3.month.short.february" value="Feb"><input type="hidden" name="calendar3.month.short.august" value="Aug"><input type="hidden" name="calendar3.month.short.december" value="Dec"><input type="hidden" name="calendar3.day.short.sunday" value="Sun"><input type="hidden" name="calendar3.month.long.february" value="February"><input type="hidden" name="calendar3.day.long.tuesday" value="Tuesday"><input type="hidden" name="calendar3.month.long.may" value="May"><input type="hidden" name="calendar3.month.long.september" value="September"><input type="hidden" name="calendar3.month.long.november" value="November"><input type="hidden" name="calendar3.month.short.january" value="Jan"><input type="hidden" name="calendar3.month.short.september" value="Sep"><input type="hidden" name="calendar3.day.long.thursday" value="Thursday"><input type="hidden" name="calendar3.month.long.january" value="January"><input type="hidden" name="calendar3.day.short.friday" value="Fri"></fieldset></script>
+            
+    
+    
+            <meta name="ajs-page-title" content="AdminManual Configuration">
+            <meta name="ajs-latest-published-page-title" content="AdminManual Configuration">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-page-id" content="27362070">
+            <meta name="ajs-latest-page-id" content="27362070">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-parent-page-id" content="">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-max-number-editors" content="12">
+            <meta name="ajs-macro-placeholder-timeout" content="5000">
+            <meta name="ajs-jira-metadata-count" content="-1">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-can-remove-page-hierarchy" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="true">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="7.13.2">
+            <meta name="ajs-build-number" content="8703">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-remote-user-has-licensed-access" content="false">
+            <meta name="ajs-remote-user-has-browse-users-permission" content="false">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-current-user-avatar-uri-reference" content="/confluence/images/icons/profilepics/anonymous.svg">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/6dvx22/8703/4mhn8a/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-global-settings-quick-search-enabled" content="true">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="site-wide.shared-drafts,site-wide.synchrony,clc.quick.create,confluence.view.edit.transition,cql.search.screen,confluence-inline-comments-resolved,frontend.editor.v4,http.session.registrar,nps.survey.inline.dialog,confluence.efi.onboarding.new.templates,frontend.editor.v4.compatibility,atlassian.cdn.static.assets,pdf-preview,previews.sharing,previews.versions,file-annotations,confluence.efi.onboarding.rich.space.content,collaborative-audit-log,confluence.reindex.improvements,previews.conversion-service,editor.ajax.save,read.only.mode,graphql,previews.trigger-all-file-types,attachment.extracted.text.extractor,lucene.caching.filter,confluence.table.resizable,notification.batch,previews.sharing.pushstate,confluence-inline-comments-rich-editor,tc.tacca.dacca,site-wide.synchrony.opt-in,file-annotations.likes,gatekeeper-ui-v2,v2.content.name.searcher,mobile.supported.version,pulp,confluence-inline-comments,confluence-inline-comments-dangling-comment,quick-reload-inline-comments-flags">
+            <meta name="ajs-atl-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-access-mode" content="READ_WRITE">
+            <meta name="ajs-render-mode" content="READ_WRITE">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+    <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\u0022\u005C/confluence\u0022";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.confluence.plugins.synchrony-interop:synchrony-status-banner-loader.synchrony-status"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:policy-update-init.policy-update-data-provider"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:programmatic-analytics-init.programmatic-analytics-data-provider"]="false";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-help-paths"]="{\u0022entries\u0022:{\u0022applinks.docs.root\u0022:\u0022https://confluence.atlassian.com/display/APPLINKS-072/\u0022,\u0022applinks.docs.diagnostics.troubleshoot.sslunmatched\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthsignatureinvalid\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthtimestamprefused\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.delete.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.adding.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administration.guide\u0022:\u0022Application+Links+Documentation\u0022,\u0022applinks.docs.oauth.security\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.troubleshoot.application.links\u0022:\u0022Troubleshoot+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownerror\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.trusted.apps\u0022:\u0022Configuring+Trusted+Applications+authentication+for+an+application+link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelunsupported\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.ssluntrusted\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownhost\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.delete.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.adding.project.link\u0022:\u0022Configuring+Project+links+across+Applications\u0022,\u0022applinks.docs.link.applications\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthproblem\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.migration\u0022:\u0022Update+application+links+to+use+OAuth\u0022,\u0022applinks.docs.relocate.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administering.entity.links\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.upgrade.application.link\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.connectionrefused\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.oauth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.insufficient.remote.permission\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.configuring.application.link.auth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics\u0022:\u0022Application+links+diagnostics\u0022,\u0022applinks.docs.configured.authentication.types\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.adding.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unexpectedresponse\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.basic\u0022:\u0022Configuring+Basic+HTTP+Authentication+for+an+Application+Link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelmismatch\u0022:\u0022OAuth+troubleshooting+guide\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-types"]="{\u0022crowd\u0022:\u0022Crowd\u0022,\u0022confluence\u0022:\u0022Confluence\u0022,\u0022fecru\u0022:\u0022FishEye / Crucible\u0022,\u0022stash\u0022:\u0022Stash\u0022,\u0022jira\u0022:\u0022Jira\u0022,\u0022refapp\u0022:\u0022Reference Application\u0022,\u0022bamboo\u0022:\u0022Bamboo\u0022,\u0022generic\u0022:\u0022Generic Application\u0022}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.entity-types"]="{\u0022singular\u0022:{\u0022refapp.charlie\u0022:\u0022Charlie\u0022,\u0022fecru.project\u0022:\u0022Crucible Project\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repository\u0022,\u0022stash.project\u0022:\u0022Stash Project\u0022,\u0022generic.entity\u0022:\u0022Generic Project\u0022,\u0022confluence.space\u0022:\u0022Confluence Space\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Project\u0022,\u0022jira.project\u0022:\u0022Jira Project\u0022},\u0022plural\u0022:{\u0022refapp.charlie\u0022:\u0022Charlies\u0022,\u0022fecru.project\u0022:\u0022Crucible Projects\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repositories\u0022,\u0022stash.project\u0022:\u0022Stash Projects\u0022,\u0022generic.entity\u0022:\u0022Generic Projects\u0022,\u0022confluence.space\u0022:\u0022Confluence Spaces\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Projects\u0022,\u0022jira.project\u0022:\u0022Jira Projects\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.authentication-types"]="{\u0022com.atlassian.applinks.api.auth.types.BasicAuthenticationProvider\u0022:\u0022Basic Access\u0022,\u0022com.atlassian.applinks.api.auth.types.TrustedAppsAuthenticationProvider\u0022:\u0022Trusted Applications\u0022,\u0022com.atlassian.applinks.api.auth.types.CorsAuthenticationProvider\u0022:\u0022CORS\u0022,\u0022com.atlassian.applinks.api.auth.types.OAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthWithImpersonationAuthenticationProvider\u0022:\u0022OAuth\u0022}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\u0022daysBeforeLicenseExpiry\u0022:0,\u0022daysBeforeMaintenanceExpiry\u0022:0,\u0022showLicenseExpiryBanner\u0022:false,\u0022showMaintenanceExpiryBanner\u0022:false,\u0022renewUrl\u0022:null,\u0022salesUrl\u0022:null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-search-ui-plugin:confluence-search-ui-plugin-resources.i18n-data"]="{\u0022search.ui.recent.link.text\u0022:\u0022View more recently visited\u0022,\u0022search.ui.filter.space.category.input.label\u0022:\u0022Find space categories...\u0022,\u0022search.ui.search.results.empty\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching \u005C\u0022{0}\u005C\u0022.\u0022,\u0022search.ui.filter.clear.selected\u0022:\u0022Clear selected items\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.button.text\u0022:\u0022Show more app results...\u0022,\u0022search.ui.filter.space.archive.label\u0022:\u0022Search archived spaces\u0022,\u0022search.ui.filter.label\u0022:\u0022filter\u0022,\u0022search.ui.filter.contributor.button.text\u0022:\u0022Contributor\u0022,\u0022search.ui.filter.date.all.text\u0022:\u0022Any time\u0022,\u0022search.ui.filter.space.current.label\u0022:\u0022CURRENT\u0022,\u0022search.ui.clear.input.button.text\u0022:\u0022Clear text\u0022,\u0022search.ui.search.results.clear.button\u0022:\u0022clear your filters.\u0022,\u0022search.ui.filter.date.hour.text\u0022:\u0022The past day\u0022,\u0022help.search.ui.link.title\u0022:\u0022Search tips\u0022,\u0022search.ui.filters.heading\u0022:\u0022Filter by\u0022,\u0022search.ui.filter.label.input.label\u0022:\u0022Find labels...\u0022,\u0022search.ui.recent.items.anonymous\u0022:\u0022Start exploring. Your search results will appear here.\u0022,\u0022search.ui.filter.date.month.text\u0022:\u0022The past month\u0022,\u0022search.ui.input.label\u0022:\u0022Search\u0022,\u0022search.ui.search.result\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}\u0022,\u0022search.ui.infinite.scroll.button.text\u0022:\u0022More results\u0022,\u0022search.ui.filter.date.button.text\u0022:\u0022Date\u0022,\u0022search.ui.filter.date.week.text\u0022:\u0022The past week\u0022,\u0022search.ui.filter.label.button.text\u0022:\u0022Label\u0022,\u0022search.ui.input.alert\u0022:\u0022Hit enter to search\u0022,\u0022search.ui.result.subtitle.calendar\u0022:\u0022Team calendar\u0022,\u0022search.ui.filter.no.result.text\u0022:\u0022We can\u005Cu0027\u005Cu0027t find anything matching your search\u0022,\u0022search.ui.filter.date.heading\u0022:\u0022Last modified within\u0022,\u0022search.ui.result.subtitle.user\u0022:\u0022User profile\u0022,\u0022search.ui.filter.contributor.input.label\u0022:\u0022Find people...\u0022,\u0022search.ui.filter.content.type.button.text\u0022:\u0022Type\u0022,\u0022search.ui.filter.space.input.label\u0022:\u0022Find spaces...\u0022,\u0022search.ui.filter.date.year.text\u0022:\u0022The past year\u0022,\u0022search.ui.advanced.search.link.text\u0022:\u0022Advanced search\u0022,\u0022search.ui.filter.space.button.text\u0022:\u0022Space\u0022,\u0022search.ui.generic.error\u0022:\u0022Something went wrong. Refresh the page, or contact your admin if this keeps happening.\u0022,\u0022search.ui.recent.spaces\u0022:\u0022Recent Spaces\u0022,\u0022search.ui.search.results.clear.line2\u0022:\u0022Try a different search term or\u0022,\u0022search.ui.filter.space.category.button.text\u0022:\u0022Space category\u0022,\u0022search.ui.search.results.clear.line1\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching your search.\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.admin.button.text\u0022:\u0022Show more settings and app results...\u0022,\u0022search.ui.recent.pages\u0022:\u0022Recently visited\u0022,\u0022search.ui.search.result.anonymous\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}. Have an account? {1}Log in{2} to expand your search.\u0022,\u0022search.ui.recent.items.empty\u0022:\u0022Start exploring. Pages and spaces you\u005Cu0027\u005Cu0027ve visited recently will appear here.\u0022,\u0022search.ui.result.subtitle.space\u0022:\u0022Space\u0022,\u0022search.ui.filter.space.init.heading\u0022:\u0022recent spaces\u0022}";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="../../s/ad0cdaf669e3a7800fb6fa6452e260e4-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/css/_super/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/585884a9f3984b0aaecef0baf40c1e6e-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch1203.css?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" media="all">
+<script type="text/javascript" src="../../s/58e418cc99c782d6bf891d0ee81d3e82-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/js/_super/batch6116.js?locale=en-GB" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered></script>
+<script type="text/javascript" src="../../s/d8f9091841663d4e3446e48379e476f1-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/js/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch3a32.js?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true&amp;locale=en-GB" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" data-initially-rendered></script>
+
+    
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+            
+    
+
+    
+                <link rel="canonical" href="AdminManual%2bConfiguration.html">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/FoOhAQ">
+    <meta name="wikilink" content="[Hive:AdminManual Configuration]">
+    <meta name="page-version" content="57">
+    <meta name="ajs-page-version" content="57">
+
+</head>
+
+    
+<body      id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            
+
+<fieldset class="parameters hidden" style="display: none;">
+            <input type="hidden" id="listAnalyticsKey" value="19"/>
+        <input type="hidden" id="listAnalyticsDomain" value="comalatech.matomo.cloud"/>
+    </fieldset>
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="#title-heading">Skip to content</a></li>
+    <li><a href="#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="#navigation">Skip to action menu</a></li>
+    <li><a href="#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+        
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" aria-label="Site"><div class="aui-header-inner"><div class="aui-header-before"><button class=" aui-dropdown2-trigger app-switcher-trigger aui-dropdown2-trigger-arrowless" aria-controls="app-switcher" aria-haspopup="true" role="button" data-aui-trigger href="#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></button><div id="app-switcher" class="aui-dropdown2 aui-style-default" role="menu" hidden data-is-switcher="true" data-environment="{&quot;isUserAdmin&quot;:false,&quot;isAppSuggestionAvailable&quot;:false,&quot;isSiteAdminUser&quot;:false}"><div class="app-switcher-loading">Loading&hellip;</div></div></div><div class="aui-header-primary"><span id="logo" class="aui-header-logo aui-header-logo-confluence"><a href="https://cwiki.apache.org/confluence/" aria-label="Go to home page"><span class="aui-header-logo-device">Apache Software Foundation</span></a></span><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                                <li class="aui-buttons">
+            </li>
+</ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <div id="search-ui" class="aui-quicksearch dont-default-focus header-quicksearch"><input id="quick-search-query" aria-label="Search" placeholder="Search" type="text" /><div id="quick-search-alert" role="alert">Hit enter to search</div><aui-spinner size="small"></aui-spinner></div>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger aui-dropdown2-trigger-arrowless" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-question-filled">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-713/" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-713/help.whats.new.iframe.link" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://confluence.atlassian.com/display/DOC/Confluence+7.13+Release+Notes" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FAdminManual%2BConfiguration" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+    
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+                                            
+                            <div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo" data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="Home.html" title="Apache Hive"><img class="avatar-img" src="https://cwiki.apache.org/confluence/download/attachments/27362113/Hive?version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="space-information-container"><div class="name"><a href="Home.html" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon aui-icon aui-icon-small aui-iconfont-edit"></div></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-page-tree-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" aria-current="true" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"><h5 class="ia-quick-links-header-title">Space shortcuts</h5><div class="quick-links-section tipsy-enabled "><ul class="acs-nav-list"><li class="acs-nav-item pinned_page blueprint kb-how-to-article"><a class="acs-nav-item-link tipsy-enabled" href="How-to%2barticles.html" data-collapsed-tooltip="null"><span class="icon"></span><span class="acs-nav-item-label">How-to articles</span></a></li></ul></div></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" title="Pages"><span class="icon"></span><span class="label">Pages</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">AdminManual Configuration</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><button id="space-tools-menu-trigger"  class=" aui-dropdown2-trigger aui-button aui-button-subtle tipsy-enabled aui-dropdown2-trigger-arrowless " aria-controls="space-tools-menu" aria-haspopup="true" role="button" data-aui-trigger><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="aui-button-label">Space tools</span><span class="aui-icon "></span></button><div id="space-tools-menu" class="aui-dropdown2 aui-style-default space-tools-dropdown" role="menu" hidden data-aui-alignment="top left"></div><a href="#" role="button" class="expand-collapse-trigger aui-icon aui-icon-small aui-iconfont-chevron-double-left" aria-expanded="true"></a></div>
+                    
+                        			</div>
+    		</div>
+        <!-- \#header -->
+
+            
+    
+        <div id="main" class=" aui-page-panel">
+                        <div id="main-header">
+                        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                            
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-label="More options" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more" aria-label="More options"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-primary"                         class="section-primary first">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=27362070" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments" >
+                        <span>
+                                A<u>t</u>tachments (0)
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=27362070" rel="nofollow" class="action-view-history"   title="" >
+                        <span>
+                                Page History
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="who-can-view-button-ak-button" href="https://cwiki.apache.org/confluence" rel="nofollow" class="who-can-view-link"   title="" >
+                        <span>
+                                People who can view
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-secondary"                         class="section-secondary">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="" >
+                        <span>
+                                Resolved comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27362070" rel="nofollow" class="action-view-info"   title="" >
+                        <span>
+                                Page Information
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=27362070#selectedPageInHierarchy" rel="nofollow" class=""   title="" >
+                        <span>
+                                View in Hierarchy
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=27362070" rel="nofollow" class="action-view-source popup-link"   title="" >
+                        <span>
+                                View Source
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=27362070" rel="nofollow" class=""   title="" >
+                        <span>
+                                Delete comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=27362070" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to PDF
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27362070" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to EPUB
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=27362070" rel="nofollow" class="action-export-word"   title="" >
+                        <span>
+                                Export to Word
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-modify"                         class="section-modify">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/tree-copy/preparing-copying.action?pageId=27362070" rel="nofollow" class=""   title="" >
+                        <span>
+                                Copy Page Tree
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="#" title="Unrestricted" id="content-metadata-page-restrictions-hidden" class="hidden"></a></li><li class="page-metadata-item noprinthas-button"  id="content-metadata-jira-wrapper"><a href="#" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><span>Jira links</span></a></li></ul></div>
+            
+
+<a href="#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="AdminManual%2bConfiguration.html">AdminManual Configuration</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+            
+    
+
+                                
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+    
+            
+        
+
+    
+    
+
+    
+            
+        
+
+
+
+    
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+            <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+            
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dadmin&amp;permissionViolation=true"
+                       class="url fn"
+                            >Confluence Administrator</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dleftyl&amp;permissionViolation=true"
+                       class="url fn"
+                            >Lefty Leverenz</a></span> on <a class='last-modified' title='Show changes' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=27362070&amp;selectedPageVersions=56&amp;selectedPageVersions=57'>Oct 17, 2017</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <p><div class="toc-macro client-side-toc-macro  conf-macro output-block" data-headerelements="H1,H2,H3,H4" data-hasbody="false" data-macro-name="toc"> </div></p><h2 id="AdminManualConfiguration-ConfiguringHive">Configuring Hive</h2><p>A number of configuration variables in Hive can be used by the administrator to change the behavior for their installations and user sessions. These variables can be configured in any of the following ways, shown in the order of preference:</p><ul><li><p>Using the <strong>set command</strong> in the <a href="LanguageManual%2bCli.html">CLI</a> or <a href="HiveServer2%2bClients.html#HiveServer2Clients-BeelineHiveCommands">Beeline</a> for setting session level values for the configuration variable for all statements subsequent to the set command. For example, the following command sets the scratch directory (which is used by Hive to store temporary output and plans) to <code>/tmp/mydir</code> for all subsequent statements:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>  set hive.exec.scratchdir=/tmp/mydir;
+</pre>
+</div></div></li><li><p>Using the <strong><code>--hiveconf</code></strong> option of the <code><a href="LanguageManual%2bCli.html#LanguageManualCli-HiveCommandLineOptions">hive</a></code> command (in the CLI) or <code><a href="HiveServer2%2bClients.html#HiveServer2Clients-BeelineCommandOptions">beeline</a></code> command for the entire session. For example:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>  bin/hive --hiveconf hive.exec.scratchdir=/tmp/mydir
+</pre>
+</div></div></li><li><p>In <strong><code>hive-site.xml</code></strong>. This is used for setting values for the entire Hive configuration (see <a href="#AdminManualConfiguration-hive-site.xmlandhive-default.xml.template">hive-site.xml and hive-default.xml.template</a> below). For example:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>  &lt;property&gt;
+    &lt;name&gt;hive.exec.scratchdir&lt;/name&gt;
+    &lt;value&gt;/tmp/mydir&lt;/value&gt;
+    &lt;description&gt;Scratch space for Hive jobs&lt;/description&gt;
+  &lt;/property&gt;
+</pre>
+</div></div></li><li>In <strong>server-specific configuration files</strong> (supported starting <a href="https://issues.apache.org/jira/browse/HIVE-7342" class="external-link" rel="nofollow">Hive 0.14</a>). You can set metastore-specific configuration values in <strong>hivemetastore-site.xml</strong>, and HiveServer2-specific configuration values in <strong>hiveserver2-site.xml</strong>.<br/>The server-specific configuration file is useful in two situations:</li></ul><ol><li style="list-style-type: none;background-image: none;"><ol><li>You want a different configuration for one type of server (for example – enabling authorization only in HiveServer2 and not CLI).</li><li>You want to set a configuration value only in a server-specific configuration file (for example – setting the metastore database password only in the metastore server configuration file).<br/><p>HiveMetastore server reads hive-site.xml as well as hivemetastore-site.xml configuration files that are available in the $HIVE_CONF_DIR or in the classpath. If the metastore is being used in embedded mode (i.e., hive.metastore.uris is not set or empty) in <code>hive</code> commandline or HiveServer2, the hivemetastore-site.xml gets loaded by the parent process as well.<br/>The value of hive.metastore.uris is examined to determine this, and the value should be set appropriately in hive-site.xml .<br/>Certain <a href="Configuration%2bProperties.html#ConfigurationProperties-MetaStore">metastore configuration parameters</a> like hive.metastore.sasl.enabled, hive.metastore.kerberos.principal, hive.metastore.execute.setugi, and hive.metastore.thrift.framed.transport.enabled are used by the metastore client as well as server. For such common parameters it is better to set the values in hive-site.xml, that will help in keeping them consistent.</p><p>HiveServer2 reads hive-site.xml as well as hiveserver2-site.xml that are available in the $HIVE_CONF_DIR or in the classpath. <br/>If HiveServer2 is using the metastore in embedded mode, hivemetastore-site.xml also is loaded.</p><p>The order of precedence of the config files is as follows (later one has higher precedence) –<br/>hive-site.xml -&gt; hivemetastore-site.xml -&gt; hiveserver2-site.xml -&gt; '<code>-hiveconf</code>' commandline parameters.</p></li></ol></li></ol><h3 id="AdminManualConfiguration-hive-site.xmlandhive-default.xml.template">hive-site.xml and hive-default.xml.template</h3><p><code>hive-default.xml.template</code> contains the default values for various configuration variables that come prepackaged in a Hive distribution. In order to override any of the values, create <code>hive-site.xml</code> instead and set the value in that file as shown above.</p><p style="margin-left: 0.0px;"><code>hive-default.xml.template</code> is located in the <code>conf</code> directory in your installation root, and <code>hive-site.xml</code> should also be created in the same directory.</p><p>Please note that the template file <code><span>hive-default.xml.template</span></code> is not used by Hive at all (as of Hive 0.9.0) – the canonical list of configuration options is only managed in the <code>HiveConf</code> java class. The template file has the formatting needed for <code>hive-site.xml</code>, so you can paste configuration variables from the template file into <code>hive-site.xml</code> and then change their values to the desired configuration.</p><p>In Hive releases 0.9.0 through 0.13.1, the template file does not necessarily contain all configuration options found in <code>HiveConf.java</code> and some of its values and descriptions might be out of date or out of sync with the actual values and descriptions. However, as of <a href="https://issues.apache.org/jira/browse/HIVE-6037" class="external-link" rel="nofollow">Hive 0.14.0</a> the template file is generated directly from <code>HiveConf.java</code> and therefore it is a reliable source for configuration variables and their defaults.</p><p>The administrative configuration variables are listed <a href="#AdminManualConfiguration-ConfigurationVariables">below</a>. User variables are listed in <a href="Configuration%2bProperties.html">Hive Configuration Properties</a>. As of <a href="https://issues.apache.org/jira/browse/HIVE-6037" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.14.0</a> you can display information about a configuration variable with the <a href="LanguageManual%2bDDL.html#LanguageManualDDL-ShowConf">SHOW CONF command</a>.</p><h3 id="AdminManualConfiguration-TemporaryFolders">Temporary Folders</h3><p>Hive uses temporary folders both on the machine running the Hive client and the default HDFS instance. These folders are used to store per-query temporary/intermediate data sets and are normally cleaned up by the hive client when the query is finished. However, in cases of abnormal hive client termination, some data may be left behind. The configuration details are as follows:</p><ul><li>On the HDFS cluster this is set to <em>/tmp/hive-&lt;username&gt;</em> by default and is controlled by the configuration variable <em>hive.exec.scratchdir</em></li><li>On the client machine, this is hardcoded to <em>/tmp/&lt;username&gt;</em></li></ul><p>Note that when writing data to a table/partition, Hive will first write to a temporary location on the target table's filesystem (using hive.exec.scratchdir as the temporary location) and then move the data to the target table. This applies in all cases - whether tables are stored in HDFS (normal case) or in file systems like S3 or even NFS.</p><h3 id="AdminManualConfiguration-LogFiles">Log Files</h3><p>Hive client produces logs and history files on the client machine. Please see <a href="GettingStarted.html#GettingStarted-HiveLogging">Hive Logging</a> for configuration details.</p><p>For WebHCat logs, see <a href="WebHCat%2bUsingWebHCat.html#WebHCatUsingWebHCat-LogFiles">Log Files</a> in the <a href="WebHCat.html">WebHCat manual</a>.</p><h3 id="AdminManualConfiguration-DerbyServerMode">Derby Server Mode</h3><p><a href="http://db.apache.org/derby/" class="external-link" rel="nofollow">Derby</a> is the default database for the Hive metastore (<a href="GettingStarted.html#GettingStarted-MetadataStore">Metadata Store</a>). To run Derby as a network server for multiple users, see <a href="HiveDerbyServerMode.html">Hive Using Derby in Server Mode</a>.</p><h3 id="AdminManualConfiguration-ConfigurationVariables">Configuration Variables</h3><p>Broadly the configuration variables for Hive administration are categorized into:</p><div class="conf-macro output-block" data-hasbody="true" data-macro-name="toc-zone"><style type="text/css">/*<![CDATA[*/
+div.rbtoc1639597171739 {padding: 0px;}
+div.rbtoc1639597171739 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1639597171739 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class="toc-macro rbtoc1639597171739">
+<ul class="toc-indentation">
+<li><a href="#AdminManualConfiguration-HiveConfigurationVariables">Hive Configuration Variables</a></li>
+<li><a href="#AdminManualConfiguration-HiveMetastoreConfigurationVariables">Hive Metastore Configuration Variables</a></li>
+<li><a href="#AdminManualConfiguration-ConfigurationVariablesUsedtoInteractwithHadoop">Configuration Variables Used to Interact with Hadoop</a></li>
+<li><a href="#AdminManualConfiguration-HiveVariablesUsedtoPassRunTimeInformation">Hive Variables Used to Pass Run Time Information</a></li>
+</ul>
+</div><p>Also see <a href="Configuration%2bProperties.html">Hive Configuration Properties</a> in the <a href="LanguageManual.html">Language Manual</a> for non-administrative configuration variables.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information:  Metrics</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>&nbsp;A new Hive metrics system based on Codahale is introduced in releases 1.3.0 and 2.0.0 by <a href="https://issues.apache.org/jira/browse/HIVE-10761" class="external-link" rel="nofollow">HIVE-10761</a>. To configure it or revert to the old metrics system, see the <a href="Configuration%2bProperties.html#ConfigurationProperties-Metrics">Metrics section of Hive Configuration Properties</a>.</p></div></div><h4 id="AdminManualConfiguration-HiveConfigurationVariables"><span style="font-weight: bold;line-height: 1.4285715;">Hive Configuration Variables</span></h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Variable Name</p></th><th class="confluenceTh"><p>Description</p></th><th class="confluenceTh"><p>Default Value</p></th></tr><tr><td class="confluenceTd"><p>hive.ddl.output.format</p></td><td class="confluenceTd"><p>The data format to use for DDL output (e.g. <code>DESCRIBE table</code>). One of &quot;text&quot; (for human readable text) or &quot;json&quot; (for a json object). (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2822" class="external-link" rel="nofollow">0.9.0</a>.)</p></td><td class="confluenceTd"><p>text</p></td></tr><tr><td class="confluenceTd"><p>hive.exec.script.wrapper</p></td><td class="confluenceTd"><p>Wrapper around any invocations to script operator e.g. if this is set to python, the script passed to the script operator will be invoked as <code>python &lt;script command&gt;</code>. If the value is null or not set, the script is invoked as <code>&lt;script command&gt;</code>.</p></td><td class="confluenceTd"><p>null</p></td></tr><tr><td class="confluenceTd"><p>hive.exec.plan</p></td><td class="confluenceTd"><p>&nbsp;</p></td><td class="confluenceTd"><p>null</p></td></tr><tr><td class="confluenceTd"><p>hive.exec.scratchdir</p></td><td class="confluenceTd"><p>This directory is used by Hive to store the plans for different map/reduce stages for the query as well as to stored the intermediate outputs of these stages.</p><p><em>Hive 0.14.0 and later:</em> HDFS root scratch directory for Hive jobs, which gets created with write all (<a href="https://issues.apache.org/jira/browse/HIVE-8143" class="external-link" rel="nofollow">733</a>) permission<span>.&nbsp;</span><span>For each connecting user, an HDFS scratch directory ${hive.exec.scratchdir}/&lt;username&gt; is created&nbsp;</span><span>with ${hive.scratch.dir.permission}.</span></p></td><td class="confluenceTd"><p>/tmp/&lt;user.name&gt;/hive (Hive 0.8.0 and earlier) <br class="atl-forced-newline"/>/tmp/hive-&lt;user.name&gt; (as of Hive 0.8.1 to 0.14.0)<br/>/tmp/hive (Hive <a href="https://issues.apache.org/jira/browse/HIVE-6847" class="external-link" rel="nofollow">0.14.0</a> and later)</p></td></tr><tr><td colspan="1" class="confluenceTd"><span>hive.scratch.dir.permission</span></td><td colspan="1" class="confluenceTd">The permission for the user-specific scratch directories that get created in the root scratch directory ${hive.exec.scratchdir}. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-4487" class="external-link" rel="nofollow">0.12.0</a>.)</td><td colspan="1" class="confluenceTd">700 (Hive 0.12.0 and later)</td></tr><tr><td class="confluenceTd"><p>hive.exec.local.scratchdir</p></td><td class="confluenceTd"><p>This directory is used for temporary files when Hive runs in local mode. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-1577" class="external-link" rel="nofollow">0.10.0</a>.)</p></td><td class="confluenceTd"><p>/tmp/&lt;user.name&gt;</p></td></tr><tr><td class="confluenceTd"><p>hive.exec.submitviachild</p></td><td class="confluenceTd"><p>Determines whether the map/reduce jobs should be submitted through a separate jvm in the non local mode.</p></td><td class="confluenceTd"><p>false - By default jobs are submitted through the same jvm as the compiler</p></td></tr><tr><td class="confluenceTd"><p>hive.exec.script.maxerrsize</p></td><td class="confluenceTd"><p>Maximum number of serialization errors allowed in a user script invoked through <code>TRANSFORM</code> or <code>MAP</code> or <code>REDUCE</code> constructs.</p></td><td class="confluenceTd"><p>100000</p></td></tr><tr><td class="confluenceTd"><p>hive.exec.compress.output</p></td><td class="confluenceTd"><p>Determines whether the output of the final map/reduce job in a query is compressed or not.</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><td class="confluenceTd"><p>hive.exec.compress.intermediate</p></td><td class="confluenceTd"><p>Determines whether the output of the intermediate map/reduce jobs in a query is compressed or not.</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><td colspan="1" class="confluenceTd"><span>hive.resource.use.hdfs.location</span></td><td colspan="1" class="confluenceTd"><p>Reference HDFS based files/jars directly instead of copying to session based HDFS scratch directory. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-17574" class="external-link" rel="nofollow">2.2.1</a>.)</p></td><td colspan="1" class="confluenceTd">true</td></tr><tr><td class="confluenceTd"><p>hive.jar.path</p></td><td class="confluenceTd"><p>The location of hive_cli.jar that is used when submitting jobs in a separate jvm.</p></td><td class="confluenceTd"><p>&nbsp;</p></td></tr><tr><td class="confluenceTd"><p>hive.aux.jars.path</p></td><td class="confluenceTd"><p>The location of the plugin jars that contain implementations of user defined functions and SerDes.</p></td><td class="confluenceTd"><p>&nbsp;</p></td></tr><tr><td colspan="1" class="confluenceTd"><p>hive.reloadable.aux.jars.path</p></td><td colspan="1" class="confluenceTd">The location of plugin j<span>ars that can be renewed (added, removed, or updated) by executing the <a href="HiveServer2%2bClients.html#HiveServer2Clients-BeelineHiveCommands">Beeline reload command</a>, without having to restart HiveServer2. These jars can be&nbsp;</span><span>used just like the auxiliary classes in&nbsp;hive.aux.jars.path<a href="Configuration%2bProperties.html#ConfigurationProperties-hive.aux.jars.path" rel="nofollow">&nbsp;for creating UDFs or SerDes</a></span>.<span> (As of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-7553" class="external-link" rel="nofollow">0.14.0</a><span>.)</span></td><td colspan="1" class="confluenceTd">&nbsp;</td></tr><tr><td class="confluenceTd"><p>hive.partition.pruning</p></td><td class="confluenceTd"><p>A strict value for this variable indicates that an error is thrown by the compiler in case no partition predicate is provided on a partitioned table. This is used to protect against a user inadvertently issuing a query against all the partitions of the table.</p></td><td class="confluenceTd"><p>nonstrict</p></td></tr><tr><td class="confluenceTd"><p>hive.map.aggr</p></td><td class="confluenceTd"><p>Determines whether the map side aggregation is on or not.</p></td><td class="confluenceTd"><p>true</p></td></tr><tr><td class="confluenceTd"><p>hive.join.emit.interval</p></td><td class="confluenceTd"><p>&nbsp;</p></td><td class="confluenceTd"><p>1000</p></td></tr><tr><td class="confluenceTd"><p>hive.map.aggr.hash.percentmemory</p></td><td class="confluenceTd"><p>&nbsp;</p></td><td class="confluenceTd"><p>(float)0.5</p></td></tr><tr><td class="confluenceTd"><p>hive.default.fileformat</p></td><td class="confluenceTd"><p>Default file format for CREATE TABLE statement. Options are TextFile, SequenceFile, RCFile, and Orc.</p></td><td class="confluenceTd"><p>TextFile</p></td></tr><tr><td class="confluenceTd"><p>hive.merge.mapfiles</p></td><td class="confluenceTd"><p>Merge small files at the end of a map-only job.</p></td><td class="confluenceTd"><p>true</p></td></tr><tr><td class="confluenceTd"><p>hive.merge.mapredfiles</p></td><td class="confluenceTd"><p>Merge small files at the end of a map-reduce job.</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><td class="confluenceTd"><p>hive.merge.size.per.task</p></td><td class="confluenceTd"><p>Size of merged files at the end of the job.</p></td><td class="confluenceTd"><p>256000000</p></td></tr><tr><td class="confluenceTd"><p>hive.merge.smallfiles.avgsize</p></td><td class="confluenceTd"><p>When the average output file size of a job is less than this number, Hive will start an additional map-reduce job to merge the output files into bigger files. This is only done for map-only jobs if hive.merge.mapfiles is true, and for map-reduce jobs if hive.merge.mapredfiles is true.</p></td><td class="confluenceTd"><p>16000000</p></td></tr><tr><td class="confluenceTd"><p>hive.querylog.enable.plan.progress</p></td><td class="confluenceTd"><p>Whether to log the plan's progress every time a job's progress is checked. These logs are written to the location specified by <code>hive.querylog.location</code>. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-3230" class="external-link" rel="nofollow">0.10</a>.)</p></td><td class="confluenceTd"><p>true</p></td></tr><tr><td class="confluenceTd"><p>hive.querylog.location</p></td><td class="confluenceTd"><p>Directory where structured hive query logs are created. One file per session is created in this directory. If this variable set to empty string structured log will not be created.</p></td><td class="confluenceTd"><p>/tmp/&lt;user.name&gt;</p></td></tr><tr><td class="confluenceTd"><p>hive.querylog.plan.progress.interval</p></td><td class="confluenceTd"><p>The interval to wait between logging the plan's progress in milliseconds. If there is a whole number percentage change in the progress of the mappers or the reducers, the progress is logged regardless of this value. The actual interval will be the ceiling of (this value divided by the value of <code>hive.exec.counters.pull.interval</code>) multiplied by the value of <code>hive.exec.counters.pull.interval</code> i.e. if it is not divide evenly by the value of <code>hive.exec.counters.pull.interval</code> it will be logged less frequently than specified. This only has an effect if <code>hive.querylog.enable.plan.progress</code> is set to <code>true</code>. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-3230" class="external-link" rel="nofollow">0.10</a>.)</p></td><td class="confluenceTd"><p>60000</p></td></tr><tr><td class="confluenceTd"><p>hive.stats.autogather</p></td><td class="confluenceTd"><p>A flag to gather statistics automatically during the INSERT OVERWRITE command. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-1361" class="external-link" rel="nofollow">0.7.0</a>.)</p></td><td class="confluenceTd"><p>true</p></td></tr><tr><td class="confluenceTd"><p>hive.stats.dbclass</p></td><td class="confluenceTd"><p>The default database that stores temporary hive statistics. Valid values are <code>hbase</code> and <code>jdbc</code> while <code>jdbc</code> should have a specification of the Database to use, separated by a colon (e.g. <code>jdbc:mysql</code>). (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-1361" class="external-link" rel="nofollow">0.7.0</a>.)</p></td><td class="confluenceTd"><p>jdbc:derby</p></td></tr><tr><td class="confluenceTd"><p>hive.stats.dbconnectionstring</p></td><td class="confluenceTd"><p>The default connection string for the database that stores temporary hive statistics. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-1361" class="external-link" rel="nofollow">0.7.0</a>.)</p></td><td class="confluenceTd"><p>jdbc:derby:;databaseName=TempStatsStore;create=true</p></td></tr><tr><td class="confluenceTd"><p>hive.stats.jdbcdriver</p></td><td class="confluenceTd"><p>The JDBC driver for the database that stores temporary hive statistics. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-1361" class="external-link" rel="nofollow">0.7.0</a>.)</p></td><td class="confluenceTd"><p>org.apache.derby.jdbc.EmbeddedDriver</p></td></tr><tr><td class="confluenceTd"><p>hive.stats.reliable</p></td><td class="confluenceTd"><p>Whether queries will fail because stats cannot be collected completely accurately. If this is set to true, reading/writing from/into a partition may fail becuase the stats could not be computed accurately. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-1653" class="external-link" rel="nofollow">0.10.0</a>.)</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><td class="confluenceTd"><p>hive.enforce.bucketing</p></td><td class="confluenceTd"><p>If enabled, enforces inserts into bucketed tables to also be bucketed. (Hive 0.6.0 through Hive <a href="https://issues.apache.org/jira/browse/HIVE-12331" class="external-link" rel="nofollow">1.x.x</a> only)</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><td class="confluenceTd"><p>hive.variable.substitute</p></td><td class="confluenceTd"><p>Substitutes variables in Hive statements which were previously set using the <code>set</code> command, system variables or environment variables. See <a href="https://issues.apache.org/jira/browse/HIVE-1096" class="external-link" rel="nofollow">HIVE-1096</a> for details. (As of Hive 0.7.0.)</p></td><td class="confluenceTd"><p>true</p></td></tr><tr><td class="confluenceTd"><p>hive.variable.substitute.depth</p></td><td class="confluenceTd"><p>The maximum replacements the substitution engine will do. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2021" class="external-link" rel="nofollow">0.10.0</a>.)</p></td><td class="confluenceTd"><p>40</p></td></tr><tr><td class="confluenceTd"><p>hive.vectorized.execution.enabled</p></td><td class="confluenceTd"><p>This flag controls the vectorized mode of query execution as documented in <a href="https://issues.apache.org/jira/browse/HIVE-4160" class="external-link" rel="nofollow">HIVE-4160</a>. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-5283" class="external-link" rel="nofollow">0.13.0</a>.)</p></td><td class="confluenceTd"><p><code>false</code></p></td></tr></tbody></table></div><h4 id="AdminManualConfiguration-HiveMetastoreConfigurationVariables">Hive Metastore Configuration Variables</h4><p>Please see <a href="AdminManual%2bMetastore%2bAdministration.html">Hive Metastore Administration</a> for information about the configuration variables used to set up the metastore in local, remote, or embedded mode. Also see descriptions in the <a href="Configuration%2bProperties.html#ConfigurationProperties-MetaStore">Metastore</a> section of the Language Manual's <a href="Configuration%2bProperties.html">Hive Configuration Properties</a>.</p><p>For security configuration (Hive 0.10 and later), see the <a href="Configuration%2bProperties.html#ConfigurationProperties-HiveMetastoreSecurity" rel="nofollow">Hive Metastore Security</a> section in the Language Manual's <a href="Configuration%2bProperties.html">Hive Configuration Properties</a>.</p><h4 id="AdminManualConfiguration-ConfigurationVariablesUsedtoInteractwithHadoop">Configuration Variables Used to Interact with Hadoop</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Variable Name<span class="confluence-anchor-link conf-macro output-inline" id="AdminManualConfiguration-HiveConfigurationVariablesUsedtoInteractwithHadoop" data-hasbody="false" data-macro-name="anchor"> </span></strong></p></td><td class="confluenceTd"><p><strong>Description</strong></p></td><td class="confluenceTd"><p><strong>Default Value</strong></p></td></tr><tr><td class="confluenceTd"><p>hadoop.bin.path</p></td><td class="confluenceTd"><p>The location of the Hadoop script which is used to submit jobs to Hadoop when submitting through a separate JVM.</p></td><td class="confluenceTd"><p>$HADOOP_HOME/bin/hadoop</p></td></tr><tr><td class="confluenceTd"><p>hadoop.config.dir</p></td><td class="confluenceTd"><p>The location of the configuration directory of the Hadoop installation.</p></td><td class="confluenceTd"><p>$HADOOP_HOME/conf</p></td></tr><tr><td class="confluenceTd"><p>fs.default.name</p></td><td class="confluenceTd"><p>The default name of the filesystem (for example, localhost for hdfs://&lt;clustername&gt;:8020).</p><p>For YARN this configuration variable is called fs.defaultFS.</p></td><td class="confluenceTd"><p>file:///</p></td></tr><tr><td class="confluenceTd"><p>map.input.file</p></td><td class="confluenceTd"><p>The filename the map is reading from.</p></td><td class="confluenceTd"><p>null</p></td></tr><tr><td class="confluenceTd"><p>mapred.job.tracker</p></td><td class="confluenceTd"><p>The URL to the jobtracker. If this is set to local then map/reduce is run in the local mode.</p></td><td class="confluenceTd"><p>local</p></td></tr><tr><td class="confluenceTd"><p>mapred.reduce.tasks</p></td><td class="confluenceTd"><p>The number of reducers for each map/reduce stage in the query plan.</p></td><td class="confluenceTd"><p>1</p></td></tr><tr><td class="confluenceTd"><p>mapred.job.name</p></td><td class="confluenceTd"><p>The name of the map/reduce job.</p></td><td class="confluenceTd"><p>null</p></td></tr><tr><td colspan="1" class="confluenceTd">mapreduce.input.fileinputformat.split.maxsize</td><td colspan="1" class="confluenceTd">For splittable data this changes the portion of the data that each mapper is assigned. By default, each mapper is assigned based on the block sizes of the source files. Entering a value larger than the block size will decrease the number of splits which creates fewer mappers. Entering a value smaller than the block size will increase the number of splits which creates more mappers.</td><td colspan="1" class="confluenceTd"><span>empty</span></td></tr><tr><td colspan="1" class="confluenceTd">fs.trash.interval</td><td colspan="1" class="confluenceTd"><p>The interval, in minutes, after which a trash checkpoint directory is deleted. (This is also the interval between checkpoints.) The checkpoint directory is located in <code>.Trash</code> under the user's home directory and contains<span style="line-height: 1.4285715;"> files and directories that were removed since the previous checkpoint.</span></p><p>Any setting greater than 0 enables the trash feature of HDFS.</p><p>W<span>hen using the Transparent Data Encryption (TDE) feature, </span>set this to 0 in Hadoop core-site.xml as documented in <a href="https://issues.apache.org/jira/browse/HIVE-10978" class="external-link" rel="nofollow">HIVE-10978</a>.</p></td><td colspan="1" class="confluenceTd">0</td></tr></tbody></table></div><h4 id="AdminManualConfiguration-HiveVariablesUsedtoPassRunTimeInformation">Hive Variables Used to Pass Run Time Information</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Variable Name</strong></p></td><td class="confluenceTd"><p><strong>Description</strong></p></td><td class="confluenceTd"><p><strong>Default Value</strong></p></td></tr><tr><td class="confluenceTd"><p>hive.session.id</p></td><td class="confluenceTd"><p>The id of the Hive Session.</p></td><td class="confluenceTd"><p>&nbsp;</p></td></tr><tr><td class="confluenceTd"><p>hive.query.string</p></td><td class="confluenceTd"><p>The query string passed to the map/reduce job.</p></td><td class="confluenceTd"><p>&nbsp;</p></td></tr><tr><td class="confluenceTd"><p>hive.query.planid</p></td><td class="confluenceTd"><p>The id of the plan for the map/reduce stage.</p></td><td class="confluenceTd"><p>&nbsp;</p></td></tr><tr><td class="confluenceTd"><p>hive.jobname.length</p></td><td class="confluenceTd"><p>The maximum length of the jobname.</p></td><td class="confluenceTd"><p>50</p></td></tr><tr><td class="confluenceTd"><p>hive.table.name</p></td><td class="confluenceTd"><p>The name of the Hive table. This is passed to the user scripts through the script operator.</p></td><td class="confluenceTd"><p>&nbsp;</p></td></tr><tr><td class="confluenceTd"><p>hive.partition.name</p></td><td class="confluenceTd"><p>The name of the Hive partition. This is passed to the user scripts through the script operator.</p></td><td class="confluenceTd"><p>&nbsp;</p></td></tr><tr><td class="confluenceTd"><p>hive.alias</p></td><td class="confluenceTd"><p>The alias being processed. This is also passed to the user scripts through the script operator.</p></td><td class="confluenceTd"><p>&nbsp;</p></td></tr></tbody></table></div></div><h2 id="AdminManualConfiguration-RemovingHiveMetastorePasswordfromHiveConfiguration">Removing Hive Metastore Password from Hive Configuration</h2><p>Support for this was added in Hive 0.14.0 with <a href="https://issues.apache.org/jira/browse/HIVE-7634" class="external-link" rel="nofollow">HIVE-7634</a> and <a href="https://issues.apache.org/jira/browse/HADOOP-10904" class="external-link" rel="nofollow">HADOOP-10904</a>. By setting up a CredentialProvider to handle storing/retrieval of passwords, you can remove the need to keep the Hive metastore password in cleartext in the Hive configuration.</p><ol><li><p>Set up the CredentialProvider to store the Hive Metastore password, using the key javax.jdo.option.ConnectionPassword (the same key as used in the Hive configuration). For example, the following command adds the metastore password to a JCEKS keystore file at /usr/lib/hive/conf/hive.jceks:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>$ hadoop credential create javax.jdo.option.ConnectionPassword -provider jceks://file/usr/lib/hive/conf/hive.jceks
+Enter password: 
+Enter password again: 
+javax.jdo.option.ConnectionPassword has been successfully created.
+org.apache.hadoop.security.alias.JavaKeyStoreProvider has been updated.
+</pre>
+</div></div><p>Make sure to restrict access to this file to just the user running the Hive Metastore server/HiveServer2.<br/>See <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html#credential" class="external-link" rel="nofollow">http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html#credential</a> for more information.</p></li><li><p>Update the Hive configuration to use the designated CredentialProvider. For example to use our /usr/lib/hive/conf/hive.jceks file:</p><div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>  &lt;!-- Configure credential store for passwords--&gt;
+  &lt;property&gt;
+    &lt;name&gt;hadoop.security.credential.provider.path&lt;/name&gt;
+    &lt;value&gt;jceks://file/usr/lib/hive/conf/hive.jceks&lt;/value&gt;
+  &lt;/property&gt;
+</pre>
+</div></div><p>This configures the CredentialProvider used by <a href="http://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getPassword(java.lang.String)" class="external-link" rel="nofollow">http://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getPassword(java.lang.String)</a>, which is used by Hive to retrieve the metastore password.</p></li><li>Remove the Hive Metastore password entry (<span style="color: rgb(0,0,0);"><a href="Configuration%2bProperties.html#ConfigurationProperties-javax.jdo.option.ConnectionPassword">javax.jdo.option.ConnectionPassword</a>) from the Hive configuration. The CredentialProvider will be used instead.</span></li><li><span style="color: rgb(0,0,0);">Restart Hive Metastore Server/HiveServer2.</span></li></ol><h2 id="AdminManualConfiguration-ConfiguringHCatalogandWebHCat">Configuring HCatalog and WebHCat</h2><h3 id="AdminManualConfiguration-HCatalog">HCatalog</h3><p>Starting in Hive release 0.11.0, HCatalog is installed and configured with Hive. The HCatalog server is the same as the Hive metastore.</p><ul><li>See <a href="AdminManual%2bMetastore%2bAdministration.html">Hive Metastore Administration</a> for metastore configuration properties.</li><li>See <a href="HCatalog%2bInstallHCat.html">HCatalog Installation from Tarball</a> for additional information.</li></ul><p>For Hive releases prior to 0.11.0, see the &quot;Thrift Server Setup&quot; section in the HCatalog 0.5.0 document <a href="http://hive.apache.org/docs/hcat_r0.5.0/install.html" class="external-link" rel="nofollow">Installation from Tarball</a>.</p><h3 id="AdminManualConfiguration-WebHCat">WebHCat</h3><p>For information about configuring WebHCat, see <a href="WebHCat%2bConfigure.html">WebHCat Configuration</a>.</p><p> </p><p> </p><p><span style="text-indent: 20.0px;width: auto;padding: 0.0px 4.0px 0.0px 0.0px;text-align: center;color: rgb(255,255,255);z-index: 8675309;display: none;cursor: pointer;">Save</span></p>
+
+                
+        
+    
+        </div>
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="27362070" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+                    
+        <li class="aui-label " data-label-id="35127392"><a class="aui-label-split-main" href="https://cwiki.apache.org/confluence/label/Hive/s" rel="tag">s</a></li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+        
+
+
+                
+    
+            
+</div>
+
+    
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Apps" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Apps</div>
+    </div>
+        
+
+
+
+            </div><!-- \#main -->
+            
+    
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="https://www.atlassian.com/software/views/opensource-community-additional-license-offer">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link" rel="nofollow">Atlassian Confluence</a> <span id='footer-build-information'>7.13.2</span></li>
+            <li class="print-only">Printed by Atlassian Confluence 7.13.2</li>
+            <li class="noprint"><a href="https://support.atlassian.com/help/confluence" class="hover-footer-link" rel="nofollow">Report a bug</a></li>
+            <li class="noprint"><a href="https://www.atlassian.com/company" class="hover-footer-link" rel="nofollow">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/" rel="nofollow">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+    <span style="display:none;" id="confluence-server-performance">{"serverDuration": 64, "requestCorrelationId": "9d5be3f535c51f47"}</span>
+</body>
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/AdminManual+Configuration by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:42:43 GMT -->
+</html>
+    

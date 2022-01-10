@@ -1,0 +1,1546 @@
+    
+
+<!DOCTYPE html>
+<html lang="en-GB" >
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/HiveServer2+Thrift+API by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:47:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+                            <title>HiveServer2 Thrift API - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+    <meta id="atlassian-token" name="atlassian-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1639597391081">
+        
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="f372abdc7d1a6481c736efc7686d149c">
+            <meta id="team-calendars-has-jira-link" content="true">
+            <meta name="ajs-team-calendars-display-time-format" content="displayTimeFormat12">
+            <meta id="team-calendars-display-week-number" content="false">
+            <meta id="team-calendars-user-timezone" content="Etc/UTC">
+            <script type="text/x-template" id="team-calendars-messages" title="team-calendars-messages"><fieldset class="i18n hidden"><input type="hidden" name="calendar3.month.long.july" value="July"><input type="hidden" name="calendar3.day.short.wednesday" value="Wed"><input type="hidden" name="calendar3.day.short.thursday" value="Thu"><input type="hidden" name="calendar3.month.short.march" value="Mar"><input type="hidden" name="calendar3.month.long.april" value="April"><input type="hidden" name="calendar3.month.long.october" value="October"><input type="hidden" name="calendar3.month.long.august" value="August"><input type="hidden" name="calendar3.month.short.july" value="Jul"><input type="hidden" name="calendar3.month.short.may" value="May"><input type="hidden" name="calendar3.month.short.november" value="Nov"><input type="hidden" name="calendar3.day.long.friday" value="Friday"><input type="hidden" name="calendar3.day.long.sunday" value="Sunday"><input type="hidden" name="calendar3.day.long.saturday" value="Saturday"><input type="hidden" name="calendar3.month.short.april" value="Apr"><input type="hidden" name="calendar3.day.long.wednesday" value="Wednesday"><input type="hidden" name="calendar3.month.long.december" value="December"><input type="hidden" name="calendar3.month.short.october" value="Oct"><input type="hidden" name="calendar3.day.long.monday" value="Monday"><input type="hidden" name="calendar3.month.short.june" value="Jun"><input type="hidden" name="calendar3.day.short.monday" value="Mon"><input type="hidden" name="calendar3.day.short.tuesday" value="Tue"><input type="hidden" name="calendar3.day.short.saturday" value="Sat"><input type="hidden" name="calendar3.month.long.march" value="March"><input type="hidden" name="calendar3.month.long.june" value="June"><input type="hidden" name="calendar3.month.short.february" value="Feb"><input type="hidden" name="calendar3.month.short.august" value="Aug"><input type="hidden" name="calendar3.month.short.december" value="Dec"><input type="hidden" name="calendar3.day.short.sunday" value="Sun"><input type="hidden" name="calendar3.month.long.february" value="February"><input type="hidden" name="calendar3.day.long.tuesday" value="Tuesday"><input type="hidden" name="calendar3.month.long.may" value="May"><input type="hidden" name="calendar3.month.long.september" value="September"><input type="hidden" name="calendar3.month.long.november" value="November"><input type="hidden" name="calendar3.month.short.january" value="Jan"><input type="hidden" name="calendar3.month.short.september" value="Sep"><input type="hidden" name="calendar3.day.long.thursday" value="Thursday"><input type="hidden" name="calendar3.month.long.january" value="January"><input type="hidden" name="calendar3.day.short.friday" value="Fri"></fieldset></script>
+            
+    
+    
+            <meta name="ajs-page-title" content="HiveServer2 Thrift API">
+            <meta name="ajs-latest-published-page-title" content="HiveServer2 Thrift API">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-page-id" content="27843687">
+            <meta name="ajs-latest-page-id" content="27843687">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-parent-page-title" content="DesignDocs">
+            <meta name="ajs-parent-page-id" content="27362075">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-max-number-editors" content="12">
+            <meta name="ajs-macro-placeholder-timeout" content="5000">
+            <meta name="ajs-jira-metadata-count" content="-1">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-can-remove-page-hierarchy" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="true">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="7.13.2">
+            <meta name="ajs-build-number" content="8703">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-remote-user-has-licensed-access" content="false">
+            <meta name="ajs-remote-user-has-browse-users-permission" content="false">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-current-user-avatar-uri-reference" content="/confluence/images/icons/profilepics/anonymous.svg">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/6dvx22/8703/4mhn8a/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-global-settings-quick-search-enabled" content="true">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="site-wide.shared-drafts,site-wide.synchrony,clc.quick.create,confluence.view.edit.transition,cql.search.screen,confluence-inline-comments-resolved,frontend.editor.v4,http.session.registrar,nps.survey.inline.dialog,confluence.efi.onboarding.new.templates,frontend.editor.v4.compatibility,atlassian.cdn.static.assets,pdf-preview,previews.sharing,previews.versions,file-annotations,confluence.efi.onboarding.rich.space.content,collaborative-audit-log,confluence.reindex.improvements,previews.conversion-service,editor.ajax.save,read.only.mode,graphql,previews.trigger-all-file-types,attachment.extracted.text.extractor,lucene.caching.filter,confluence.table.resizable,notification.batch,previews.sharing.pushstate,confluence-inline-comments-rich-editor,tc.tacca.dacca,site-wide.synchrony.opt-in,file-annotations.likes,gatekeeper-ui-v2,v2.content.name.searcher,mobile.supported.version,pulp,confluence-inline-comments,confluence-inline-comments-dangling-comment,quick-reload-inline-comments-flags">
+            <meta name="ajs-atl-token" content="d7833c7da397e2f88a76912a1879e0225325829d">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-access-mode" content="READ_WRITE">
+            <meta name="ajs-render-mode" content="READ_WRITE">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://cwiki.apache.org/confluence/s/6dvx22/8703/4mhn8a/1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+    <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\u0022\u005C/confluence\u0022";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.confluence.plugins.synchrony-interop:synchrony-status-banner-loader.synchrony-status"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:policy-update-init.policy-update-data-provider"]="false";
+WRM._unparsedData["com.atlassian.analytics.analytics-client:programmatic-analytics-init.programmatic-analytics-data-provider"]="false";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-help-paths"]="{\u0022entries\u0022:{\u0022applinks.docs.root\u0022:\u0022https://confluence.atlassian.com/display/APPLINKS-072/\u0022,\u0022applinks.docs.diagnostics.troubleshoot.sslunmatched\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthsignatureinvalid\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthtimestamprefused\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.delete.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.adding.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administration.guide\u0022:\u0022Application+Links+Documentation\u0022,\u0022applinks.docs.oauth.security\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.troubleshoot.application.links\u0022:\u0022Troubleshoot+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownerror\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.trusted.apps\u0022:\u0022Configuring+Trusted+Applications+authentication+for+an+application+link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelunsupported\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.ssluntrusted\u0022:\u0022SSL+and+application+link+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unknownhost\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.delete.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.adding.project.link\u0022:\u0022Configuring+Project+links+across+Applications\u0022,\u0022applinks.docs.link.applications\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.diagnostics.troubleshoot.oauthproblem\u0022:\u0022OAuth+troubleshooting+guide\u0022,\u0022applinks.docs.diagnostics.troubleshoot.migration\u0022:\u0022Update+application+links+to+use+OAuth\u0022,\u0022applinks.docs.relocate.application.link\u0022:\u0022Link+Atlassian+applications+to+work+together\u0022,\u0022applinks.docs.administering.entity.links\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.upgrade.application.link\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics.troubleshoot.connectionrefused\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.oauth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.insufficient.remote.permission\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.configuring.application.link.auth\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.diagnostics\u0022:\u0022Application+links+diagnostics\u0022,\u0022applinks.docs.configured.authentication.types\u0022:\u0022OAuth+security+for+application+links\u0022,\u0022applinks.docs.adding.entity.link\u0022:\u0022Create+links+between+projects\u0022,\u0022applinks.docs.diagnostics.troubleshoot.unexpectedresponse\u0022:\u0022Network+and+connectivity+troubleshooting+guide\u0022,\u0022applinks.docs.configuring.auth.basic\u0022:\u0022Configuring+Basic+HTTP+Authentication+for+an+Application+Link\u0022,\u0022applinks.docs.diagnostics.troubleshoot.authlevelmismatch\u0022:\u0022OAuth+troubleshooting+guide\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-types"]="{\u0022crowd\u0022:\u0022Crowd\u0022,\u0022confluence\u0022:\u0022Confluence\u0022,\u0022fecru\u0022:\u0022FishEye / Crucible\u0022,\u0022stash\u0022:\u0022Stash\u0022,\u0022jira\u0022:\u0022Jira\u0022,\u0022refapp\u0022:\u0022Reference Application\u0022,\u0022bamboo\u0022:\u0022Bamboo\u0022,\u0022generic\u0022:\u0022Generic Application\u0022}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.entity-types"]="{\u0022singular\u0022:{\u0022refapp.charlie\u0022:\u0022Charlie\u0022,\u0022fecru.project\u0022:\u0022Crucible Project\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repository\u0022,\u0022stash.project\u0022:\u0022Stash Project\u0022,\u0022generic.entity\u0022:\u0022Generic Project\u0022,\u0022confluence.space\u0022:\u0022Confluence Space\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Project\u0022,\u0022jira.project\u0022:\u0022Jira Project\u0022},\u0022plural\u0022:{\u0022refapp.charlie\u0022:\u0022Charlies\u0022,\u0022fecru.project\u0022:\u0022Crucible Projects\u0022,\u0022fecru.repository\u0022:\u0022FishEye Repositories\u0022,\u0022stash.project\u0022:\u0022Stash Projects\u0022,\u0022generic.entity\u0022:\u0022Generic Projects\u0022,\u0022confluence.space\u0022:\u0022Confluence Spaces\u0022,\u0022bamboo.project\u0022:\u0022Bamboo Projects\u0022,\u0022jira.project\u0022:\u0022Jira Projects\u0022}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.authentication-types"]="{\u0022com.atlassian.applinks.api.auth.types.BasicAuthenticationProvider\u0022:\u0022Basic Access\u0022,\u0022com.atlassian.applinks.api.auth.types.TrustedAppsAuthenticationProvider\u0022:\u0022Trusted Applications\u0022,\u0022com.atlassian.applinks.api.auth.types.CorsAuthenticationProvider\u0022:\u0022CORS\u0022,\u0022com.atlassian.applinks.api.auth.types.OAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthAuthenticationProvider\u0022:\u0022OAuth\u0022,\u0022com.atlassian.applinks.api.auth.types.TwoLeggedOAuthWithImpersonationAuthenticationProvider\u0022:\u0022OAuth\u0022}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\u0022daysBeforeLicenseExpiry\u0022:0,\u0022daysBeforeMaintenanceExpiry\u0022:0,\u0022showLicenseExpiryBanner\u0022:false,\u0022showMaintenanceExpiryBanner\u0022:false,\u0022renewUrl\u0022:null,\u0022salesUrl\u0022:null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-search-ui-plugin:confluence-search-ui-plugin-resources.i18n-data"]="{\u0022search.ui.recent.link.text\u0022:\u0022View more recently visited\u0022,\u0022search.ui.filter.space.category.input.label\u0022:\u0022Find space categories...\u0022,\u0022search.ui.search.results.empty\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching \u005C\u0022{0}\u005C\u0022.\u0022,\u0022search.ui.filter.clear.selected\u0022:\u0022Clear selected items\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.button.text\u0022:\u0022Show more app results...\u0022,\u0022search.ui.filter.space.archive.label\u0022:\u0022Search archived spaces\u0022,\u0022search.ui.filter.label\u0022:\u0022filter\u0022,\u0022search.ui.filter.contributor.button.text\u0022:\u0022Contributor\u0022,\u0022search.ui.filter.date.all.text\u0022:\u0022Any time\u0022,\u0022search.ui.filter.space.current.label\u0022:\u0022CURRENT\u0022,\u0022search.ui.clear.input.button.text\u0022:\u0022Clear text\u0022,\u0022search.ui.search.results.clear.button\u0022:\u0022clear your filters.\u0022,\u0022search.ui.filter.date.hour.text\u0022:\u0022The past day\u0022,\u0022help.search.ui.link.title\u0022:\u0022Search tips\u0022,\u0022search.ui.filters.heading\u0022:\u0022Filter by\u0022,\u0022search.ui.filter.label.input.label\u0022:\u0022Find labels...\u0022,\u0022search.ui.recent.items.anonymous\u0022:\u0022Start exploring. Your search results will appear here.\u0022,\u0022search.ui.filter.date.month.text\u0022:\u0022The past month\u0022,\u0022search.ui.input.label\u0022:\u0022Search\u0022,\u0022search.ui.search.result\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}\u0022,\u0022search.ui.infinite.scroll.button.text\u0022:\u0022More results\u0022,\u0022search.ui.filter.date.button.text\u0022:\u0022Date\u0022,\u0022search.ui.filter.date.week.text\u0022:\u0022The past week\u0022,\u0022search.ui.filter.label.button.text\u0022:\u0022Label\u0022,\u0022search.ui.input.alert\u0022:\u0022Hit enter to search\u0022,\u0022search.ui.result.subtitle.calendar\u0022:\u0022Team calendar\u0022,\u0022search.ui.filter.no.result.text\u0022:\u0022We can\u005Cu0027\u005Cu0027t find anything matching your search\u0022,\u0022search.ui.filter.date.heading\u0022:\u0022Last modified within\u0022,\u0022search.ui.result.subtitle.user\u0022:\u0022User profile\u0022,\u0022search.ui.filter.contributor.input.label\u0022:\u0022Find people...\u0022,\u0022search.ui.filter.content.type.button.text\u0022:\u0022Type\u0022,\u0022search.ui.filter.space.input.label\u0022:\u0022Find spaces...\u0022,\u0022search.ui.filter.date.year.text\u0022:\u0022The past year\u0022,\u0022search.ui.advanced.search.link.text\u0022:\u0022Advanced search\u0022,\u0022search.ui.filter.space.button.text\u0022:\u0022Space\u0022,\u0022search.ui.generic.error\u0022:\u0022Something went wrong. Refresh the page, or contact your admin if this keeps happening.\u0022,\u0022search.ui.recent.spaces\u0022:\u0022Recent Spaces\u0022,\u0022search.ui.search.results.clear.line2\u0022:\u0022Try a different search term or\u0022,\u0022search.ui.filter.space.category.button.text\u0022:\u0022Space category\u0022,\u0022search.ui.search.results.clear.line1\u0022:\u0022We couldn\u005Cu0027\u005Cu0027t find anything matching your search.\u0022,\u0022search.ui.content.name.search.items.panel.load.all.top.items.admin.button.text\u0022:\u0022Show more settings and app results...\u0022,\u0022search.ui.recent.pages\u0022:\u0022Recently visited\u0022,\u0022search.ui.search.result.anonymous\u0022:\u0022{0,choice,1#{0} search result|1\u005Cu003c{0} search results}. Have an account? {1}Log in{2} to expand your search.\u0022,\u0022search.ui.recent.items.empty\u0022:\u0022Start exploring. Pages and spaces you\u005Cu0027\u005Cu0027ve visited recently will appear here.\u0022,\u0022search.ui.result.subtitle.space\u0022:\u0022Space\u0022,\u0022search.ui.filter.space.init.heading\u0022:\u0022recent spaces\u0022}";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="../../s/ad0cdaf669e3a7800fb6fa6452e260e4-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/css/_super/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/585884a9f3984b0aaecef0baf40c1e6e-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch1203.css?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" media="all">
+<script type="text/javascript" src="../../s/58e418cc99c782d6bf891d0ee81d3e82-CDN/6dvx22/8703/4mhn8a/6b1577085985a611eea3c1e80e0e7e93/_/download/contextbatch/js/_super/batch6116.js?locale=en-GB" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered></script>
+<script type="text/javascript" src="../../s/d8f9091841663d4e3446e48379e476f1-CDN/6dvx22/8703/4mhn8a/e6aaebbd7baa9a045ec96374ae08d3b2/_/download/contextbatch/js/atl.confluence.plugins.pagetree-desktop%2cmain%2cvi/batch3a32.js?gatekeeper-ui-v2=true&amp;highlightactions=true&amp;hostenabled=true&amp;locale=en-GB" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" data-initially-rendered></script>
+
+    
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+            
+    
+
+    
+                <link rel="canonical" href="HiveServer2%2bThrift%2bAPI.html">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/Z9yoAQ">
+    <meta name="wikilink" content="[Hive:HiveServer2 Thrift API]">
+    <meta name="page-version" content="5">
+    <meta name="ajs-page-version" content="5">
+
+</head>
+
+    
+<body      id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            
+
+<fieldset class="parameters hidden" style="display: none;">
+            <input type="hidden" id="listAnalyticsKey" value="19"/>
+        <input type="hidden" id="listAnalyticsDomain" value="comalatech.matomo.cloud"/>
+    </fieldset>
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="#title-heading">Skip to content</a></li>
+    <li><a href="#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="#navigation">Skip to action menu</a></li>
+    <li><a href="#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+        
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" aria-label="Site"><div class="aui-header-inner"><div class="aui-header-before"><button class=" aui-dropdown2-trigger app-switcher-trigger aui-dropdown2-trigger-arrowless" aria-controls="app-switcher" aria-haspopup="true" role="button" data-aui-trigger href="#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></button><div id="app-switcher" class="aui-dropdown2 aui-style-default" role="menu" hidden data-is-switcher="true" data-environment="{&quot;isUserAdmin&quot;:false,&quot;isAppSuggestionAvailable&quot;:false,&quot;isSiteAdminUser&quot;:false}"><div class="app-switcher-loading">Loading&hellip;</div></div></div><div class="aui-header-primary"><span id="logo" class="aui-header-logo aui-header-logo-confluence"><a href="https://cwiki.apache.org/confluence/" aria-label="Go to home page"><span class="aui-header-logo-device">Apache Software Foundation</span></a></span><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                                <li class="aui-buttons">
+            </li>
+</ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <div id="search-ui" class="aui-quicksearch dont-default-focus header-quicksearch"><input id="quick-search-query" aria-label="Search" placeholder="Search" type="text" /><div id="quick-search-alert" role="alert">Hit enter to search</div><aui-spinner size="small"></aui-spinner></div>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger aui-dropdown2-trigger-arrowless" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-question-filled">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-713/" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-713/help.whats.new.iframe.link" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://confluence.atlassian.com/display/DOC/Confluence+7.13+Release+Notes" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FHiveServer2%2BThrift%2BAPI" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+    
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+                                            
+                            <div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo" data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="Home.html" title="Apache Hive"><img class="avatar-img" src="https://cwiki.apache.org/confluence/download/attachments/27362113/Hive?version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="space-information-container"><div class="name"><a href="Home.html" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon aui-icon aui-icon-small aui-iconfont-edit"></div></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-page-tree-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" aria-current="true" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"><h5 class="ia-quick-links-header-title">Space shortcuts</h5><div class="quick-links-section tipsy-enabled "><ul class="acs-nav-list"><li class="acs-nav-item pinned_page blueprint kb-how-to-article"><a class="acs-nav-item-link tipsy-enabled" href="How-to%2barticles.html" data-collapsed-tooltip="null"><span class="icon"></span><span class="acs-nav-item-label">How-to articles</span></a></li></ul></div></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="DesignDocs.html" title="DesignDocs"><span class="icon"></span><span class="label">DesignDocs</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">HiveServer2 Thrift API</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><button id="space-tools-menu-trigger"  class=" aui-dropdown2-trigger aui-button aui-button-subtle tipsy-enabled aui-dropdown2-trigger-arrowless " aria-controls="space-tools-menu" aria-haspopup="true" role="button" data-aui-trigger><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="aui-button-label">Space tools</span><span class="aui-icon "></span></button><div id="space-tools-menu" class="aui-dropdown2 aui-style-default space-tools-dropdown" role="menu" hidden data-aui-alignment="top left"></div><a href="#" role="button" class="expand-collapse-trigger aui-icon aui-icon-small aui-iconfont-chevron-double-left" aria-expanded="true"></a></div>
+                    
+                        			</div>
+    		</div>
+        <!-- \#header -->
+
+            
+    
+        <div id="main" class=" aui-page-panel">
+                        <div id="main-header">
+                        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                            
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-label="More options" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more" aria-label="More options"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-primary"                         class="section-primary first">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=27843687" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments" >
+                        <span>
+                                A<u>t</u>tachments (0)
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=27843687" rel="nofollow" class="action-view-history"   title="" >
+                        <span>
+                                Page History
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="who-can-view-button-ak-button" href="https://cwiki.apache.org/confluence" rel="nofollow" class="who-can-view-link"   title="" >
+                        <span>
+                                People who can view
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-secondary"                         class="section-secondary">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="" >
+                        <span>
+                                Resolved comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27843687" rel="nofollow" class="action-view-info"   title="" >
+                        <span>
+                                Page Information
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=27843687#selectedPageInHierarchy" rel="nofollow" class=""   title="" >
+                        <span>
+                                View in Hierarchy
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=27843687" rel="nofollow" class="action-view-source popup-link"   title="" >
+                        <span>
+                                View Source
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=27843687" rel="nofollow" class=""   title="" >
+                        <span>
+                                Delete comments
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=27843687" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to PDF
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27843687" rel="nofollow" class=""   title="" >
+                        <span>
+                                Export to EPUB
+            </span>        </a>
+    </li>
+                                                <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=27843687" rel="nofollow" class="action-export-word"   title="" >
+                        <span>
+                                Export to Word
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="action-menu-modify"                         class="section-modify">
+                                                    <li>
+
+    
+        
+    
+                                                        
+    
+    
+            <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/tree-copy/preparing-copying.action?pageId=27843687" rel="nofollow" class=""   title="" >
+                        <span>
+                                Copy Page Tree
+            </span>        </a>
+    </li>
+                                        </ul>
+                </div>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="DesignDocs.html">DesignDocs</a></span>
+                                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="#" title="Unrestricted" id="content-metadata-page-restrictions-hidden" class="hidden"></a></li><li class="page-metadata-item noprinthas-button"  id="content-metadata-jira-wrapper"><a href="#" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><span>Jira links</span></a></li></ul></div>
+            
+
+<a href="#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="HiveServer2%2bThrift%2bAPI.html">HiveServer2 Thrift API</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+            
+    
+
+                                
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+    
+            
+        
+
+    
+    
+
+    
+            
+        
+
+
+
+    
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+            <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+            
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fusers%2Fviewuserprofile.action%3Fusername%3Dcwsteinbach&amp;permissionViolation=true"
+                       class="url fn"
+                            >Carl Steinbach</a></span>, last modified on <a class='last-modified' title='Show changes' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=27843687&amp;selectedPageVersions=4&amp;selectedPageVersions=5'>Apr 30, 2012</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <h3 id="HiveServer2ThriftAPI-Introduction">Introduction</h3>
+
+<p>This document is a proposal for a new HiveServer2 Thrift API.</p>
+
+<h3 id="HiveServer2ThriftAPI-Motivations">Motivations</h3>
+
+<h5 id="HiveServer2ThriftAPI-Concurrency">Concurrency</h5>
+
+<p>Many users have reported that the current HiveServer implementation has concurrency bugs (for example, see <a href="https://issues.apache.org/jira/browse/HIVE-80" class="external-link" rel="nofollow">HIVE-80</a>). In fact, it's impossible for HiveServer to support concurrent connections using the current Thrift API, a result of the fact that Thrift doesn't provide server-side access to connection handles. Since the current API does not provide explicit support for sessions or connections, HiveServer has no way of mapping incoming requests to client sessions, which makes it impossible for HiveServer to maintain session state in between calls.</p>
+
+<p>HiveServer currently attempts to maintain session state using thread-local variables and relies on Thrift to consistently map the same connection to the same Thrift worker thread, but this isn't a valid assumption to make. For example, if a client executes &quot;set mapred.reduce.tasks=1&quot; followed by &quot;select .....&quot;, it is incorrect to assume that both of these statements will be executed by the same worker thread. Furthermore, the Thrift API doesn't provide any mechanism for detecting client disconnects (see <a href="https://issues.apache.org/jira/browse/THRIFT-1195" class="external-link" rel="nofollow">THRIFT-1195</a>), which results in incorrect behavior like this:</p>
+
+<div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>% hive -h localhost -p 10000
+[localhost:10000] hive&gt; set x=1;
+set x=1;
+[localhost:10000] hive&gt; set x;
+set x;
+x=1
+[localhost:10000] hive&gt; quit;
+quit;
+% hive -h localhost -p 10000
+[localhost:10000] hive&gt; set x;
+set x;
+x=1
+[localhost:10000] hive&gt; quit;
+quit;
+</pre>
+</div></div>
+
+<p>In this example the user opened a connection to a HiveServer process, modified the connection's session state by setting x=1, and then closed the connection. The same user then created a new connection and printed the value of x. Since this statement was executed in a new connection/session we expect x to be undefined. However, we see that x actually has the value that was set in the previous session. This incorrect behavior occurs because Thrift has assigned the same worker thread to service the second connection, and since Thrift doesn't provide a mechanism for detecting client disconnects, HiveServer was unable to clear the thread-local session state associated with that worker thread before Thrift reassigned it to the second connection.</p>
+
+<p>While it's tempting to try to solve these problems by modifying Thrift to provide direct access to the connection handle (which would allow HiveServer to map client connection handles to session state), this approach makes it really hard to support HA since it depends on the physical connection lasting as long as the user session, which isn't a fair assumption to make in the context of queries that can take many hours to complete.</p>
+
+<p>Instead, the approach we're taking with HiveServer2 is to provide explicit support for sessions in the client API, e.g every RPC call references a session ID which the server then maps to persistent session state. This makes it possible for any worker thread to service any request from any client connection, and also the avoids the need to tightly couple physical connections to logical sessions.</p>
+
+<h5 id="HiveServer2ThriftAPI-ImprovedSupportforODBC/JDBC">Improved Support for ODBC/JDBC</h5>
+
+<p>It has been a struggle to implement ODBC and JDBC drivers on top of the HiveServer Thrift API. This is largely a result of missing support for sessions, asynchronous query execution, the ability to cancel running queries, and methods for retrieving information about the capabilities of the remote server. We have attempted to address all of these issues with the HiveServer2 API.</p>
+
+
+<h3 id="HiveServer2ThriftAPI-ProposedHiveServer2ThriftAPI">Proposed HiveServer2 Thrift API</h3>
+
+<div class="preformatted panel conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="noformat"><div class="preformattedContent panelContent">
+<pre>// Licensed to the Apache Software Foundation (ASF) under one
+// or more contributor license agreements.  See the NOTICE file
+// distributed with this work for additional information
+// regarding copyright ownership.  The ASF licenses this file
+// to you under the Apache License, Version 2.0 (the
+// &quot;License&quot;); you may not use this file except in compliance
+// with the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// required for GetQueryPlan()
+include &quot;ql/if/queryplan.thrift&quot;
+
+namespace java org.apache.hive.service
+namespace cpp Apache.Hive
+
+// List of protocol versions. A new token should be
+// added to the end of this list every time a change is made.
+enum ProtocolVersion {
+  HIVE_SERVER2_PROTOCOL_V1
+}
+
+enum TType {
+  BOOLEAN_TYPE,
+  TINYINT_TYPE,
+  SMALLINT_TYPE,
+  INT_TYPE,
+  BIGINT_TYPE,
+  FLOAT_TYPE,
+  DOUBLE_TYPE,
+  STRING_TYPE,
+  TIMESTAMP_TYPE,
+  BINARY_TYPE,
+  ARRAY_TYPE,
+  MAP_TYPE,
+  STRUCT_TYPE,
+  UNION_TYPE,
+  USER_DEFINED_TYPE
+}
+  
+const set&lt;TType&gt; PRIMITIVE_TYPES = [
+  TType.BOOLEAN_TYPE
+  TType.TINYINT_TYPE
+  TType.SMALLINT_TYPE
+  TType.INT_TYPE
+  TType.BIGINT_TYPE
+  TType.FLOAT_TYPE
+  TType.DOUBLE_TYPE
+  TType.STRING_TYPE
+  TType.TIMESTAMP_TYPE
+  TType.BINARY_TYPE
+]
+
+const set&lt;TType&gt; COMPLEX_TYPES = [
+  TType.ARRAY_TYPE
+  TType.MAP_TYPE
+  TType.STRUCT_TYPE
+  TType.UNION_TYPE
+  TType.USER_DEFINED_TYPE
+]
+
+const set&lt;TType&gt; COLLECTION_TYPES = [
+  TType.ARRAY_TYPE
+  TType.MAP_TYPE
+]
+
+const map&lt;TType,string&gt; TYPE_NAMES = {
+  TType.BOOLEAN_TYPE: &quot;BOOLEAN&quot;,
+  TType.TINYINT_TYPE: &quot;TINYINT&quot;,
+  TType.SMALLINT_TYPE: &quot;SMALLINT&quot;,
+  TType.INT_TYPE: &quot;INT&quot;,
+  TType.BIGINT_TYPE: &quot;BIGINT&quot;,
+  TType.FLOAT_TYPE: &quot;FLOAT&quot;,
+  TType.DOUBLE_TYPE: &quot;DOUBLE&quot;,
+  TType.STRING_TYPE: &quot;STRING&quot;,
+  TType.TIMESTAMP_TYPE: &quot;TIMESTAMP&quot;,
+  TType.BINARY_TYPE: &quot;BINARY&quot;,
+  TType.ARRAY_TYPE: &quot;ARRAY&quot;,
+  TType.MAP_TYPE: &quot;MAP&quot;,
+  TType.STRUCT_TYPE: &quot;STRUCT&quot;,
+  TType.UNION_TYPE: &quot;UNIONTYPE&quot;
+}
+
+// Thrift does not support recursively defined types or forward declarations,
+// which makes it difficult to represent Hive's nested types.
+// To get around these limitations TTypeDesc employs a type list that maps
+// integer &quot;pointers&quot; to TTypeEntry objects. The following examples show
+// how different types are represented using this scheme:
+//
+// &quot;INT&quot;:
+// TTypeDesc {
+//   types = [
+//     TTypeEntry.primitive_entry {
+//       type = INT_TYPE
+//     }
+//   ]
+// }
+//
+// &quot;ARRAY&lt;INT&gt;&quot;:
+// TTypeDesc {
+//   types = [
+//     TTypeEntry.array_entry {
+//       object_type_ptr = 1
+//     },
+//     TTypeEntry.primitive_entry {
+//       type = INT_TYPE
+//     }
+//   ]
+// }
+//
+// &quot;MAP&lt;INT,STRING&gt;&quot;:
+// TTypeDesc {
+//   types = [
+//     TTypeEntry.map_entry {
+//       key_type_ptr = 1
+//       value_type_ptr = 2
+//     },
+//     TTypeEntry.primitive_entry {
+//       type = INT_TYPE
+//     },
+//     TTypeEntry.primitive_entry {
+//       type = STRING_TYPE
+//     }
+//   ]
+// }
+
+typedef i32 TTypeEntryPtr
+
+// Type entry for a primitive type.
+struct TPrimitiveTypeEntry {
+  // The primitive type token. This must satisfy the condition
+  // that type is in the PRIMITIVE_TYPES set.
+  1: required TType type
+}
+
+// Type entry for an ARRAY type.
+struct TArrayTypeEntry {
+  1: required TTypeEntryPtr object_type_ptr
+}
+
+// Type entry for a MAP type.
+struct TMapTypeEntry {
+  1: required TTypeEntryPtr key_type_ptr
+  2: required TTypeEntryPtr value_type_ptr
+}
+
+// Type entry for a STRUCT type.
+struct TStructTypeEntry {
+  1: required map&lt;string, TTypeEntryPtr&gt; name_to_type_ptr
+}
+
+// Type entry for a UNIONTYPE type.
+struct TUnionTypeEntry {
+  1: required map&lt;string, TTypeEntryPtr&gt; name_to_type_ptr
+}
+
+struct TUserDefinedTypeEntry {
+  // The fully qualified name of the class implementing this type.
+  1: required string typeClassName
+}
+
+// We use a union here since Thrift does not support inheritance.
+union TTypeEntry {
+  1: TPrimitiveTypeEntry primitive_entry
+  2: TArrayTypeEntry array_entry
+  3: TMapTypeEntry map_entry
+  4: TStructTypeEntry struct_entry
+  5: TUnionTypeEntry union_entry
+  6: TUserDefinedTypeEntry user_defined_type_entry
+}
+
+// Type descriptor for columns.
+struct TTypeDesc {
+  // The &quot;top&quot; type is always the first element of the list.
+  // If the top type is an ARRAY, MAP, STRUCT, or UNIONTYPE
+  // type, then subsequent elements represent nested types.
+  1: required list&lt;TTypeEntry&gt; types
+}
+
+// A result set column descriptor.
+struct TColumnDesc {
+  // The name of the column
+  1: required string col_name
+
+  // The type descriptor for this column
+  2: required TTypeDesc type_desc
+  
+  // The ordinal position of this column in the schema
+  3: required i32 position
+
+  4: optional string comment
+}
+
+// Metadata used to describe the schema (column names, types, comments)
+// of result sets.
+struct TTableSchema {
+  1: required list&lt;TColumnDesc&gt; columns
+}
+
+// A single column value in a result set.
+// Note that Hive's type system is richer than Thrift's,
+// so in some cases we have to map multiple Hive types
+// to the same Thrift type. On the client-side this is
+// disambiguated by looking at the Schema of the
+// result set.
+union TColumnValue {
+  1: bool   bool_val      // BOOLEAN
+  2: byte   byte_val      // TINYINT
+  3: i16    i16_val       // SMALLINT
+  4: i32    i32_val       // INT
+  5: i64    i64_val       // BIGINT, TIMESTAMP
+  6: double double_val    // FLOAT, DOUBLE
+  7: string string_val    // STRING, LIST, MAP, STRUCT, UNIONTYPE, BINARY
+}
+
+// Represents a row in a rowset.
+struct TRow {
+  1: list&lt;TColumnValue&gt; colVals
+}
+
+// Represents a rowset
+struct TRowSet {
+  // The starting row offset of this rowset.
+  1: i64 start_row_offset
+  2: list&lt;TRow&gt; rows
+}
+
+// The return status code contained in each response.
+enum TStatusCode {
+  SUCCESS,
+  SUCCESS_WITH_INFO,
+  SQL_STILL_EXECUTING,
+  ERROR,
+  INVALID_HANDLE
+}
+
+// The return status of a remote request
+struct TStatus {
+  1: required TStatusCode status_code
+
+  // If status is SUCCESS_WITH_INFO, info_msgs may be populated with
+  // additional diagnostic information.
+  2: optional list&lt;string&gt; info_msgs
+
+  // If status is ERROR, then the following fields may be set
+  3: optional string sql_state  // as defined in the ISO/IEF CLI specification
+  4: optional i32 error_code    // internal error code
+  5: optional string error_message
+}
+
+// The state of an operation (i.e. a query or other
+// asynchronous operation that generates a result set)
+// on the server.
+enum TOperationState {
+  // The operation is running. In this state the result
+  // set is not available.
+  RUNNING,
+
+  // The operation has completed. When an operation is in
+  // this state it's result set may be fetched.
+  FINISHED,
+
+  // The operation was canceled by a client
+  CANCELED,
+
+  // The operation failed due to an error
+  ERROR
+}
+
+
+// A string identifier. This is interpreted literally.
+typedef string TIdentifier
+
+// A search pattern.
+//
+// Valid search pattern characters:
+// '_': Any single character.
+// '%': Any sequence of zero or more characters.
+// '\': Escape character used to include special characters,
+//      e.g. '_', '%', '\'. If a '\' precedes a non-special
+//      character it has no special meaning and is interpreted
+//      literally.
+typedef string TPattern
+
+
+// A search pattern or identifier. Used as input
+// parameter for many of the catalog functions.
+union TPatternOrIdentifier {
+  1: TIdentifier identifier
+  2: TPattern pattern
+}
+
+struct THandleIdentifier {
+  // 16 byte globally unique identifier
+  // This is the public ID of the handle and
+  // can be used for reporting.
+  1: binary guid,
+
+  // 16 byte secret generated by the server
+  // and used to verify that the handle is not
+  // being hijacked by another user.
+  2: binary secret,
+}
+
+// Client-side handle to persistent
+// session information on the server-side.
+struct TSessionHandle {
+  1: required THandleIdentifier sess_id
+}
+
+// The subtype of an OperationHandle.
+enum TOperationType {
+  EXECUTE_STATEMENT,
+  GET_TYPE_INFO,
+  GET_TABLES,
+  GET_COLUMNS,
+  GET_FUNCTIONS,
+}
+
+// Client-side reference to a task running
+// asynchronously on the server.
+struct TOperationHandle {
+  1: required THandleIdentifier op_id
+  2: required TOperationType op_type
+}
+
+
+// OpenSession()
+//
+// Open a session (connection) on the server against
+// which operations may be executed. 
+struct TOpenSessionReq {
+  // The version of the HiveServer2 protocol that the client is using.
+  1: required ProtocolVersion client_protocol = ProtocolVersion.HIVE_SERVER2_PROTOCOL_V1
+  
+  // Username and password for authentication.
+  // Depending on the authentication scheme being used,
+  // this information may instead be provided by a lower
+  // protocol layer, in which case these fields may be
+  // left unset.
+  2: optional string username
+  3: optional string password
+
+  // Configuration overlay which is applied when the session is
+  // first created.
+  4: optional map&lt;string, string&gt; configuration
+}
+
+struct TOpenSessionResp {
+  1: required TStatus status
+
+  // The protocol version that the server is using.
+  2: ProtocolVersion server_protocol = ProtocolVersion.HIVE_SERVER2_PROTOCOL_V1
+
+  // Session Handle
+  3: TSessionHandle session_handle
+
+  // The configuration settings for this session.
+  4: map&lt;string, string&gt; configuration
+}
+
+
+// CloseSession()
+//
+// Closes the specified session and frees any resources
+// currently allocated to that session. Any open
+// operations in that session will be canceled.
+struct TCloseSessionReq {
+  1: required TSessionHandle session_handle
+}
+
+struct TCloseSessionResp {
+  1: required TStatus status
+}
+
+
+// GetInfo()
+//
+// This function is based on ODBC's SQLGetInfo() function.
+// The function returns general information about the data source
+// using the same keys as ODBC.
+struct TGetInfoReq {
+  // The sesssion to run this request against
+  1: required TSessionHandle session_handle
+
+  // List of keys for which info is requested. If unset or empty,
+  // the response message will contain the values of all Info
+  // properties.
+  2: optional list&lt;string&gt; info_keys
+}
+
+struct TGetInfoResp {
+  1: required TStatus status
+
+  // key/value pairs representing Info values
+  2: map&lt;string, string&gt; info
+}
+
+
+// ExecuteStatement()
+//
+// Execute a statement.
+// The returned OperationHandle can be used to check on the
+// status of the statement, and to fetch results once the
+// statement has finished executing.
+struct TExecuteStatementReq {
+  // The session to exexcute the statement against
+  1: required TSessionHandle session
+
+  // The statement to be executed (DML, DDL, SET, etc)
+  2: required string statement
+
+  // Configuration properties that are overlayed on top of the
+  // the existing session configuration before this statement
+  // is executed. These properties apply to this statement
+  // only and will not affect the subsequent state of the Session.
+  3: map&lt;string, string&gt; conf_overlay
+}
+
+struct TExecuteStatementResp {
+  1: required TStatus status
+  2: TOperationHandle op_handle
+}
+
+
+// GetTypeInfo()
+//
+// Get information about types supported by the HiveServer instance.
+// The information is returned as a result set which can be fetched
+// using the OperationHandle provided in the response.
+//
+// Refer to the documentation for ODBC's SQLGetTypeInfo function for
+// for the format of the result set.
+struct TGetTypeInfoReq {
+  // The session to run this request against.
+  1: required TSessionHandle session
+}
+
+struct TGetTypeInfoResp {
+  1: required TStatus status
+  2: TOperationHandle op_handle
+}  
+
+
+// GetTables()
+//
+// Returns a list of tables with catalog, schema, and table
+// type information. The information is returned as a result
+// set which can be fetched using the OperationHandle
+// provided in the response.
+//
+// Result Set Columns:
+//
+// col1
+// name: TABLE_CAT
+// type: STRING
+// desc: Catalog name. NULL if not applicable.
+//
+// col2
+// name: TABLE_SCHEM
+// type: STRING
+// desc: Schema name.
+//
+// col3
+// name: TABLE_NAME
+// type: STRING
+// desc: Table name.
+//
+// col4
+// name: TABLE_TYPE
+// type: STRING
+// desc: The table type, e.g. &quot;TABLE&quot;, &quot;VIEW&quot;, etc.
+//
+// col5
+// name: REMARKS
+// type: STRING
+// desc: Comments about the table
+//
+struct TGetTablesReq {
+  // Session to run this request against
+  1: required TSessionHandle session
+
+  // Name of the catalog or a search pattern.
+  2: optional TPatternOrIdentifier catalog_name
+
+  // Name of the schema or a search pattern.
+  3: required TPatternOrIdentifier schema_name
+
+  // Name of the table or a search pattern.
+  4: required TPatternOrIdentifier table_name
+
+  // List of table types to match
+  // e.g. &quot;TABLE&quot;, &quot;VIEW&quot;, &quot;SYSTEM TABLE&quot;, &quot;GLOBAL TEMPORARY&quot;,
+  // &quot;LOCAL TEMPORARY&quot;, &quot;ALIAS&quot;, &quot;SYNONYM&quot;, etc.
+  5: list&lt;string&gt; table_types
+}
+
+struct TGetTablesResp {
+  1: required TStatus status
+  2: TOperationHandle op_handle
+}
+
+
+// GetColumns()
+//
+// Returns a list of columns in the specified tables.
+// The information is returned as a result set which can be fetched
+// using the OperationHandle provided in the response.
+//
+// Result Set Columns are the same as those for the ODBC SQLColumns
+// function.
+//
+struct TGetColumnsReq {
+  // Session to run this request against
+  1: required TSessionHandle session
+
+  // Name of the catalog. Must not contain a search pattern.
+  2: optional TIdentifier catalog_name
+
+  // Schema name or search pattern
+  3: required TPatternOrIdentifier schema_name
+
+  // Table name or search pattern
+  4: required TPatternOrIdentifier table_name
+
+  // Column name or search pattern
+  5: required TPatternOrIdentifier column_name
+}
+
+struct TGetColumnsResp {
+  1: required TStatus status
+  2: optional TOperationHandle op_handle
+}
+
+
+// GetFunctions()
+//
+// Returns a list of functions supported by the data source.
+//
+// Result Set Columns:
+//
+// col1
+// name: FUNCTION_NAME
+// type: STRING
+// desc: The name of the function.
+//
+// col2
+// name: DESCRIPTION
+// type: STRING
+// desc: A description of the function.
+//
+// col3
+// name: FUNCTION_TYPE
+// type: STRING
+// desc: The function type: &quot;UDF&quot;, &quot;UDAF&quot;, or &quot;UDTF&quot;.
+//
+// col4
+// name: FUNCTION_CLASS
+// type: STRING
+// desc: The fully qualified name of the class
+//       that implements the specified function.
+//
+struct TGetFunctionsReq {
+  // Session to run this request against
+  1: required TSessionHandle session
+}
+
+struct TGetFunctionsResp {
+  1: required TStatus status
+  2: optional TOperationHandle op_handle
+}
+  
+
+// GetOperationStatus()
+//
+// Get the status of an operation running on the server.
+struct TGetOperationStatusReq {
+  // Session to run this request against
+  1: required TOperationHandle op_handle
+}
+
+struct TGetOperationStatusResp {
+  1: required TStatus status
+  2: TOperationState op_state
+}
+
+
+// CancelOperation()
+//
+// Cancels processing on the specified operation handle and
+// frees any resources which were allocated.
+struct TCancelOperationReq {
+  // Operation to cancel
+  1: required TOperationHandle op_handle
+}
+
+struct TCancelOperationResp {
+  1: required TStatus status
+}
+
+
+// GetQueryPlan()
+//
+// Given an OperationHandle corresponding to an ExecuteStatement
+// request, this function returns the queryplan for that
+// statement annotated with counter information.
+struct TGetQueryPlanReq {
+  1: required TOperationHandle op_handle
+}
+
+struct TGetQueryPlanResp {
+  1: required TStatus status
+  2: optional queryplan.QueryPlan query_plan
+}
+
+
+// CloseOperation()
+//
+// Given an operation in the FINISHED, CANCELED,
+// or ERROR states, CloseOperation() will free
+// all of the resources which were allocated on
+// the server to service the operation.
+struct TCloseOperationReq {
+  1: required TOperationHandle op_handle
+}
+
+struct TCloseOperationResp {
+  1: required TStatus status
+}
+
+
+// GetResultSetMetadata()
+//
+// Retrieves schema information for the specified operation
+struct TGetResultSetMetadataReq {
+  // Operation for which to fetch result set schema information
+  1: required TOperationHandle op_handle
+}
+
+struct TGetResultSetMetadataResp {
+  1: required TStatus status
+  2: optional TTableSchema schema
+}
+
+
+enum TFetchOrientation {
+  // Get the next rowset. The fetch offset is ignored.
+  FETCH_NEXT,
+
+  // Get the previous rowset. The fetch offset is ignored.
+  // NOT SUPPORTED
+  FETCH_PRIOR,
+
+  // Return the rowset at the given fetch offset relative
+  // to the curren rowset.
+  // NOT SUPPORTED
+  FETCH_RELATIVE,
+
+  // Return the rowset at the specified fetch offset.
+  // NOT SUPPORTED
+  FETCH_ABSOLUTE,
+
+  // Get the first rowset in the result set.
+  FETCH_FIRST,
+
+  // Get the last rowset in the result set.
+  // NOT SUPPORTED
+  FETCH_LAST
+}
+
+// FetchResults()
+//
+// Fetch rows from the server corresponding to
+// a particular OperationHandle.
+struct TFetchResultsReq {
+  // Operation from which to fetch results.
+  1: required TOperationHandle op_handle
+
+  // The fetch orientation. For V1 this must be either
+  // FETCH_NEXT or FETCH_FIRST. Defaults to FETCH_NEXT.
+  2: TFetchOrientation orientation = TFetchOrientation.FETCH_NEXT
+  
+  // Max number of rows that should be returned in
+  // the rowset.
+  3: i64 max_rows
+}
+
+struct TFetchResultsResp {
+  1: required TStatus status
+
+  // TRUE if there are more rows left to fetch from the server.
+  2: bool has_more_rows
+
+  // The rowset. This is optional so that we have the
+  // option in the future of adding alternate formats for
+  // representing result set data, e.g. delimited strings,
+  // binary encoded, etc.
+  3: optional TRowSet results
+}
+
+service TSQLService {
+
+  TOpenSessionResp OpenSession(1:TOpenSessionReq req);
+
+  TCloseSessionResp CloseSession(1:TCloseSessionReq req);
+
+  TGetInfoResp GetInfo(1:TGetInfoReq req);
+
+  TExecuteStatementResp ExecuteStatement(1:TExecuteStatementReq req);
+
+  TGetTypeInfoResp GetTypeInfo(1:TGetTypeInfoReq req);
+
+  TGetTablesResp GetTables(1:TGetTablesReq req);
+
+  TGetColumnsResp GetColumns(1:TGetColumnsReq req);
+
+  TGetFunctionsResp GetFunctions(1:TGetFunctionsReq req);
+
+  TGetOperationStatusResp GetOperationStatus(1:TGetOperationStatusReq req);
+  
+  TCancelOperationResp CancelOperation(1:TCancelOperationReq req);
+
+  TGetQueryPlanResp GetQueryPlan(1:TGetQueryPlanReq req);
+
+  TGetResultSetMetadataResp GetResultSetMetadata(1:TGetResultSetMetadataReq req);
+  
+  TFetchResultsResp FetchResults(1:TFetchResultsReq req);
+}
+
+</pre>
+</div></div>
+
+                
+        
+    
+        </div>
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="27843687" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+        
+
+
+                
+    
+            
+</div>
+
+    
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Apps" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Apps</div>
+    </div>
+        
+
+
+
+            </div><!-- \#main -->
+            
+    
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="https://www.atlassian.com/software/views/opensource-community-additional-license-offer">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link" rel="nofollow">Atlassian Confluence</a> <span id='footer-build-information'>7.13.2</span></li>
+            <li class="print-only">Printed by Atlassian Confluence 7.13.2</li>
+            <li class="noprint"><a href="https://support.atlassian.com/help/confluence" class="hover-footer-link" rel="nofollow">Report a bug</a></li>
+            <li class="noprint"><a href="https://www.atlassian.com/company" class="hover-footer-link" rel="nofollow">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/" rel="nofollow">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+    <span style="display:none;" id="confluence-server-performance">{"serverDuration": 62, "requestCorrelationId": "506910dc4576552d"}</span>
+</body>
+
+<!-- Mirrored from cwiki.apache.org/confluence/display/Hive/HiveServer2+Thrift+API by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 19:47:37 GMT -->
+</html>
+    

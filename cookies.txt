@@ -1,5 +1,0 @@
-# HTTrack Website Copier Cookie File
-# This file format is compatible with Netscape cookies
-cwiki.apache.org	TRUE	/confluence	FALSE	1999999999	JSESSIONID	F0E127D0AF8735BAEA18025D98243CD2
-issues.apache.org	TRUE	/jira	FALSE	1999999999	atlassian.xsrf.token	A5KQ-2QAV-T4JA-FDED_7aa2ed04110a9dbf23ce5fb717c14229d9814c23_lout
-
